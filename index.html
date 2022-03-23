@@ -97,16 +97,624 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="SQl语法"><a href="#SQl语法" class="headerlink" title="SQl语法"></a>SQl语法</h1>
-        
-          <p class="article-more-link">
-            <a href="/2022/03/23/sql%E8%AF%AD%E6%B3%95/#more">Read More</a>
-          </p>
-        
+        <span id="more"></span>
+
+<h3 id="简单的select语句"><a href="#简单的select语句" class="headerlink" title="简单的select语句"></a>简单的select语句</h3><h5 id="使用-SELECT-COLUMN-查询单个列"><a href="#使用-SELECT-COLUMN-查询单个列" class="headerlink" title="使用 SELECT COLUMN 查询单个列"></a>使用 SELECT COLUMN 查询单个列</h5><p>在使用 SELECT 语句检索表数据时，至少需要给出两条信息——想检索的列名（column_name）和被检索内容的表名（table_name）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-SELECT-COLUMN-COLUMN-查询多个列"><a href="#使用-SELECT-COLUMN-COLUMN-查询多个列" class="headerlink" title="使用 SELECT COLUMN, COLUMN 查询多个列"></a>使用 SELECT COLUMN, COLUMN 查询多个列</h5><p>当我们想要从一个表中查询多个列时，使用的 SELECT 语句与查询一个列时使用的语句相似，但是需要在 SELECT 关键字后给出多个列名，并且列名之间必须以<strong>逗号分隔</strong>。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name_1`, `column_name_2`  </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-SELECT-查询所有列"><a href="#使用-SELECT-查询所有列" class="headerlink" title="使用 SELECT * 查询所有列"></a>使用 SELECT * 查询所有列</h5><p>SELECT 语句可以直接检索表中所有信息，即检索所有的列。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-SELECT-DISTINCT-查询不同行"><a href="#使用-SELECT-DISTINCT-查询不同行" class="headerlink" title="使用 SELECT DISTINCT 查询不同行"></a>使用 SELECT DISTINCT 查询不同行</h5><p> SELECT 语句会返回所有匹配的行,会遇到数据相同的情况。如果我们只想知道有哪些不同的值，即希望查询的值都是唯一不重复的.这时候我们就需要用到 <code>DISTINCT</code> 关键字。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> `column_name`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-SELECT-WHERE-对行进行筛选过滤"><a href="#使用-SELECT-WHERE-对行进行筛选过滤" class="headerlink" title="使用 SELECT WHERE 对行进行筛选过滤"></a>使用 SELECT WHERE 对行进行筛选过滤</h5><hr>
+<p><code>SELECT WHERE</code> 语句是筛选查询很重要的操作，<code>WHERE</code> 关键字后面加上条件可以过滤掉我们不需要的信息，对查询效率有着很大的提高。在使用 <code>SELECT WHERE</code> 语句检索表数据时，需要给出检索的表名 (table_name)、检索的列名 (column_name) 和操作符 (operator) 。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name1`,`column_name2`…</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` operator `<span class="keyword">value</span>`;</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li>column_name 对应指定列的名称，或者是多列，用逗号（ <code>,</code> ）分隔开</li>
+<li>table_name 对应查询表的名称</li>
+<li>operator 为操作符，常用的有等于 <code>=</code> 、小于 <code>&lt;</code> 、大于 <code>&gt;</code> 、不等于<code>&lt;&gt;</code> 或 <code>!=</code>。</li>
+</ul>
+<h3 id="简单的insert语句"><a href="#简单的insert语句" class="headerlink" title="简单的insert语句"></a>简单的insert语句</h3><h5 id="使用-INSERT-INTO-在不指定列的情况下插入数据"><a href="#使用-INSERT-INTO-在不指定列的情况下插入数据" class="headerlink" title="使用 INSERT INTO 在不指定列的情况下插入数据"></a>使用 INSERT INTO 在不指定列的情况下插入数据</h5><p>INSERT INTO 语句用于向表中插入新记录，这边介绍两种编写形式，第一种形式无需指定列名，第二种形式需要指定列名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `table_name`</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3,...);</span><br></pre></td></tr></table></figure>
+
+<p><code>value1</code>, <code>value2</code> …… 为对应插入数据表中的值，每个值的属性需要与对应表中的列名属性相匹配，而且需要把插入的信息填写完整，否则会报错。</p>
+<h5 id="使用-INSERT-INTO-在指定的列中插入数据"><a href="#使用-INSERT-INTO-在指定的列中插入数据" class="headerlink" title="使用 INSERT INTO 在指定的列中插入数据"></a>使用 INSERT INTO 在指定的列中插入数据</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `table_name`</span><br><span class="line">(`column1`, `column2`, `column3`,...)</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3,...);</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>column1</code>, <code>column2</code> … 为指定的列名，<code>value1</code>, <code>value2</code> …… 为对应插入数据表中的值，每个值的属性需要与对应的列名属性相匹配。</p>
+<h3 id="简单的update语句"><a href="#简单的update语句" class="headerlink" title="简单的update语句"></a>简单的update语句</h3><h5 id="使用-UPDATE-更新数据"><a href="#使用-UPDATE-更新数据" class="headerlink" title="使用 UPDATE 更新数据"></a>使用 UPDATE 更新数据</h5><hr>
+<p>在我们平时的使用中 <code>UPDATE</code> 语句，也是一种较常用的 SQL 语句，它可以用来更新表中已存在的记录。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> `table_name`</span><br><span class="line"><span class="keyword">SET</span> `column1`<span class="operator">=</span>value1,`column2`<span class="operator">=</span>value2,...</span><br><span class="line"><span class="keyword">WHERE</span> `some_column`<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong></p>
+<p>请注意 UPDATE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要更新。如果您省略了 WHERE 子句，所有的记录都将被更新！</p>
+</blockquote>
+<h3 id="简单的delete语句"><a href="#简单的delete语句" class="headerlink" title="简单的delete语句"></a>简单的delete语句</h3><h5 id="使用-DELETE-删除数据"><a href="#使用-DELETE-删除数据" class="headerlink" title="使用 DELETE 删除数据"></a>使用 DELETE 删除数据</h5><hr>
+<p>需要用到 <code>DELETE</code> 关键字对原有的数据进行删除</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `some_column` <span class="operator">=</span> `some_value`;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>table_name</code> 代表表名称</li>
+<li><code>some_column</code> 代表列名称，如 <code>id</code></li>
+<li><code>some_value</code> 可以为任意值。<code>some_column</code> 和 <code>some_value</code> 构成 WHERE 子句中的搜索条件。</li>
+</ul>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><h5 id="比较运算符-1"><a href="#比较运算符-1" class="headerlink" title="比较运算符"></a>比较运算符</h5><hr>
+<p>比较运算符用于比较运算，判断逻辑是否成立。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A operator B</span><br></pre></td></tr></table></figure>
+
+<p>其中 <strong>operator</strong> 是比较运算符，用于对 <code>A</code> 和 <code>B</code> 进行比较运算。</p>
+<p>常用的比较运算符有 <code>=</code>（等于） 、<code>!=</code>（不等于）、 <code>&lt;&gt;</code>（不等于）、<code>&lt;</code>（小于）、<code>&lt;=</code>（小于等于）、<code>&gt;</code>（大于）、<code>&gt;=</code>（大于等于），其中 <code>!=</code> 和 <code>&lt;&gt;</code> 在特殊情况下用法是不同的，这里暂时不提。</p>
+<p>比较运算符常常与 WHERE 在一起使用。WHERE 用于逻辑判断，WHERE 后面写判断的条件，满足条件的语句会被筛选出来。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">WHERE</span> A operator B</span><br></pre></td></tr></table></figure>
+
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><h5 id="使用-AND-连接多条件"><a href="#使用-AND-连接多条件" class="headerlink" title="使用 AND 连接多条件"></a>使用 AND 连接多条件</h5><hr>
+<p>使用 SQL 中的逻辑运算符 AND 可以将 WHERE 子句中两个或两个以上的条件结合起来，其结果是满足 AND 连接的所有条件的数据。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name` </span><br><span class="line"><span class="keyword">FROM</span> `table_name` </span><br><span class="line"><span class="keyword">WHERE</span> condition1 <span class="keyword">AND</span> condition2;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中：<br><code>condition</code> 为设置的条件，最后返回的结果应为满足 <code>condition1</code> <em><strong>和</strong></em> <code>condition2</code> 的数据。</p>
+</blockquote>
+<h5 id="使用-OR-连接多个条件"><a href="#使用-OR-连接多个条件" class="headerlink" title="使用 OR 连接多个条件"></a>使用 OR 连接多个条件</h5><hr>
+<p>使用 SQL 中的逻辑运算符 OR 与 AND 关键字不同，OR 关键字，只要记录满足任意一个条件，就会被查询出来。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name` </span><br><span class="line"><span class="keyword">FROM</span> `table_name` </span><br><span class="line"><span class="keyword">WHERE</span> condition1 <span class="keyword">or</span> condition2;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中：<br><code>condition1</code> 和 <code>condition2</code> 为设置的条件，最后返回的结果应满足 <code>condition1</code> <em><strong>或</strong></em> <code>condition2</code> 的数据。</p>
+</blockquote>
+<h5 id="使用-NOT-过滤不满足条件的数据"><a href="#使用-NOT-过滤不满足条件的数据" class="headerlink" title="使用 NOT 过滤不满足条件的数据"></a>使用 NOT 过滤不满足条件的数据</h5><hr>
+<p>使用 SQL 中的逻辑运算符 NOT 可以过滤掉 WHERE 子句中不满足条件的结果集。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name` </span><br><span class="line"><span class="keyword">FROM</span> `table_name` </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> `<span class="keyword">condition</span>`;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中：<br><code>condition</code> 为设置的条件，最后返回的结果应不满足 <code>condition</code> 。</p>
+</blockquote>
+<h3 id="特殊条件"><a href="#特殊条件" class="headerlink" title="特殊条件"></a>特殊条件</h3><h6 id="使用-IN-查询多条件"><a href="#使用-IN-查询多条件" class="headerlink" title="使用 IN 查询多条件"></a>使用 IN 查询多条件</h6><hr>
+<p>当我们需要查询单个表条件过多时，就会用多个 ‘OR’ 连接或者嵌套，这会比较麻烦，现在我们有 ‘IN’ 能更方便的解决这一问题。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` <span class="keyword">IN</span> `<span class="keyword">value</span>`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-NOT-IN-排除"><a href="#使用-NOT-IN-排除" class="headerlink" title="使用 NOT IN 排除"></a>使用 NOT IN 排除</h5><hr>
+<p>前面我们已经学习了逻辑运算符，这里的 ‘IN’ 也可以与逻辑运算符 ‘NOT’ 并用，组成 ‘NOT IN’，表示不在集合中的所有结果。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` <span class="keyword">NOT</span> <span class="keyword">IN</span> <span class="keyword">value</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-BETWEEN-AND-查询两值间的数据范围"><a href="#使用-BETWEEN-AND-查询两值间的数据范围" class="headerlink" title="使用 BETWEEN AND 查询两值间的数据范围"></a>使用 BETWEEN AND 查询两值间的数据范围</h5><hr>
+<p><strong>BETWEEN AND</strong> 会选取介于两个值之间的数据范围。这些值可以是数值、文本或者日期。</p>
+<p><strong>请注意，在不同的数据库中，BETWEEN 操作符会产生不同的结果！</strong></p>
+<p>在某些数据库中，BETWEEN 选取介于两个值之间但不包括两个测试值的字段。</p>
+<p>在某些数据库中，BETWEEN 选取介于两个值之间且包括两个测试值的字段。</p>
+<p>在某些数据库中，BETWEEN 选取介于两个值之间且包括第一个测试值但不包括最后一个测试值的字段。</p>
+<p><strong>因此，请检查您的数据库是如何处理 BETWEEN 操作符！</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM `table_name`</span><br><span class="line">WHERE `column_name` BETWEEN `value` AND `value`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-IS-NULL-查询空数据"><a href="#使用-IS-NULL-查询空数据" class="headerlink" title="使用 IS NULL 查询空数据"></a>使用 IS NULL 查询空数据</h5><hr>
+<p>NULL 值代表遗漏的未知数据。默认的，表的列可以存放 NULL 值。<br>如果表中的某个列是可选的，那么我们可以在不向该列添加值的情况下插入新记录或更新已有的记录。这意味着该字段将以 NULL 值保存。</p>
+<p>NULL 用作未知的或不适用的值的占位符。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` <span class="keyword">IS</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-LIKE-模糊查询"><a href="#使用-LIKE-模糊查询" class="headerlink" title="使用 LIKE 模糊查询"></a>使用 LIKE 模糊查询</h5><hr>
+<p>前面我们学习 BETWEEN AND 和比较运算符时，和文本操作类似，比如前面课程名称首字母的范围，这种方案虽然可行但是不稳定，不是直接对文本的操作。在这里我们学习使用 LIKE 更准确规范得解决文本比较问题。</p>
+<p>LIKE 比较类似我们平时用到的搜索。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM `table_name`</span><br><span class="line">WHERE `column_name` LIKE  `value`;</span><br></pre></td></tr></table></figure>
+
+<p><strong>其中 ‘D%’ 表示以 D 开头的所有单词，% 表示为通配符，可以替代 0 个或多个字符</strong></p>
+<p>对于SQL 中的通配符有以下类型：</p>
+<table>
+<thead>
+<tr>
+<th>通配符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%</td>
+<td>替代 0 个或多个字符</td>
+</tr>
+<tr>
+<td>_</td>
+<td>替代一个字符</td>
+</tr>
+<tr>
+<td>[charlist]</td>
+<td>字符列中的任何单一字符</td>
+</tr>
+<tr>
+<td>或 [!charlist]</td>
+<td>不在字符列中的任何单一字符</td>
+</tr>
+</tbody></table>
+<h3 id="orderby和limit"><a href="#orderby和limit" class="headerlink" title="orderby和limit"></a>orderby和limit</h3><p>使用 ORDER BY 对数据进行排序</p>
+<h5 id="1-使用-ORDER-BY-对数据进行排序"><a href="#1-使用-ORDER-BY-对数据进行排序" class="headerlink" title="1. 使用 ORDER BY 对数据进行排序"></a>1. 使用 ORDER BY 对数据进行排序</h5><p>ORDER BY 关键字用于对结果集按照一个列或者多个列进行排序，其具有 ASC（升序）和 DESC（降序）两个关键字，且默认按照升序排列。</p>
+<ul>
+<li>ASC ：按升序排列，ORDER BY 默认按照升序对记录进行排序，因此升序的关键字 ASC 可以省去不写。</li>
+<li>DESC：按降序排列，如果需要按照降序对记录进行排序，可以使用 DESC 关键字。</li>
+</ul>
+<p><strong>基本语法</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name`, `column_name`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> `column_name`, `column_name` <span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-LIMIT-限制输出行数"><a href="#使用-LIMIT-限制输出行数" class="headerlink" title="使用 LIMIT 限制输出行数"></a>使用 LIMIT 限制输出行数</h5><p>LIMIT 子句用于 SELECT 中，对输出结果集的行数进行约束，LIMIT 接收2个参数 offset 和 count，两个参数都是整型数字，但通常只用一个。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name`, `column_name`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line">LIMIT `<span class="keyword">offset</span>` , `count`;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>offset ：是返回集的初始标注，起始点是0，不是1哦</li>
+<li>count ：制定返回的数量</li>
+</ul>
+<h3 id="算数函数"><a href="#算数函数" class="headerlink" title="算数函数"></a>算数函数</h3><h5 id="使用-AVG-函数求数值列的平均值"><a href="#使用-AVG-函数求数值列的平均值" class="headerlink" title="使用 AVG() 函数求数值列的平均值"></a>使用 AVG() 函数求数值列的平均值</h5><hr>
+<p>平均函数 AVG() 是平均数 AVERAGE 的缩写，它用于求数值列的平均值。它可以用来返回所有列的平均值，也可以用来返回特定列和行的平均值。<br>具体的计算过程为：其通过对表中行数计数并计算特定数值列的列值之和，求得该列的平均值。</p>
+<p>但是当参数 <code>column_name</code> 列中的数据均为空时，结果会返回 NULL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(`column_name`) </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-MAX-函数返回指定列中的最大值"><a href="#使用-MAX-函数返回指定列中的最大值" class="headerlink" title="使用 MAX() 函数返回指定列中的最大值"></a>使用 MAX() 函数返回指定列中的最大值</h5><hr>
+<p>最大值函数 MAX() 用于返回指定列中的最大值。它只有一个参数 <code>column_name</code> ，表示指定的列名。但是当参数 <code>column_name</code> 列中的数据均为空时，结果会返回 NULL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MAX</span>(`column_name`) </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-MIN-函数返回指定列中的最小值"><a href="#使用-MIN-函数返回指定列中的最小值" class="headerlink" title="使用 MIN() 函数返回指定列中的最小值"></a>使用 MIN() 函数返回指定列中的最小值</h5><hr>
+<p>MIN() 函数的功能与 MAX() 正好相反，它用于返回指定列中的最小值。但与 MAX() 相同的是，它也只有一个参数 <code>column_name</code> ，表示指定的列名，且当参数 <code>column_name</code> 列中的数据均为空时，结果会返回 NULL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">MIN</span>(`column_name`) </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-SUM-函数统计数值列的总数"><a href="#使用-SUM-函数统计数值列的总数" class="headerlink" title="使用 SUM() 函数统计数值列的总数"></a>使用 SUM() 函数统计数值列的总数</h5><hr>
+<p>SUM() 函数用于统计数值列的总数并返回其值。它只有一个参数 <code>column_name</code> ，表示指定的列名，但是当参数 <code>column_name</code> 列中的数据均为空时，结果会返回 NULL。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">SUM</span>(`column_name`) </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用-ROUND-函数将数值四舍五入"><a href="#使用-ROUND-函数将数值四舍五入" class="headerlink" title="使用 ROUND() 函数将数值四舍五入"></a>使用 ROUND() 函数将数值四舍五入</h5><hr>
+<p><code>ROUND()</code> 函数用于把数值字段舍入为指定的小数位数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ROUND(`column_name`, `decimals`) </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>column_name 为要舍入的字段</li>
+<li>decimals 规定要返回的小数位数</li>
+<li>ROUND() 函数始终返回一个值。当 decimals 为正数时，column_name 四舍五入为 decimals 所指定的小数位数。当 decimals 为负数时，column_name 则按 decimals 所指定的在小数点的左边四舍五入。</li>
+<li>特别的，如果 length 是负数且大于小数点前的数字个数，ROUND() 函数将返回 0</li>
+</ul>
+<p>ROUND( X )：返回参数 X 四舍五入后的一个整数。</p>
+<p>ROUND(X, D)： 返回参数 X 四舍五入且保留 D 位小数后的一个数字。如果 D 为 0，结果将没有小数点或小数部分。</p>
+<p>❗ 注意：<code>ROUND()</code> 返回值数据类型会被变换为一个 BIGINT 。</p>
+<h5 id="使用-NULL-函数判断空值"><a href="#使用-NULL-函数判断空值" class="headerlink" title="使用 NULL() 函数判断空值"></a>使用 NULL() 函数判断空值</h5><p>在本小节中，我们主要介绍 SQL 中的 <code>ISNULL()</code> 函数和 <code>IFNULL()</code> 函数，他们的用途都是判断字段是否为空，但是具体的用法有些差别。</p>
+<p><code>ISNULL()</code> 函数用于判断字段是否为 NULL，它只有一个参数 <code>column_name</code> 为列名，根据<code>column_name</code> 列中的字段是否为 NULL 值返回 0 或 1。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ISNULL(`column_name`)</span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果 <code>column_name</code> 列中的某个字段是 NULL 则返回 1，不是则返回 0</li>
+</ul>
+<p><code>IFNULL()</code> 函数也用于判断字段是否为NULL，但是与 <code>ISNULL()</code> 不同的是它接收两个参数，第一个参数 <code>column_name</code> 为列名，第二个参数 <code>value</code> 相当于备用值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> IFNULL(`column_name`, `<span class="keyword">value</span>`)</span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果 <code>column_name</code> 列中的某个字段是 NULL 则返回 value 值，不是则返回对应内容。</li>
+<li><code>COALESCE(column_name, value)</code> 函数也用于判断字段是否为NULL，其用法和 <code>IFNULL()</code> 相同。</li>
+</ul>
+<h5 id="使用-COUNT-函数计数"><a href="#使用-COUNT-函数计数" class="headerlink" title="使用 COUNT() 函数计数"></a>使用 COUNT() 函数计数</h5><hr>
+<p>COUNT() 函数用于计数，可利用其确定表中行的数目或者符合特定条件的行的数目。当COUNT() 中的参数不同时，其的用途也是有明显的不同的，主要可分为以下三种情况：COUNT(column_name) 、COUNT( * ) 和 COUNT(DISTINCT column_name) 。</p>
+<p>COUNT(column_name) 函数会对指定列具有的行数进行计数，但是会除去值为 NULL 的行。该函数主要用于查看各列数据的数量情况，便于统计数据的缺失值。</p>
+<p>假如出现某一列的数据全为 NULL 值的情况，<br>使用COUNT( column_name ) 函数对该列进行计数，会返回 0。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(`column_name`) </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<p>COUNT(*) 函数会对表中行的数目进行计数，包括值为 NULL 所在行和重复项所在行。该函数主要用于查看表中的记录数。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) </span><br><span class="line"><span class="keyword">FROM</span> `table_name`;</span><br></pre></td></tr></table></figure>
+
+<p>❗ 注意： COUNT(column_name) 与 COUNT(*) 的区别</p>
+<ul>
+<li>COUNT(column_name) 中，如果 <code>column_name</code> 字段中的值为 NULL，则计数不会增加，而如果字段值为空字符串<code>&quot;&quot;</code>，则字段值会加 1</li>
+<li>COUNT(<em>) 中，除非整个记录全为 NULL，则计数不会增加，如果存在某一个记录不为 NULL，或者为空字符串<code>&quot;&quot;</code>，计数值都会加 1。正常来说，表都会有主键，而主键不为空，所以 COUNT(</em>) 在有主键的表中等同于 COUNT(PRIMARY_KEY)，即查询有多少条记录。</li>
+</ul>
+<h3 id="时间函数"><a href="#时间函数" class="headerlink" title="时间函数"></a>时间函数</h3><h5 id="使用-NOW-、-CURDATE-、CURTIME-获取当前时间"><a href="#使用-NOW-、-CURDATE-、CURTIME-获取当前时间" class="headerlink" title="使用 NOW() 、 CURDATE()、CURTIME() 获取当前时间"></a>使用 NOW() 、 CURDATE()、CURTIME() 获取当前时间</h5><ul>
+<li><code>NOW()</code> 可以用来返回当前日期和时间 格式：YYYY-MM-DD hh:mm:ss</li>
+<li><code>CURDATE()</code> 可以用来返回当前日期 格式：YYYY-MM-DD</li>
+<li><code>CURTIME()</code> 可以用来返回当前时间 格式：hh:mm:ss</li>
+</ul>
+<blockquote>
+<p>在使用 <code>NOW()</code> 和 <code>CURTIME()</code> 时，如果要精确的秒以后的时间的话，可以在（）中加数字，加多少，就表示精确到秒后多少位</p>
+<p>比如 <code>NOW(3)</code> 就是精确到毫秒，表示为： <code>2021-03-31 15:27:20.645</code></p>
+</blockquote>
+<h5 id="使用-DATE-、TIME-函数提取日期和时间"><a href="#使用-DATE-、TIME-函数提取日期和时间" class="headerlink" title="使用 DATE()、TIME() 函数提取日期和时间"></a>使用 DATE()、TIME() 函数提取日期和时间</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="type">DATE</span>(<span class="string">&#x27;2021-03-25 16:16:30&#x27;</span>) <span class="keyword">AS</span> `<span class="type">date</span>`,<span class="type">TIME</span>(<span class="string">&#x27;2021-03-25 16:16:30&#x27;</span>)  <span class="keyword">AS</span> `<span class="type">time</span>`;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="type">date</span>       <span class="operator">|</span> <span class="type">time</span>     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+----------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2021</span><span class="number">-03</span><span class="number">-25</span> <span class="operator">|</span> <span class="number">16</span>:<span class="number">16</span>:<span class="number">30</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+----------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="EXTRACT-函数提取指定的时间信息"><a href="#EXTRACT-函数提取指定的时间信息" class="headerlink" title="EXTRACT() 函数提取指定的时间信息"></a>EXTRACT() 函数提取指定的时间信息</h5><hr>
+<p>前面我们已经学习了 DATE 函数和 TIME 函数，明白 DATE 返回日期， TIME 返回时间，如果我只想知道年份的信息或者小时的信息，那么该怎么解决呢？这时，我们就可以使用 EXTRACT() 函数来解决问题。</p>
+<p>EXTRACT() 函数用于返回日期&#x2F;时间的单独部分，如 <code>YEAR</code> (年)、<code>MONTH</code> (月)、<code>DAY</code> (日)、<code>HOUR</code> (小时)、<code>MINUTE</code> (分钟)、 <code>SECOND</code> (秒)。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">EXTRACT</span>(unit <span class="keyword">FROM</span> <span class="type">date</span>)</span><br><span class="line"><span class="keyword">FROM</span> `<span class="keyword">table</span>`</span><br></pre></td></tr></table></figure>
+
+<p><em>table</em> 是表格名</p>
+<p><em>date</em> 参数是合法的日期表达式。</p>
+<p><em>unit</em> 参数是需要返回的时间部分，如 <code>YEAR</code> 、<code>MONTH</code> 、 <code>DAY</code> 、 <code>HOUR</code> 、<code>MINUTE</code> 、<code>SECOND</code> 等。</p>
+<blockquote>
+<p>在一般情况下，<code>EXTRACT(unit FROM date)</code> 与 <code>unit()</code> 的结果相同。</p>
+</blockquote>
+<h5 id="DATE-FORMAT-用法"><a href="#DATE-FORMAT-用法" class="headerlink" title="DATE_FORMAT() 用法"></a>DATE_FORMAT() 用法</h5><p>我们在 SQL 中使用 <code>DATE_FORMAT()</code> 方法来格式化输出 date&#x2F;time。<br>需要注意的是 <code>DATE_FORMAT()</code> 函数返回的是<strong>字符串</strong>格式。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_FORMAT(<span class="type">date</span>,format);</span><br></pre></td></tr></table></figure>
+
+<p><code>date</code> 一个有效日期。</p>
+<p><code>format</code> 是 date&#x2F;time 的输出格式。</p>
+<h5 id="使用-DATE-ADD-增加时间"><a href="#使用-DATE-ADD-增加时间" class="headerlink" title="使用 DATE_ADD() 增加时间"></a>使用 DATE_ADD() 增加时间</h5><p><code>DATE_ADD()</code> 函数是常用的时间函数之一，用于<strong>向日期添加指定的时间间隔</strong>。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_ADD(<span class="type">date</span>, <span class="type">INTERVAL</span> expr type)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>date</code> 指代希望被操作的有效日期，为起始日期</li>
+<li><code>expr</code> 是希望添加的时间间隔的数值（expr 是一个字符串，对于负值的间隔，可以以 ”-“ 开头）</li>
+<li><code>type</code> 是具体的数据类型，表示加上时间间隔的单位（可以是 MICROSECOND , SECOND , MINUTE , HOUR , DAY , WEEK , MONTH , QUARTER , YEAR 等）</li>
+</ul>
+<h5 id="使用-DATE-SUB-减少时间"><a href="#使用-DATE-SUB-减少时间" class="headerlink" title="使用 DATE_SUB() 减少时间"></a>使用 DATE_SUB() 减少时间</h5><p>上一节了解过能够令时间加上几天、几小时的函数 <code>DATE_ADD()</code> ，对应的，当我们需要修改数据表中的时间，让时间减少几天、几年时，又该如何做呢？</p>
+<p>我们同样可以使用相关的时间函数对时间进行修改。</p>
+<h5 id="DATE-SUB-函数"><a href="#DATE-SUB-函数" class="headerlink" title="DATE_SUB() 函数"></a>DATE_SUB() 函数</h5><p>DATE_SUB() 函数是常用的时间函数之一，用于<strong>从日期减去指定的时间间隔</strong>。它与 <code>DATE_ADD()</code> 函数具有相似的用法。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATE_SUB(<span class="type">date</span>, <span class="type">INTERVAL</span> expr type)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>date</code> 指代希望被操作的有效日期</li>
+<li><code>expr</code> 是希望添加的时间间隔</li>
+<li><code>type</code> 是具体的数据类型（可以是 MICROSECOND , SECOND , MINUTE , HOUR , DAY , WEEK , MONTH , QUARTER , YEAR 等）</li>
+</ul>
+<h5 id="使用时间函数-DATEDIFF-和-TIMESTAMPDIFF-计算日期差"><a href="#使用时间函数-DATEDIFF-和-TIMESTAMPDIFF-计算日期差" class="headerlink" title="使用时间函数 DATEDIFF() 和 TIMESTAMPDIFF() 计算日期差"></a>使用时间函数 DATEDIFF() 和 TIMESTAMPDIFF() 计算日期差</h5><p>DATEDIFF() 常用的日期差，在 MySQL 中默认只能计算天数差。</p>
+<p>DATEDIFF() 用法：DATEDIFF（时间1，时间2）</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATEDIFF(时间<span class="number">1</span>,时间<span class="number">2</span>) <span class="keyword">AS</span> date_diff <span class="keyword">FROM</span> courses;</span><br></pre></td></tr></table></figure>
+
+<p>DATEDIFF() 差值计算规则：时间 1 - 时间 2</p>
+<p><code>date_diff</code> 为返回结果列名称</p>
+<h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><h5 id="非空约束-NOT-NULL"><a href="#非空约束-NOT-NULL" class="headerlink" title="非空约束 NOT NULL"></a>非空约束 NOT NULL</h5><p>NOT NULL 约束强制列不接受 NULL 值，强制字段始终包含值，这意味着，如果不向字段添加值，就无法插入新纪录或者更新记录。</p>
+<p>下面的 SQL 强制 <code>ID</code> 列、 <code>LastName</code> 列以及 <code>FirstName</code> 列不接受 NULL 值：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `Persons` (</span><br><span class="line">    `ID` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `LastName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `FirstName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `Age` <span class="type">int</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>在一个已创建的表的 <code>Age</code> 字段中添加 NOT NULL 约束如下所示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line">MODIFY `Age` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在一个已创建的表的 <code>Age</code> 字段中删除 NOT NULL 约束如下所示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line">MODIFY `Age` <span class="type">int</span> <span class="keyword">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="主键约束-PRIMARY-KEY"><a href="#主键约束-PRIMARY-KEY" class="headerlink" title="主键约束 PRIMARY KEY"></a>主键约束 PRIMARY KEY</h5><p>PRIMARY KEY 约束唯一标识数据库表中的每条记录 ，简单的说，PRIMARY KEY &#x3D; UNIQUE + NOT NULL ,从技术的角度来看，PRIMARY KEY 和 UNIQUE 有很多相似之处。但还是有以下区别：</p>
+<ul>
+<li>NOT NULL UNIQUE 可以将表的一列或多列定义为唯一性属性，而 PRIMARY KEY 设为多列时，仅能保证多列之和是唯一的，具体到某一列可能会重复。</li>
+<li>PRIMARY KEY 可以与外键配合，从而形成主从表的关系，而 NOT NULL UNIQUE 则做不到这一点</li>
+</ul>
+<blockquote>
+<p>如：</p>
+<p>表一：用户 <code>id</code> (主键)，用户名</p>
+<p>表二: 银行卡号 <code>id</code> (主键)，用户 <code>id</code> (外键)</p>
+<p>则表一为主表，表二为从表。</p>
+</blockquote>
+<ul>
+<li>更大的区别在逻辑设计上。 PRIMARY KEY 一般在逻辑设计中用作记录标识，这也是设置 PRIMARY KEY 的本来用意，而 UNIQUE 只是为了保证域&#x2F;域组的唯一性。</li>
+</ul>
+<p>CREATE TABLE 时 添加 PRIMARY KEY 约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line">(</span><br><span class="line">    `P_Id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `LastName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `FirstName` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    `Address` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    `City` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`P_Id`)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>ALTER TABLE 时添加主键约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">PRIMARY</span> KEY (`P_Id`)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果您使用 ALTER TABLE 语句添加主键，必须把主键列声明为不包含 NULL 值（在表首次创建时）。</p>
+</blockquote>
+<p> 撤销 PRIMARY KEY</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">PRIMARY</span> KEY</span><br></pre></td></tr></table></figure>
+
+<h5 id="外键约束-FOREIGN-KEY"><a href="#外键约束-FOREIGN-KEY" class="headerlink" title="外键约束 FOREIGN KEY"></a>外键约束 FOREIGN KEY</h5><p>什么是外键</p>
+<p> 一个表中的 FOREIGN KEY 指向另一个表中的 UNIQUE KEY 。</p>
+<p>让我们看了例子，如果一个字段 X 在一张表（表 1 ）中是关键字，而在另一张表（表 2 ）中不是关键字，则称字段 X 为表 2 的外键。</p>
+<p>外键的作用</p>
+<p>外键最根本的作用：保证数据的完整性和一致性。接下来通过一个例子来深入理解一下。</p>
+<p>现在有两张表——学生表和院系表，这里的院系就是学生表的外键，外键表是学生表，主键表是院系表。 假如院系表中的某个院系被删除了，那么在学生表中要想查询这个被删除的院系号所对应的院信息就会报错，因为已经不存在这个系了，所以，删除院系表（主键表）时必须删除其他与之关联的表，这里就说明了外键的作用，保持数据的一致性、完整性。 当然反过来讲，你删除学生表中的记录，并不影响院系表中的数据，你查询院系号也能正确查询。 所以删除外键表中的数据并不影响主键表。</p>
+<p>外键约束</p>
+<p> 外键约束是指用于在两个表之间建立关系，需要指定引用主表的哪一列。</p>
+<p>CREATE TABLE 时的 SQL FOREIGN KEY 约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `Orders`</span><br><span class="line">(</span><br><span class="line">`O_Id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`OrderNo` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`P_Id` <span class="type">int</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (O_Id),</span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (P_Id) <span class="keyword">REFERENCES</span> Persons(P_Id)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>NOT NULL 表示该字段不为空<br>REFERENCES 表示 引用一个表</p>
+</blockquote>
+<p>如需命名 FOREIGN KEY 约束，并定义多个列的 FOREIGN KEY 约束:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `Orders`</span><br><span class="line">(</span><br><span class="line">`O_Id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`OrderNo` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">`P_Id` <span class="type">int</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (O_Id),</span><br><span class="line"><span class="keyword">CONSTRAINT</span> fk_PerOrders <span class="keyword">FOREIGN</span> KEY (P_Id)</span><br><span class="line"><span class="keyword">REFERENCES</span> Persons(P_Id)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>CONSTRAINT 表示约束，后面接约束名称，常用于创建约束和删除约束；</p>
+</blockquote>
+<p>ALTER TABLE 时的 SQL FOREIGN KEY 约束</p>
+<p>当 “Orders” 表已被创建时，如需在 “P_Id” 列创建 FOREIGN KEY 约束:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Orders`</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">FOREIGN</span> KEY (P_Id)</span><br><span class="line"><span class="keyword">REFERENCES</span> Persons(P_Id)</span><br></pre></td></tr></table></figure>
+
+<p>如需命名 FOREIGN KEY 约束，并定义多个列的 FOREIGN KEY 约束:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Orders`</span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> fk_PerOrders</span><br><span class="line"><span class="keyword">FOREIGN</span> KEY (P_Id)</span><br><span class="line"><span class="keyword">REFERENCES</span> Persons(P_Id)</span><br></pre></td></tr></table></figure>
+
+<p>撤销 FOREIGN KEY 约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Orders`</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> KEY fk_PerOrders</span><br></pre></td></tr></table></figure>
+
+<h5 id="检查约束-CHECK"><a href="#检查约束-CHECK" class="headerlink" title="检查约束 CHECK"></a>检查约束 CHECK</h5><p>CHECK 约束用于限制列中的值的范围，评估插入或修改后的值。 满足条件的值将会插入表中，否则将放弃插入操作。 可以为同一列指定多个 CHECK 约束。</p>
+<p><code>CHECK</code> 约束既可以用于某一列也可以用于某张表：</p>
+<ul>
+<li>如果对单个列定义 CHECK 约束，那么该列只允许特定的值。</li>
+<li>如果对一个表定义 CHECK 约束，那么此约束会基于行中其他列的值在特定的列中对值进行限制。</li>
+</ul>
+<p>定义 CHECK 约束条件在某种程度上类似于编写查询的 WHERE 子句，使用不同的比较运算符（例如 AND、OR、BETWEEN、IN、LIKE 和 IS NULL）编写其布尔表达式，该布尔表达式将返回 TRUE、FALSE 或 UNKNOWN 。 当条件中存在 NULL 值时，CHECK约束将返回 UNKNOWN 值。<br>CHECK 约束主要用于通过将插入的值限制为遵循定义的值、范围或格式规则的值来强制域完整性。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> hardy_db <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> utf8mb4 <span class="keyword">collate</span> utf8mb4_0900_ai_ci;</span><br><span class="line"></span><br><span class="line">USE hardy_db;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> lesson;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>创建表结构时可以使用 CHECK 约束，也可以给已创建的表增加 CHECK 约束。</p>
+<p>🔔我们举一个例子感受一下它的用法：</p>
+<p>假如我们想创建一个简单的课程表 ，表中每一条数据记录着课程编号 、课程名称 、学生总数 、创建课程时间 以及授课教师编号 。 其中课程编号 为主键。<code>courses``id``name``student_count``created_at``teacher_id``id</code></p>
+<p>根据基本常识，学生总数 一定是非负值，在这里我们设置它必须为正整数，可以使用 CHECK 约束。<code>student_count</code></p>
+<p>创建表（CREATE TABLE）时添加 CHECK约束</p>
+<p>在创建课程表 时，给学生总数 字段加上一个大于 0 的约束。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `courses`</span><br><span class="line">(</span><br><span class="line">`id` <span class="type">int</span>,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">`student_count` <span class="type">int</span>,</span><br><span class="line">`created_at` <span class="type">date</span>,</span><br><span class="line">`teacher_id` <span class="type">int</span>,</span><br><span class="line"><span class="keyword">CHECK</span> (`student_count` <span class="operator">&gt;</span> <span class="number">0</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>为多个列添加 CHECK 约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `courses`</span><br><span class="line">(</span><br><span class="line">`id` <span class="type">int</span>,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">`student_count` <span class="type">int</span>,</span><br><span class="line">`created_at` <span class="type">date</span>,</span><br><span class="line">`teacher_id` <span class="type">int</span>,</span><br><span class="line"><span class="keyword">CHECK</span> (`student_count` <span class="operator">&gt;</span> <span class="number">0</span> <span class="keyword">AND</span> `teacher_id` <span class="operator">&gt;</span> <span class="number">0</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>如果想为一个表中多个字段添加约束，直接在 CHECK 关键字后的括号内添加，两个约束间使用 AND 关键字连接。</p>
+<p>为 CHECK 约束命名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `courses`</span><br><span class="line">(</span><br><span class="line">`id` <span class="type">int</span>,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">`student_count` <span class="type">int</span>,</span><br><span class="line">`created_at` <span class="type">date</span>,</span><br><span class="line">`teacher_id` <span class="type">int</span>,</span><br><span class="line"><span class="keyword">CONSTRAINT</span> chk_courses <span class="keyword">CHECK</span> (`student_count` <span class="operator">&gt;</span> <span class="number">0</span>) ;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>核心部分的基本语法为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[CONSTRAINT &lt;constraint name&gt;] CHECK (&lt;condition&gt;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>约束关键字 CONSTRAINT：表示其后面接的内容为约束</li>
+<li>constraint name：为约束名称</li>
+<li>关键字 CHECK：表示检查约束</li>
+<li>condition：被约束内容</li>
+</ul>
+</blockquote>
+<p>表已存在时添加 CHECK 约束</p>
+<p>课程表 已存在的情况下为学生总数 字段添加一个大于 0 的 CHECK 约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `courses` </span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CHECK</span> ( `student_count` <span class="operator">&gt;</span> <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `courses`  </span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> chk_courses <span class="keyword">CHECK</span> ( `student_count` <span class="operator">&gt;</span> <span class="number">0</span> <span class="keyword">AND</span> `teacher_id` <span class="operator">&gt;</span> <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>ALTER TABLE 关键字：表示修改表的定义</li>
+<li>ADD 关键字：表示增加</li>
+</ul>
+</blockquote>
+<p>撤销 CHECK 约束</p>
+<p>如果想要撤销 CHECK 约束，可以使用 DROP 关键字。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `courses` </span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">CHECK</span> chk_courses</span><br></pre></td></tr></table></figure>
+
+<p>默认约束 DEFAULT</p>
+<h5 id="DEFAULT-约束"><a href="#DEFAULT-约束" class="headerlink" title="DEFAULT 约束"></a>DEFAULT 约束</h5><p>默认值（Default）”的完整称呼是“默认值约束（Default Constraint）”。 MySQL 默认值约束用来指定某列的默认值。</p>
+<p>DEFAULT 约束用法</p>
+<ul>
+<li>DEFAULT 约束用于向列中插入默认值。</li>
+<li>如果没有规定其他的值，那么会将默认值添加到所有的新记录。</li>
+<li>例如女同学较多，性别就可以默认为“女”，如果插入一条新的记录时没有为这个字段赋值，那么系统会自动为这个字段赋值为“女”。</li>
+</ul>
+<p>CREATE TABLE 时的 DEFAULT 约束</p>
+<ul>
+<li><p>使用 DEFAULT 关键字设置默认值约束，具体的语法规则如下所示：</p>
+<p><code>&lt;字段名&gt; &lt;数据类型&gt; DEFAULT &lt;默认值&gt;</code></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line">(</span><br><span class="line">    `P_Id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `LastName` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `FirstName` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    `Address` <span class="type">varchar</span>(<span class="number">255</span>),</span><br><span class="line">    `City` <span class="type">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;Sandnes&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>通过使用类似 GETDATE() 这样的函数, DEFAULT 约束也可以用于插入系统值：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `Orders`</span><br><span class="line">(</span><br><span class="line">    `O_Id` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `OrderNo` <span class="type">int</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `P_Id` <span class="type">int</span>,</span><br><span class="line">    `OrderDate` <span class="type">date</span> <span class="keyword">DEFAULT</span> GETDATE()</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p> ALTER TABLE 时的 DEFAULT 约束</p>
+<p>如果表已被创建时，想要在 列创建 DEFAULT 约束，请使用下面的 SQL：<code>City</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line"><span class="keyword">ALTER</span> `City` <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;SANDNES&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>撤销 DEFAULT 约束</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `Persons`</span><br><span class="line"><span class="keyword">ALTER</span> `City` <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多表连接"><a href="#多表连接" class="headerlink" title="多表连接"></a>多表连接</h3><h5 id="联结"><a href="#联结" class="headerlink" title="联结"></a>联结</h5><p>我们可以举一个生活中的例子来理解“联结”：</p>
+<p>在大学每一个新学期即将开始的时候，我们都会遇到一个大难题，那就是选课。</p>
+<p>假如所有课程的信息和所有教师的信息都存放在同一张表中，我们会发现这显得很繁琐且不便于信息的更改。 因为同一个教师开设的不同课程对应的教师信息都是相同的，当教师信息改变时，需要修改多条课程。</p>
+<p>因此，为了同学们在选课时操作更便利，我们根据内容将所有数据分解为了两个表，即教师表和课程表。<br>我们可以将他们称为<strong>关系表</strong>。 关系表就是一类数据一个表，各表通过某些关系互相关联。</p>
+<p>🤔<br>那么问题就来了，数据存储在两个表中，如果我们想用一条 SELECT 语句同时查询课程信息和对应的教师信息该怎么办呢？</p>
+<p>答案就是——使用<strong>联结</strong>。</p>
+<p>简单地说，联结是一种机制，用于在一条 SELECT 语句中关联多个表，返回一组输出。</p>
+<p>这个时候就要说一下联结中的两大主角——**主键（PRIMARY KEY）**和**外键（FOREIGN KEY）**。</p>
+<p>以我们使用的教师表和课程表为例：</p>
+<p><strong>表1：courses (课程表)</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">列名</th>
+<th align="center">类型</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">编号</td>
+<td align="center">int unsigned</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">名字</td>
+<td align="center">瓦尔查尔</td>
+<td align="center">课程名称</td>
+</tr>
+<tr>
+<td align="center">student_count</td>
+<td align="center">int</td>
+<td align="center">学生总数</td>
+</tr>
+<tr>
+<td align="center">created_at</td>
+<td align="center">日期</td>
+<td align="center">创建课程时间</td>
+</tr>
+<tr>
+<td align="center">teacher_id</td>
+<td align="center">int</td>
+<td align="center">讲师 id</td>
+</tr>
+</tbody></table>
+<p><strong>表2：teachers (教师表)</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">列名</th>
+<th align="center">类型</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">编号</td>
+<td align="center">int</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">名字</td>
+<td align="center">瓦尔查尔</td>
+<td align="center">讲师姓名</td>
+</tr>
+<tr>
+<td align="center">电子邮件</td>
+<td align="center">瓦尔查尔</td>
+<td align="center">讲师邮箱</td>
+</tr>
+<tr>
+<td align="center">年龄</td>
+<td align="center">int</td>
+<td align="center">讲师年龄</td>
+</tr>
+<tr>
+<td align="center">国家</td>
+<td align="center">瓦尔查尔</td>
+<td align="center">讲师国籍</td>
+</tr>
+</tbody></table>
+<p>教师表 中包含所有教师的信息，每个教师具有唯一的标识，这个标识被称为<strong>主键（PRIMARY KEY）</strong>，可以为 id 或其他唯一值。 我们这里选择教师编号（）为教师表的主键。<code>teachers``id</code></p>
+<p>而在课程表 中，除了教师编号 （即教师表的主键）外不存储任何教师的信息。 则教师编号为课程表的<strong>外键（FOREIGN KEY）</strong>。<code>courses``teacher_id</code></p>
+<p>教师表的主键又叫作课程表的外键，因此这两个表通过教师编号这一列关联了。</p>
+<p>🤔 那我们又该如何创建联结呢？ 规定要联结的所有表以及它们如何关联就可以了。</p>
+<p>在设置关联条件时，为避免不同表被引用的列名相同，我们需要使用<strong>完全限定列名</strong>（用一个点分隔表名和列名），否则会返回错误。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`table1`.`common_field` <span class="operator">=</span> `table2`.`common_field`</span><br></pre></td></tr></table></figure>
+
+<p>JOIN 连接子句</p>
+<p>SQL JOIN 连接子句用于将数据库中两个或者两个以上表中的记录组合起来。 其类型主要分为 INNER JOIN（内连接）、OUTER JOIN（外连接）、全连接（FULL JOIN）和交叉连接（CROSS JOIN），其中 OUTER JOIN 又可以细分为 LEFT JOIN（左连接）和 RIGHT JOIN（右连接）。</p>
+<p>因此，我们主要使用的 JOIN 连接类型如下：</p>
+<ul>
+<li><strong>INNER JOIN</strong>：如果表中有至少一个匹配，则返回行</li>
+<li><strong>LEFT JOIN</strong>：即使右表中没有匹配，也从左表返回所有的行</li>
+<li><strong>RIGHT JOIN</strong>：即使左表中没有匹配，也从右表返回所有的行</li>
+<li><strong>FULL JOIN</strong>：只要其中一个表中存在匹配，则返回行</li>
+<li><strong>CROSS JOIN</strong>：又称<strong>笛卡尔积</strong>，两个表数据一一对应，返回结果的行数等于两个表行数的乘积</li>
+</ul>
+<h5 id="内连接-INNER-JOIN"><a href="#内连接-INNER-JOIN" class="headerlink" title="内连接 INNER JOIN"></a>内连接 INNER JOIN</h5><hr>
+<p>最常用也最重要的多表联结类型就是 <strong>INNER JOIN（内连接）</strong>，有时候也被称作 EQUIJOIN（等值连接）。</p>
+<p>内连接根据联结条件来组合两个表中的字段，以创建一个新的结果表。 假如我们想将表 1 和表 2 进行内连接，SQL 查询会逐个比较表 1 和表 2 中的每一条记录，来寻找满足联结条件的所有记录对。 当联结条件得以满足时，所有满足条件的记录对的字段将会结合在一起构成结果表。</p>
+<p><strong>简单的说，内连接就是取两个表的交集，返回的结果就是连接的两张表中都满足条件的部分。</strong></p>
+<p><img src="https://media-cn.lintcode.com/new_storage_v2/public/staff/None/3/28/e9f00880-8fa2-11eb-83d2-0242ac1d0002/image.png" alt="image.png"></p>
+<p>基本语法有如下两种写法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `table1`.`column1`, `table2`.`column2`...</span><br><span class="line"><span class="keyword">FROM</span> `table1`</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> `table2`</span><br><span class="line"><span class="keyword">ON</span> `table1`.`common_field` <span class="operator">=</span> `table2`.`common_field`;</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `table1`.`column1`, `table2`.`column2`...</span><br><span class="line"><span class="keyword">FROM</span> `table1`</span><br><span class="line"><span class="keyword">JOIN</span> `table2`</span><br><span class="line"><span class="keyword">ON</span> `table1`.`common_field` <span class="operator">=</span> `table2`.`common_field`;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：INNER JOIN 中 INNER 可以省略不写</p>
+</blockquote>
+<p>其中，语法的核心部分如下所示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> table2</span><br><span class="line"><span class="keyword">ON</span> table1.common_field <span class="operator">=</span> table2.common_field</span><br></pre></td></tr></table></figure>
+
+<h5 id="外连接-OUTER-JOIN"><a href="#外连接-OUTER-JOIN" class="headerlink" title="外连接 OUTER JOIN"></a>外连接 OUTER JOIN</h5><p>在MySQL中，外连接查询会返回所操作的表中至少一个表的所有数据记录。 在MySQL中，数据查询通过SQL语句 “OUTER JOIN… ON” 来实现，外连接查询可以分为以下三类：</p>
+<ul>
+<li>左外连接</li>
+<li>右外连接</li>
+<li>全外连接</li>
+</ul>
+<p>外连接数据查询语法如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name <span class="number">1</span>,column_name <span class="number">2</span> ... column_name n</span><br><span class="line">    <span class="keyword">FROM</span> table1</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="operator">|</span> <span class="keyword">RIGHT</span> <span class="operator">|</span> <span class="keyword">FULL</span>  (<span class="keyword">OUTER</span>) <span class="keyword">JOIN</span> table2</span><br><span class="line">        <span class="keyword">ON</span> <span class="keyword">CONDITION</span>;</span><br></pre></td></tr></table></figure>
+
+<p>在上述语句中，参数 column_name 表示所要查询的字段名字，来源于所连接的表 table1 和 table2，关键字 OUTER JOIN 表示表进行外连接，参数 CONDITION 表示进行匹配的条件。</p>
+<p>左外连接 LEFT JOIN</p>
+<p>外连接查询中的左外连接就是指新关系中执行匹配条件时，以关键字 LEFT JOIN 左边的表为参考表。 左外连接的结果包括 LEFT OUTER 子句中指定的左表的所有行，而不仅仅是连接列所匹配的行，这就意味着，左连接会返回左表中的所有记录，加上右表中匹配到的记录。 如果左表的某行在右表中没有匹配行，那么在相关联的结果行中，右表的所有选择列表均为空值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name <span class="number">1</span>,column_name <span class="number">2</span> ... column_name n</span><br><span class="line">    <span class="keyword">FROM</span> table1</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> table2</span><br><span class="line">        <span class="keyword">ON</span> <span class="keyword">CONDITION</span> ;</span><br></pre></td></tr></table></figure>
+
+<p>右外连接 RIGHT JOIN</p>
+<p>外连接查询中的右外连接是指新关系中执行匹配条件时，以关键字 RIGHT JOIN 右边的表为参考表，如果右表的某行在左表中没有匹配行，左表就返回空值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name <span class="number">1</span>,column_name <span class="number">2</span> ... column_name n</span><br><span class="line">    <span class="keyword">FROM</span> table1</span><br><span class="line">        <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> table2</span><br><span class="line">        <span class="keyword">ON</span> <span class="keyword">CONDITION</span> ;</span><br></pre></td></tr></table></figure>
+
+<p>全外连接 FULL (OUTER) JOIN</p>
+<hr>
+<p>FULL OUTER JOIN 关键字只要左表（table1）和右表（table2）其中一个表中存在匹配，则返回行。 FULL OUTER JOIN 关键字结合了 LEFT JOIN 和 RIGHT JOIN 的结果。</p>
+<blockquote>
+<p>注：MySQL 数据库不支持全连接，想要实现全连接可以使用 UNION ALL 来将左连接和右连接结果组合在一起实现全连接。</p>
+</blockquote>
+<p><strong>UNION</strong> ：联合的意思，即把两次或多次查询结果合并起来</p>
+<p>要求：两次查询的列数必须一致，同时，每条 SELECT 语句中的列的顺序必须相同</p>
+<p>推荐：列的类型可以不一样，但推荐查询的每一列，相对于的类型应该一样</p>
+<p>可以来自多张表的数据：多次sql语句取出的列名可以不一致，此时以第一个sql语句的列名为准，即UNION 结果集中的列名总是等于 UNION 中第一个 SELECT 语句中的列名。<br>如果不同的语句中取出的行，有完全相同(这里表示的是每个列的值都相同)，那么 UNION 会将相同的行合并，最终只保留一行。 也可以这样理解，UNION 会去掉重复的行。<br>如果不想去掉重复的行，可以使用 UNION ALL 。<br>如果子句中有 order by,limit，需用括号()包起来。 推荐放到所有子句之后，即对最终合并的结果来排序或筛选。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name <span class="number">1</span>,column_name <span class="number">2</span> ... column_name n</span><br><span class="line">    <span class="keyword">FROM</span> table1</span><br><span class="line">        <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> table2 <span class="keyword">ON</span> <span class="keyword">CONDITION</span> </span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> column_name <span class="number">1</span>,column_name <span class="number">2</span> ... column_name n</span><br><span class="line">    <span class="keyword">FROM</span> table1</span><br><span class="line">        <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> table2 <span class="keyword">ON</span> <span class="keyword">CONDITION</span> ;</span><br></pre></td></tr></table></figure>
+
+<h5 id="交叉连接-CROSS-JOIN"><a href="#交叉连接-CROSS-JOIN" class="headerlink" title="交叉连接 CROSS JOIN"></a>交叉连接 CROSS JOIN</h5><p>什么是交叉连接</p>
+<p>与内连接和外连接相比，交叉连接非常简单，因为它不存在 ON 子句，那怎么理解交叉连接呢？</p>
+<p>交叉连接：返回左表中的所有行，左表中的每一行与右表中的所有行组合。 即将两个表的数据一一对应，其查询结果的行数为左表中的行数乘以右表中的行数。</p>
+<p>CROSS JOIN（交叉连接）的结果也称作笛卡尔积，我们来简单了解一下什么是笛卡尔积：</p>
+<p>笛卡尔乘积是指在数学中，两个集合 X 和 Y 的笛卡尓积（Cartesian product），又称直积，表示为<strong>X × Y</strong>，第一个对象是 X 的成员而第二个对象是 Y 的所有可能有序对的其中一个成员。</p>
+<p>交叉连接有两种定义方式，分为隐式连接和显式连接。 两种定义方式的查询结果是相同的。</p>
+<ul>
+<li>隐式交叉连接：不需要使用 CROSS JOIN 关键字，只要在 SELECT 语句的 FROM 语句后将要进行交叉连接的表名列出即可，这种方式基本上可以被任意数据库系统支持。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `table1`.`column1`, `table2`.`column2`...</span><br><span class="line"><span class="keyword">FROM</span> `table1`,`table2`;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>显式交叉连接：与隐式交叉连接的区别就是它使用 CROSS JOIN 关键字，用法与 INNER JOIN 相似。</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `table1`.`column1`, `table2`.`column2`...</span><br><span class="line"><span class="keyword">FROM</span> `table1`</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> `table2`;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h3><h5 id="GROUP-BY-子句"><a href="#GROUP-BY-子句" class="headerlink" title="GROUP BY 子句"></a>GROUP BY 子句</h5><p>GROUP BY 函数就是 SQL 中用来实现分组的函数，其用于结合聚合函数，能根据给定数据列的每个成员对查询结果进行分组统计，最终得到一个分组汇总表。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name`, aggregate_function(`column_name`)</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` operator <span class="keyword">value</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> `column_name`;</span><br></pre></td></tr></table></figure>
+
+<h5 id="HAVING-子句"><a href="#HAVING-子句" class="headerlink" title="HAVING 子句"></a>HAVING 子句</h5><p>我们在使用 WHERE 条件子句时会发现其不能与聚合函数联合使用，为解决这一点，SQL 中提供了 HAVING 子句。 在使用时， HAVING 子句经常与 GROUP BY 联合使用，HAVING 子句就是对分组统计函数进行过滤的子句。</p>
+<p>HAVING 子句对于 GROUP BY 子句设置条件的方式其实与 WHERE 子句与 SELECT 的方式类似，语法也相近，但 WHERE 子句搜索条件是在分组操作之前，而 HAVING 则是在之后。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>   `column_name`, aggregate_function(`column_name`) </span><br><span class="line"><span class="keyword">FROM</span>     `table_name` </span><br><span class="line"><span class="keyword">WHERE</span>    `column_name` operator <span class="keyword">value</span> </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> `column_name` </span><br><span class="line"><span class="keyword">HAVING</span>   aggregate_function(`column_name`) operator <span class="keyword">value</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><h5 id="SELECT-语句中的子查询"><a href="#SELECT-语句中的子查询" class="headerlink" title="SELECT 语句中的子查询"></a>SELECT 语句中的子查询</h5><p><strong>当一个查询是另一个查询的条件时</strong>，称之为子查询。</p>
+<p>即在查询语句中的 WHERE 条件子句中，又嵌套了另一个查询语句。</p>
+<p>因此，子查询本质上就是一个完整的 SELECT 语句，它可以使一个 SELECT、INSERT INTO 语句、DELETE 语句或 UPDATE 语句嵌套在另一子查询中。 子查询的输出可以包括一个单独的值（单行子查询）、几行值（多行子查询）、或者多列数据（多列子查询）。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name(s)`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` OPERATOR (</span><br><span class="line">    <span class="keyword">SELECT</span> `column_name(s)`</span><br><span class="line">    <span class="keyword">FROM</span> `table_name`</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>以及，SQL语言允许多层嵌套查询，即一个子查询中还可以嵌套其他子查询。</p>
+</blockquote>
+<h5 id="INSERT-语句中的子查询"><a href="#INSERT-语句中的子查询" class="headerlink" title="INSERT 语句中的子查询"></a>INSERT 语句中的子查询</h5><p>对于 INSERT 语句中的子查询来说，首先是使用子查询的 SELECT 语句找到需要插入的数据，之后将返回的数据插入到另一个表中。 在子查询中所选择的数据可以用任何字符、日期或数字函数修改。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `table_name`</span><br><span class="line">	<span class="keyword">SELECT</span> `colnum_name(s)`</span><br><span class="line">	<span class="keyword">FROM</span> `table_name`</span><br><span class="line">	[ <span class="keyword">WHERE</span> <span class="keyword">VALUE</span> OPERATOR ]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：INSERT 语句中的子查询其实是将一个表中查询到的数据“复制”到另一个表中，由于主键具有唯一性，如果需要仅在单张表中使用 INSERT 子查询，只能在无主键的单张表中进行操作，否则，需要有两张表（如只一张表，则需新建一张表）。</p>
+</blockquote>
+<h5 id="UPDATE-语句中的子查询"><a href="#UPDATE-语句中的子查询" class="headerlink" title="UPDATE 语句中的子查询"></a>UPDATE 语句中的子查询</h5><p>对于 UPDATE 语句，首先通过 SELECT 语句查询需要更新的信息，再使用 UPDATE 语句对信息进行更新。 当通过 UPDATE 语句使用子查询时，能够实现表中单个列或多个列的数据更新。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> `table_name` </span><br><span class="line"><span class="keyword">SET</span> `column_name` <span class="operator">=</span> `new_value`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` OPERATOR </span><br><span class="line">   (<span class="keyword">SELECT</span> `column_name`</span><br><span class="line">   <span class="keyword">FROM</span> `table_name`</span><br><span class="line">   [<span class="keyword">WHERE</span>] )</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：在 UPDATE 语句的子查询中，子查询 SELECT 语句所用的表和 UPDATE 语句所要更改的表<strong>不能</strong>是同一张表！</p>
+</blockquote>
+<h5 id="DELETE-语句中的子查询"><a href="#DELETE-语句中的子查询" class="headerlink" title="DELETE 语句中的子查询"></a>DELETE 语句中的子查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` OPERATOR </span><br><span class="line">   (<span class="keyword">SELECT</span> `column_name`</span><br><span class="line">   <span class="keyword">FROM</span> `table_name`  </span><br><span class="line">   [<span class="keyword">WHERE</span>] )</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：在 DELETE 语句的子查询中，子查询 SELECT 语句所用的表和 DELETE 语句所要更改的表<strong>不能</strong>是同一张表！</p>
+</blockquote>
+<h5 id="内联视图子查询"><a href="#内联视图子查询" class="headerlink" title="内联视图子查询"></a>内联视图子查询</h5><p>内联视图子查询实际上就是将查询的结果集作为一个查询表，继续进行查询操作。</p>
+<p>现需要查询国籍为美国（USA），且年龄最大的教师，请使用内联视图子查询实现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line">	<span class="keyword">FROM</span> `teachers`</span><br><span class="line">	<span class="keyword">WHERE</span> `country` <span class="operator">=</span> <span class="string">&#x27;USA&#x27;</span></span><br><span class="line">) `T`</span><br><span class="line"><span class="keyword">WHERE</span> `age` <span class="operator">=</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="built_in">MAX</span>(`age`)</span><br><span class="line">	<span class="keyword">FROM</span> `teachers`</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h5 id="N-操作符的多行子查询"><a href="#N-操作符的多行子查询" class="headerlink" title="N 操作符的多行子查询"></a>N 操作符的多行子查询</h5><p>使用 IN 操作符进行子查询，其实是将子查询返回的集合和外层查询得到的集合进行<strong>交集</strong>运算，这个结果可以是零个值，也可以是多个值。 由此，最后可以查询出与列表中任意一个值匹配的行。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` <span class="keyword">IN</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> `column_name`</span><br><span class="line">    <span class="keyword">FROM</span> `table_name`</span><br><span class="line">    <span class="keyword">WHERE</span> `column_name` <span class="operator">=</span> <span class="keyword">VALUE</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h5 id="ANY-操作符的多行子查询"><a href="#ANY-操作符的多行子查询" class="headerlink" title="ANY 操作符的多行子查询"></a>ANY 操作符的多行子查询</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name(s)`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` OPERATOR</span><br><span class="line">   <span class="keyword">ANY</span>(<span class="keyword">SELECT</span> column_name</span><br><span class="line">   <span class="keyword">FROM</span> table_name)</span><br></pre></td></tr></table></figure>
+
+<h5 id="ALL-操作符的多行子查询"><a href="#ALL-操作符的多行子查询" class="headerlink" title="ALL 操作符的多行子查询"></a>ALL 操作符的多行子查询</h5><p>在子查询中使用 ALL ，表示与子查询返回的所有值比较为真，则返回真。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `column_name(s)`</span><br><span class="line"><span class="keyword">FROM</span> `table_name`</span><br><span class="line"><span class="keyword">WHERE</span> `column_name` OPERATOR</span><br><span class="line">   <span class="keyword">ALL</span>(<span class="keyword">SELECT</span> column_name</span><br><span class="line">   <span class="keyword">FROM</span> table_name)</span><br></pre></td></tr></table></figure>
+
+<h5 id="多列子查询"><a href="#多列子查询" class="headerlink" title="多列子查询"></a>多列子查询</h5><p>当是<strong>单行多列</strong>的子查询时，主查询语句的条件语句中引用子查询结果时可用单行比较符号（＝，&gt;，&lt;，&gt;&#x3D;，&lt;&#x3D;， &lt;&gt; 等）来进行比较；</p>
+<p>当是<strong>多行多列</strong>子查询时，主查询语句的条件语句中引用子查询结果时必须用多行比较符号（IN，ANY，ALL 等）来进行比较。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `name`, `age`, `country` </span><br><span class="line"><span class="keyword">FROM</span> `teachers` </span><br><span class="line"><span class="keyword">WHERE</span> (`country`, `age`) <span class="keyword">IN</span> ( </span><br><span class="line">        <span class="keyword">SELECT</span> `country`, <span class="built_in">MAX</span>(`age`) </span><br><span class="line">        <span class="keyword">FROM</span> `teachers` </span><br><span class="line">        <span class="keyword">GROUP</span> <span class="keyword">BY</span> `country` </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h5 id="HAVING-子句中的子查询"><a href="#HAVING-子句中的子查询" class="headerlink" title="HAVING 子句中的子查询"></a>HAVING 子句中的子查询</h5><p>当子查询出现在 HAVING 子句中时，像 HAVING 子句中的任何表达式一样，表示要进行分组过滤，它被用作行组选择的一部分，一般返回单行单列的数据。</p>
+<p>现需要计算每位教师所开课程的平均学生人数与全部课程的平均学生人数，比较其大小，最后返回超过全部课程平均学生人数的教师姓名，请编写相应的 SQL 语句实现。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> `name`</span><br><span class="line"><span class="keyword">FROM</span> `teachers`</span><br><span class="line"><span class="keyword">WHERE</span> `id` <span class="keyword">IN</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> `teacher_id`</span><br><span class="line">	<span class="keyword">FROM</span> `courses`</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> `teacher_id`</span><br><span class="line">	<span class="keyword">HAVING</span> <span class="built_in">AVG</span>(`student_count`) <span class="operator">&gt;</span> (</span><br><span class="line">		<span class="keyword">SELECT</span> <span class="built_in">AVG</span>(`student_count`)</span><br><span class="line">		<span class="keyword">FROM</span> `courses`</span><br><span class="line">	)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/23/sql%E8%AF%AD%E6%B3%95/" data-id="cl13b8nk90001yku1e6kwf70j" data-title="sql语法" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/03/23/sql%E8%AF%AD%E6%B3%95/" data-id="cl13bbkpy0000f8u11f59dx20" data-title="sql语法" class="article-share-link">Share</a>
       
       
       
@@ -146,16 +754,29 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="注解与反射"><a href="#注解与反射" class="headerlink" title="注解与反射"></a>注解与反射</h1>
-        
-          <p class="article-more-link">
-            <a href="/2021/08/28/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/#more">Read More</a>
-          </p>
-        
+        <span id="more"></span>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h3 id="什么是注解"><a href="#什么是注解" class="headerlink" title="什么是注解"></a>什么是注解</h3><p>Java 注解（Annotation）又称 Java 标注，是 JDK5.0 引入的一种注释机制。放在Java源码的类、方法、字段、参数前的一种特殊“注释”：注释会被编译器直接忽略，注解则可以被编译器打包进入class文件，因此，注解是一种用作标注的“元数据”。</p>
+<h3 id="内置注解"><a href="#内置注解" class="headerlink" title="内置注解"></a>内置注解</h3><ul>
+<li>@Override 检查该方法是否是重写方法</li>
+<li>@Deprecated - 标记过时方法</li>
+<li>@SuppressWarnings - 指示编译器去忽略注解中声明的警告</li>
+<li>@Retention - 标识这个注解怎么保存，是只在代码中，还是编入class文件中，或者是在运行时可以通过反射访问。</li>
+<li>@Documented - 标记这些注解是否包含在用户文档中</li>
+<li>@Target - 标记这个注解应该是哪种 Java 成员</li>
+<li>@Inherited - 标记这个注解是继承于哪个注解类</li>
+<li>@SafeVarargs - Java 7 开始支持，忽略任何使用参数为泛型变量的方法或构造函数调用产生的警告。</li>
+<li>@FunctionalInterface - Java 8 开始支持，标识一个匿名函数或函数式接口。</li>
+<li>@Repeatable - Java 8 开始支持，标识某注解可以在同一个声明上使用多次<br>其中 @Retention @Documented @Target @Inherited 为元注解（作用在其他注解上）<h3 id="Annotation"><a href="#Annotation" class="headerlink" title="Annotation"></a>Annotation</h3><img src="https://img04.sogoucdn.com/app/a/100540022/2021082810175547464268.png" alt="结构"><br>我们来看一下源码<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.lang.annotation;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Annotation</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    String <span class="title function_">toString</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    Class&lt;? <span class="keyword">extends</span> <span class="title class_">Annotation</span>&gt; annotationType();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义注解"><a href="#定义注解" class="headerlink" title="定义注解"></a>定义注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="meta">@MyAnnotation(name = &quot;qrrk&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayHello</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Documented</span>  <span class="comment">//添加到javadoc中</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span> <span class="comment">//指定MyAnnotation注解可以修饰什么</span></span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment">    TYPE:类, 接口 (包括注解类型), 或者枚举</span></span><br><span class="line"><span class="comment">    FIELD:字段声明（包括枚举常量）</span></span><br><span class="line"><span class="comment">    METHOD:方法声明</span></span><br><span class="line"><span class="comment">    PARAMETER:参数声明</span></span><br><span class="line"><span class="comment">    CONSTRUCTOR:构造器声明</span></span><br><span class="line"><span class="comment">    LOCAL_VARIABLE:局部变量声明</span></span><br><span class="line"><span class="comment">    ANNOTATION_TYPE:</span></span><br><span class="line"><span class="comment">    PACKAGE:注释类型声明</span></span><br><span class="line"><span class="comment">    TYPE_PARAMETER:类型参数声明</span></span><br><span class="line"><span class="comment">    TYPE_USE:类型使用</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span> <span class="comment">//指定策略属性</span></span><br><span class="line"><span class="comment">/*&#123;</span></span><br><span class="line"><span class="comment">    SOURCE annotations are to be discarded by the compiler</span></span><br><span class="line"><span class="comment">    CLASS  Annotations are to be recorded in the class file by the compiler</span></span><br><span class="line"><span class="comment">            but need not be retained by the VM at run time.</span></span><br><span class="line"><span class="comment">            (This is the default behavior).</span></span><br><span class="line"><span class="comment">    RUNTIME  Annotations are to be recorded in the class file by the compiler</span></span><br><span class="line"><span class="comment">             and retained by the VM at run time, so they may be read reflectively.</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    String <span class="title function_">name</span><span class="params">()</span> <span class="keyword">default</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+判断某个注解是否存在于Class、Field、Method或Constructor：<br>Class.isAnnotationPresent(Class)<br>Field.isAnnotationPresent(Class)<br>Method.isAnnotationPresent(Class)<br>Constructor.isAnnotationPresent(Class)<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><h3 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射"></a>什么是反射</h3>主要是指程序可以访问，检测和修改它本身状态或行为的一种能力，并能根据自身行为的状态和结果，调整或修改应用所描述行为的状态和相关的语义。程序在运行期可以拿到一个对象的所有信息<br>一个类有多个组成部分，例如：成员变量、方法、构造方法等，反射就是加载类,并解剖出类的各个组成部分。<h3 id="class类"><a href="#class类" class="headerlink" title="class类"></a>class类</h3>以String类为例，当JVM加载String类时，它首先读取String.class文件到内存，然后，为String类创建一个Class实例并关联起来：<h3 id="获取class"><a href="#获取class" class="headerlink" title="获取class"></a>获取class</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.qrrk;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="type">Dog</span> <span class="variable">dog</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Dog</span>();</span><br><span class="line"></span><br><span class="line">        <span class="type">Class</span> <span class="variable">c1</span> <span class="operator">=</span> dog.getClass();<span class="comment">//460141958</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">Class</span> <span class="variable">c2</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;com.qrrk.Dog&quot;</span>);<span class="comment">//460141958</span></span><br><span class="line"></span><br><span class="line">        <span class="type">Class</span> <span class="variable">c3</span> <span class="operator">=</span> Dog.class;<span class="comment">//460141958</span></span><br><span class="line"></span><br><span class="line">        <span class="type">Class</span> <span class="variable">c4</span> <span class="operator">=</span> Integer.TYPE;</span><br><span class="line">        System.out.println(c1.hashCode()+<span class="string">&quot;\n&quot;</span>+c2.hashCode()+<span class="string">&quot;\n&quot;</span>+c3.hashCode());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Dog</span><span class="params">(String name, Integer age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Dog&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(Integer age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实例化一个类的对象"><a href="#实例化一个类的对象" class="headerlink" title="实例化一个类的对象"></a>实例化一个类的对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Dog</span> <span class="variable">dog1</span> <span class="operator">=</span> (Dog) c1.newInstance();</span><br><span class="line"></span><br><span class="line">       <span class="type">Constructor</span> <span class="variable">constructor</span> <span class="operator">=</span> c1.getConstructor(String.class,Integer.class);</span><br><span class="line">       <span class="type">Dog</span> <span class="variable">dog2</span> <span class="operator">=</span> (Dog) constructor.newInstance(<span class="string">&quot;qrrk&quot;</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="反射操作"><a href="#反射操作" class="headerlink" title="反射操作"></a>反射操作</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//操作方法</span></span><br><span class="line"><span class="type">Method</span> <span class="variable">setName</span> <span class="operator">=</span> c1.getDeclaredMethod(<span class="string">&quot;setName&quot;</span>, String.class);</span><br><span class="line">setName.invoke(dog1,<span class="string">&quot;qrrk&quot;</span>);</span><br><span class="line"><span class="comment">//操作属性</span></span><br><span class="line"><span class="type">Field</span> <span class="variable">name</span> <span class="operator">=</span> c1.getDeclaredField(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">name.set(dog1,<span class="string">&quot;小汪&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/08/28/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" data-id="cl13b8nk60000yku1hx14gud6" data-title="注解与反射" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/08/28/%E6%B3%A8%E8%A7%A3%E4%B8%8E%E5%8F%8D%E5%B0%84/" data-id="cl13bbkq20001f8u174rkdxy4" data-title="注解与反射" class="article-share-link">Share</a>
       
       
       

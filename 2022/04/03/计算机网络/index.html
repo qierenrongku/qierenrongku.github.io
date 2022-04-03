@@ -1,37 +1,437 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            计算机网络 |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+<body>
+<div class="progress-bar-container">
+    
 
-{% block page_class %}page-post-detail{% endblock %}
+    
+</div>
 
 
-{% block content %}
+<main class="page-container">
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+    
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-{% endblock %}
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+    <div class="window-mask"></div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">计算机网络</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-04-03 12:57:24</span>
+        <span class="mobile">2022-04-03 12:57</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80/">通信基础</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <span id="more"></span>
+
+<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h3 id="计算机网络的分类"><a href="#计算机网络的分类" class="headerlink" title="计算机网络的分类"></a>计算机网络的分类</h3><h5 id="按照网络共享服务方式划分："><a href="#按照网络共享服务方式划分：" class="headerlink" title="按照网络共享服务方式划分："></a>按照网络共享服务方式划分：</h5><p>客户&#x2F;服务器网络（Client&#x2F;Server C&#x2F;S）;</p>
+<p>对等网络(peer to peer p2p);</p>
+<p>浏览器&#x2F;服务器网络(Browser&#x2F;Server B&#x2F;S);</p>
+<p>混合网络(Hybrid Network)</p>
+<h5 id="按照网络节点的分布范围划分："><a href="#按照网络节点的分布范围划分：" class="headerlink" title="按照网络节点的分布范围划分："></a>按照网络节点的分布范围划分：</h5><p>局域网   &lt;&#x3D;10km</p>
+<p>城域网    10~100km</p>
+<p>广域网   &gt;1000km</p>
+<h3 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h3><p>应用层：提供网络服务与最终用户的接口</p>
+<p>表示层：提供数据表示，加密和压缩</p>
+<p>会话层：建立 管理和终止会话</p>
+<p>传输层：定义传输数据的协议端口号以及流控和差错检测</p>
+<p>网络层：进行逻辑地址寻址并实现不同网络之间的路径选择</p>
+<p>数据链路层：建立逻辑连接，进行硬件地址寻址 差错校验等</p>
+<p>物理层：建立 维护 断开物理连接</p>
+<h3 id="数据发送"><a href="#数据发送" class="headerlink" title="数据发送"></a>数据发送</h3><p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401201631737.4z7a20b1cy40.webp" alt="image-20220401201631737"></p>
+<h3 id="核心协议"><a href="#核心协议" class="headerlink" title="核心协议"></a>核心协议</h3><p>网络节点省份标识协议：用来标识网络节点的身份，MAC IPv4 IPv6 RFID等</p>
+<p>网络数据传输协议：保证网络数据正确到达目标节点，HDLC TCP UDP等</p>
+<p>网络链路竞争协议：保证每个网络节点均有机会使用网络链路传输信息 ，CSMA Token等</p>
+<p>网络资源共享协议：保证不同组织和个人的信息可以共享，共用 HTTP FTP SMTP等</p>
+<h4 id="MAC地址："><a href="#MAC地址：" class="headerlink" title="MAC地址："></a>MAC地址：</h4><p>48位 数据链路层</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401202628685.6tyak6jh70g0.webp" alt="image-20220401202628685"></p>
+<h4 id="IP地址："><a href="#IP地址：" class="headerlink" title="IP地址："></a>IP地址：</h4><p>网络层</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401202940082.1vtmm2waagbk.webp" alt="image-20220401202940082"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401203120129.2x5ygj0u5ik0.webp" alt="image-20220401203120129"></p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>最大网约数</th>
+<th>IP地址范围</th>
+<th>单个网络最大主机数</th>
+<th>私有IP地址范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>126(2^7-2)</td>
+<td>1.0.0.1-127.255.255.255</td>
+<td>16777214</td>
+<td>10.0.0.0-10.255.255.255</td>
+</tr>
+<tr>
+<td>B</td>
+<td>16384(2^14)</td>
+<td>128.0.0.1-191.255.255.255</td>
+<td>65534</td>
+<td>172.16.0.0-172.31.255.255</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2097152(2^21)</td>
+<td>192.0.0.1-223.255.255.255.254</td>
+<td>254</td>
+<td>192.168.0.0-192.168.255.255</td>
+</tr>
+</tbody></table>
+<h3 id="HDLC协议-amp-零比特插入技术"><a href="#HDLC协议-amp-零比特插入技术" class="headerlink" title="HDLC协议&amp;零比特插入技术"></a>HDLC协议&amp;零比特插入技术</h3><p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401204332012.2xbgyngzdqo0.webp" alt="image-20220401204332012"></p>
+<p>帧标志F：HDLC采用固定的标志字段01111110作为帧的边界。</p>
+<p>地址字段A：指定接收者的地址。地址字段默认为1个字节(最多为可寻址256个主机)全为1为广播方式，全0为无效地址。</p>
+<p>控制字段C：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401205334297.2gkkqlsj4s74.webp" alt="image-20220401205334297"></p>
+<p>信息字段INFO：该字段you承载来自网络层的数据包（如IP数据包）他的长度由帧校验字段FCS或通讯节点的缓存容量来决定。使用较多的上限是1000-2000比特，下限是0（S帧）。在以太网中，信息字段I的长度为46字节~1500字节之间。</p>
+<p>校验字段FCS：校验字段包含地址字段、控制字段、信息字段的校验和，但不包括标志字段。一般校验字段使用的是16bit的CRCCCITT标准的校验序列，也可以使用32bit的<a class="link"   target="_blank" rel="noopener" href="https://baike.baidu.com/item/CRC/1453359" >CRC<i class="fas fa-external-link-alt"></i></a>-32校验序列。</p>
+<p>零比特插入法：在HDLC的帧结构中，若在两个标志字段之间的比特串中，碰巧出现了和标志字段F（01111110）一样的比特组合，那么就会误认为是帧的边界。为了避免出现这种情况，HDLC采用零比特填充法使一帧中两个F字段之间不会出现6个连</p>
+<p>在发送端，当一串比特流尚未加上标志字段时，先用硬件扫描整个帧。只要发现5个连续1，则立即填入一个0。</p>
+<h3 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h3><p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401210401042.4aoqveqnhja0.webp" alt="image-20220401210401042"></p>
+<p>源端口和目的端口字段：各占16位，分别标识连接两端的应用进程。</p>
+<p>序号字段：占32位。TCP的序号不是对每个TCP报文的编号，而是对每个字节的编号。</p>
+<p>确认序号字段：占32位,采用附载应答方式，指出下一个期望接收的字节序号，也就是告诉对方，这个序号以前的字节都已经正确收到。</p>
+<p>数据偏移字段：占4位,单位为32位（4个字节），用以指明报文头部的总长度。</p>
+<p>标志位字段：由6位组成,包括URG、ACK、PSH、RST、SYN和FIN位,用于说明TCP段的目的与内容。</p>
+<p>窗口字段：用于控制对方所能发送的数据量，单位为字节。</p>
+<p>校验和字段：用于对TCP报文的首部和数据部分进行校验。</p>
+<p>紧急指针字段：用于指出窗口中紧急数据的位置，这些紧急数据应优先于其他数据进行传送。</p>
+<p>任选项字段：最大报文长度（MSS)的选项,它只能在连接建立时使用。</p>
+<p>填充字段：用于保证任选项长度为32位的整数倍。</p>
+<p>三次握手</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401210703360.48qu4rro1yw0.webp" alt="image-20220401210703360"></p>
+<p>IP分组</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401211652576.63ezu9ubd1c0.webp" alt="image-20220401211652576"></p>
+<p>多路访问协议是解决共享信道竞争的主要手段，分为有冲突协议和无冲突协议</p>
+<p>CSMA&#x2F;CD（有冲突）： </p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401212428476.2fft8c1qrjtw.webp" alt="image-20220401212428476"></p>
+<p>令牌协议（无冲突）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401212456260.1x6yid4fx91c.webp" alt="image-20220401212456260"></p>
+<p>web服务的资源请求过程：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qierenrongku/images@master/image-20220401212838486.6bud2og0qhk0.webp" alt="image-20220401212838486"></p>
+<h3 id="网络设备"><a href="#网络设备" class="headerlink" title="网络设备"></a>网络设备</h3><p>网内互联设备：网卡 网络传输介质 中继器与集线器 交换机</p>
+<p>网间互联设备：网桥 路由器</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%BD%91%E7%BB%9C/">#网络</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/03/23/sql%E8%AF%AD%E6%B3%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">sql语法</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

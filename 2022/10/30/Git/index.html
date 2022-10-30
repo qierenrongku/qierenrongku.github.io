@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation"></span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-30 18:46:02</span>
+        <span class="mobile">2022-10-30 18:46</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="查看所有的配置以及它们所在的文件"><a href="#查看所有的配置以及它们所在的文件" class="headerlink" title="查看所有的配置以及它们所在的文件"></a>查看所有的配置以及它们所在的文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list --show-origin</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\xsc\AppData\Roaming\Typora\typora-user-images\image-20221030115748016.png" alt="image-20221030115748016"></p>
+<h2 id="获取git仓库"><a href="#获取git仓库" class="headerlink" title="获取git仓库"></a>获取git仓库</h2><h3 id="在已存在目录中初始化仓库"><a href="#在已存在目录中初始化仓库" class="headerlink" title="在已存在目录中初始化仓库"></a>在已存在目录中初始化仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /c/user/my_project</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#x27;initial project version&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/libgit2/libgit2 [mylibgit]  #自定义本地仓库的名字，你可以通过额外的参数指定新的目录名</span><br></pre></td></tr></table></figure>
+
+<h2 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h2><p><code>git status</code> 命令查看哪些文件处于什么状态</p>
+<p><code>git add</code> 开始跟踪一个文件</p>
+<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>我们可以创建一个名为 <code>.gitignore</code> 的文件，列出要忽略的文件的模式</p>
+<p><code>.gitignore</code> 的格式规范如下：</p>
+<ul>
+<li>所有空行或者以 <code>#</code> 开头的行都会被 Git 忽略。</li>
+<li>可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。</li>
+<li>匹配模式可以以（<code>/</code>）开头防止递归。</li>
+<li>匹配模式可以以（<code>/</code>）结尾指定目录。</li>
+<li>要忽略指定模式以外的文件或目录，可以在模式前加上叹号（<code>!</code>）取反。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略所有的 .a 文件</span></span><br><span class="line">*.a</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">但跟踪所有的 lib.a，即便你在前面忽略了 .a 文件</span></span><br><span class="line">!lib.a</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">只忽略当前目录下的 TODO 文件，而不忽略 subdir/TODO</span></span><br><span class="line">/TODO</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略任何目录下名为 build 的文件夹</span></span><br><span class="line">build/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略 doc/notes.txt，但不忽略 doc/server/arch.txt</span></span><br><span class="line">doc/*.txt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">忽略 doc/ 目录及其所有子目录下的 .pdf 文件</span></span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
+
+<p>GitHub 有一个十分详细的针对数十种项目及语言的 <code>.gitignore</code> 文件列表， 你可以在 <a class="link"   target="_blank" rel="noopener" href="https://github.com/github/gitignore" >https://github.com/github/gitignore<i class="fas fa-external-link-alt"></i></a> 找到它</p>
+<p>查看尚未暂存的文件更新了哪些部分，不加参数直接输入 <code>git diff</code></p>
+<h3 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git commit</span><br><span class="line">git commit -m &quot;Story 182: Fix benchmarks for speed&quot; #在 commit 命令后添加 -m 选项，将提交信息与命令放在同一行</span><br><span class="line">git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤</span><br></pre></td></tr></table></figure>
+
+<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p><code>git rm</code> 命令完成此项工作，并连带从工作目录中删除指定的文件，这样以后就不会出现在未跟踪文件清单中</p>
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><p><code>git log</code> 会按时间先后顺序列出所有的提交，最近的更新排在最上面</p>
+<p>中一个比较有用的选项是 <code>-p</code> 或 <code>--patch</code> ，它会显示每次提交所引入的差异（按 <strong>补丁</strong> 的格式输出）。 你也可以限制显示的日志条目数量，例如使用 <code>-2</code> 选项来只显示最近的两次提交</p>
+<h2 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h2><p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。 此时，可以运行带有 <code>--amend</code> 选项的提交命令来重新提交：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit --amend</span></span><br></pre></td></tr></table></figure>
+
+<p>例如，你提交后发现忘记了暂存某些需要的修改，可以像下面这样操作：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&#x27;initial commit&#x27;</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add forgotten_file</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit --amend</span></span><br></pre></td></tr></table></figure>
+
+<p>最终你只会有一个提交——第二次提交将代替第一次提交的结果。</p>
+<p><code>git reset HEAD &lt;file&gt;...</code> 来取消暂存</p>
+<p> <code>git checkout -- &lt;file&gt;</code> 是一个危险的命令。 你对那个文件在本地的任何修改都会消失——Git 会用最近提交的版本覆盖掉它</p>
+<h2 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h2><h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p>查看你已经配置的远程仓库服务器，可以运行 <code>git remote</code> 命令</p>
+<p>会列出你指定的每一个远程服务器的简写。 如果你已经克隆了自己的仓库，那么至少应该能看到 origin ——这是 Git 给你克隆的仓库服务器的默认名字</p>
+<p>指定选项 <code>-v</code>，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL</p>
+<p><img src="C:\Users\xsc\AppData\Roaming\Typora\typora-user-images\image-20221030154119326.png" alt="image-20221030154119326"></p>
+<p>运行 <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写</p>
+<h3 id="从远程仓库中抓取与拉取"><a href="#从远程仓库中抓取与拉取" class="headerlink" title="从远程仓库中抓取与拉取"></a>从远程仓库中抓取与拉取</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;remote&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看某个远程仓库"><a href="#查看某个远程仓库" class="headerlink" title="查看某个远程仓库"></a>查看某个远程仓库</h3><p>git remote show <remote></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote show origin</span></span><br><span class="line">* remote origin</span><br><span class="line">  Fetch URL: https://github.com/schacon/ticgit</span><br><span class="line">  Push  URL: https://github.com/schacon/ticgit</span><br><span class="line">  HEAD branch: master</span><br><span class="line">  Remote branches:</span><br><span class="line">    master                               tracked</span><br><span class="line">    dev-branch                           tracked</span><br><span class="line">  Local branch configured for &#x27;git pull&#x27;:</span><br><span class="line">    master merges with remote master</span><br><span class="line">  Local ref configured for &#x27;git push&#x27;:</span><br><span class="line">    master pushes to master (up to date</span><br></pre></td></tr></table></figure>
+
+<h3 id="远程仓库的重命名与移除"><a href="#远程仓库的重命名与移除" class="headerlink" title="远程仓库的重命名与移除"></a>远程仓库的重命名与移除</h3><p>你可以运行 <code>git remote rename</code> 来修改一个远程仓库的简写名。 例如，想要将 <code>pb</code> 重命名为 <code>paul</code>，可以用 <code>git remote rename</code> 这样做：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote rename pb paul</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote</span></span><br><span class="line">origin</span><br><span class="line">paul</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h2><p>分支创建</p>
+<p>创建一个 testing 分支， 你需要使用 <code>git branch</code> 命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch testing</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log` 命令查看各个分支当前所指的对象。 提供这一功能的参数是 `--decorate</span><br></pre></td></tr></table></figure>
+
+<p>切换到新创建的 <code>testing</code> 分支去：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout testing</span><br></pre></td></tr></table></figure>
+
+<p>删除分支     带 <code>-d</code> 选项的 <code>git branch</code> 命令来删除分支：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d hotfix</span><br><span class="line">Deleted branch hotfix (3a0874c).</span><br></pre></td></tr></table></figure>
+
+<h3 id="遇到冲突时的分支合并"><a href="#遇到冲突时的分支合并" class="headerlink" title="遇到冲突时的分支合并"></a>遇到冲突时的分支合并</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge iss53</span><br></pre></td></tr></table></figure>
+
+<p> Git 会在有冲突的文件中加入标准的冲突解决标记，这样你可以打开这些包含冲突的文件然后手动解决冲突。 出现冲突的文件会包含一些特殊区段，看起来像下面这个样子：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:index.html</span><br><span class="line">&lt;div id=&quot;footer&quot;&gt;contact : email.support@github.com&lt;/div&gt;</span><br><span class="line">=======</span><br><span class="line">&lt;div id=&quot;footer&quot;&gt;</span><br><span class="line"> please contact us at support@github.com</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt;&gt;&gt;&gt;&gt; iss53:index.html</span></span><br></pre></td></tr></table></figure>
+
+<p>这表示 <code>HEAD</code> 所指示的版本（也就是你的 <code>master</code> 分支所在的位置，因为你在运行 merge 命令的时候已经检出到了这个分支）在这个区段的上半部分（<code>=======</code> 的上半部分），而 <code>iss53</code> 分支所指示的版本在 <code>=======</code> 的下半部分。 为了解决冲突，你必须选择使用由 <code>=======</code> 分割的两部分中的一个，或者你也可以自行合并这些内容。</p>
+<h2 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h2><p>可以运行 <code>git merge origin/serverfix</code> 将这些工作合并到当前所在的分支。 如果想要在自己的 <code>serverfix</code> 分支上工作，可以将其建立在远程跟踪分支之上：</p>
+<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout -b serverfix origin/serverfix</span></span><br><span class="line">Branch serverfix set up to track remote branch serverfix from origin.</span><br><span class="line">Switched to a new branch &#x27;serverfix&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>这会给你一个用于工作的本地分支，并且起点位于 <code>origin/serverfix</code>。</p>
+<p>如果想要查看设置的所有跟踪分支，可以使用 <code>git branch</code> 的 <code>-vv</code> 选项。 这会将所有的本地分支列出来并且包含更多的信息，如每一个分支正在跟踪哪个远程分支与本地分支是否是领先、落后或是都有。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git branch -vv</span></span><br><span class="line">  iss53     7e424c3 [origin/iss53: ahead 2] forgot the brackets</span><br><span class="line">  master    1ae2a45 [origin/master] deploying index fix</span><br><span class="line">* serverfix f8674d9 [teamone/server-fix-good: ahead 3, behind 1] this should do it</span><br><span class="line">  testing   5ea463a trying something new</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><p>假设你已经通过远程分支做完所有的工作了——也就是说你和你的协作者已经完成了一个特性， 并且将其合并到了远程仓库的 <code>master</code> 分支（或任何其他稳定代码分支）。 可以运行带有 <code>--delete</code> 选项的 <code>git push</code> 命令来删除一个远程分支。 如果想要从服务器上删除 <code>serverfix</code> 分支，运行下面的命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git push origin --delete serverfix</span></span><br><span class="line">To https://github.com/schacon/simplegit</span><br><span class="line"> - [deleted]         serverfix</span><br></pre></td></tr></table></figure>
+
+<h2 id="变基"><a href="#变基" class="headerlink" title="变基"></a>变基</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout experiment</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git rebase master</span></span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line">Applying: added staged command</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\xsc\AppData\Roaming\Typora\typora-user-images\image-20221030221005947.png" alt="image-20221030221005947"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout master</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git merge experiment</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\xsc\AppData\Roaming\Typora\typora-user-images\image-20221030221035311.png" alt="image-20221030221035311"></p>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/04/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计算机网络</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

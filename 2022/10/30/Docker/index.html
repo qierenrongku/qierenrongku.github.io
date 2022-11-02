@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            Docker |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Docker</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-30 22:33:39</span>
+        <span class="mobile">2022-10-30 22:33</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Docker/">Docker</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="Install-Docker-Desktop-on-Linux"><a href="#Install-Docker-Desktop-on-Linux" class="headerlink" title="Install Docker Desktop on Linux"></a>Install Docker Desktop on Linux</h2><p>环境：CentOS-7</p>
+<h4 id="1、卸载旧版本"><a href="#1、卸载旧版本" class="headerlink" title="1、卸载旧版本"></a>1、卸载旧版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">				  docker-client \</span><br><span class="line">                 docker-client-latest \</span><br><span class="line">                 docker-common \</span><br><span class="line">                 docker-latest \</span><br><span class="line">                 docker-latest-logrotate \</span><br><span class="line">                 docker-logrotate \</span><br><span class="line">                 docker-engine```</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、安装方式"><a href="#2、安装方式" class="headerlink" title="2、安装方式"></a>2、安装方式</h4><ul>
+<li>为了方便安装和升级任务，采用建立Docker仓库的方式安装</li>
+<li>download the RPM package and install it manually and manage upgrades completely manually    on  systems with no access to the internet 没网</li>
+<li>在测试开发环境、采用自动化便捷的脚本方式安装</li>
+</ul>
+<h5 id="建立Docker仓库"><a href="#建立Docker仓库" class="headerlink" title="建立Docker仓库"></a>建立Docker仓库</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils  #Install the yum-utils package</span><br><span class="line">yum-config-manager \</span><br><span class="line">    --add-repo \</span><br><span class="line">    https://download.docker.com/linux/centos/docker-ce.repo #国外的  </span><br><span class="line">    http://mirrors.huaweicloud.com/docker-ce/linux/centos/docker-ce.repo  #华为云   </span><br></pre></td></tr></table></figure>
+
+<h5 id="安装docker引擎"><a href="#安装docker引擎" class="headerlink" title="安装docker引擎"></a>安装docker引擎</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum makecache fast #更新一下yum软件包索引</span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin  #ce社区 ee企业</span><br></pre></td></tr></table></figure>
+
+<h5 id="Start-Docker"><a href="#Start-Docker" class="headerlink" title="Start Docker"></a>Start Docker</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">docker run hello-world</span><br><span class="line">Unable to find image &#x27;hello-world:latest&#x27; locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">2db29710123e: Pull complete </span><br><span class="line">Digest: sha256:e18f0a777aefabe047a671ab3ec3eed05414477c951ab1a6f352a06974245fe7</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"><span class="meta prompt_"> $ </span><span class="language-bash">docker run -it ubuntu bash</span></span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>问题</strong>：出现 Pulling fs layer </p>
+<p><strong>解决</strong>：<code>systemctl restart docker</code>重启docker服务</p>
+<h4 id="卸载docker"><a href="#卸载docker" class="headerlink" title="卸载docker"></a>卸载docker</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br><span class="line">rm -rf /var/lib/docker  </span><br><span class="line">rm -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置镜像加速器（华为云）"><a href="#设置镜像加速器（华为云）" class="headerlink" title="设置镜像加速器（华为云）"></a>设置镜像加速器（华为云）</h4><p>登录华为云网站、注册云账户&#x3D;&#x3D;》点击右上角控制台&#x3D;&#x3D;》点击左上角服务列表&#x3D;&#x3D;》点击容器镜像服务SWR&#x3D;&#x3D;&gt;添加镜像加速器</p>
+<p>以root用户登录容器引擎所在的虚拟机<br>修改“&#x2F;etc&#x2F;docker&#x2F;daemon.json”文件（如果没有，可以手动创建），在该文件内添加如下内容：<br><strong>vi &#x2F;etc&#x2F;docker&#x2F;daemon.json</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;:[&quot;https://cb2a62827...98366cf39f77.mirror.swr.myhuaweicloud.com&quot; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>systemctl daemon-reload</code></p>
+<p><code>systemctl restart docker </code></p>
+<p> 如果重启失败，则检查操作系统其他位置（如：&#x2F;etc&#x2F;sysconfig&#x2F;docker、&#x2F;etc&#x2F;default&#x2F;docker）是否配置了registry-mirrors参数，删除此参数并重启容器引擎即可</p>
+<h2 id="什么是容器"><a href="#什么是容器" class="headerlink" title="什么是容器"></a>什么是容器</h2><p>容器是机器上的沙箱进程，它与主机上的所有其他进程隔离：</p>
+<ul>
+<li>是镜像的可运行实例，可以使用 DockerAPI 或 CLI 创建、启动、停止、移动或删除容器</li>
+<li>可以在本地机器、虚拟机上运行或部署到云中</li>
+<li>是可移植的(可以在任何操作系统上运行)</li>
+<li>与其他容器隔离，并运行自己的软件、二进制文件和配置。</li>
+</ul>
+<h2 id="什么是镜像"><a href="#什么是镜像" class="headerlink" title="什么是镜像"></a>什么是镜像</h2><p>当运行一个容器时，它使用一个独立的文件系统。这个自定义文件系统由一个容器映像提供。因为映像包含容器的文件系统，所以它必须包含运行应用程序所需的所有东西——所有依赖项、配置、脚本、二进制文件等等。该映像还包含容器的其他配置，如环境变量、要运行的默认命令和其他元数据。</p>
+<p>在本指南的后面，您将更深入地研究图像，包括分层、最佳实践等主题。</p>
+<h2 id="将一个app装入容器"><a href="#将一个app装入容器" class="headerlink" title="将一个app装入容器"></a>将一个app装入容器</h2><h4 id="获取app"><a href="#获取app" class="headerlink" title="获取app"></a>获取app</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/docker/getting-started.git</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\xsc\AppData\Roaming\Typora\typora-user-images\image-20221101230336828.png" alt="image-20221101230336828"></p>
+<h4 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h4><p>为了构建容器映像，需要使用 Dockerfile。Dockerfile 只是一个没有文件扩展名的文本文件。Dockerfile 包含 Docker 用于创建容器映像的指令脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cd /path/to/app</span><br><span class="line">touch Dockerfile</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">add the following contents to the Dockerfile:</span></span><br><span class="line">FROM node:12-alpine</span><br><span class="line">RUN apk add --no-cache python2 g++ make</span><br><span class="line">WORKDIR /app</span><br><span class="line">COPY . .</span><br><span class="line">RUN yarn install --production</span><br><span class="line">CMD [&quot;node&quot;, &quot;src/index.js&quot;]</span><br><span class="line">EXPOSE 3000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cd /path/to/app</span><br><span class="line">docker build -t getting-started .   #Build the container image</span><br></pre></td></tr></table></figure>
+
+<h4 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -dp 3000:3000 getting-started</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">After a few seconds, open your web browser to http://localhost:3000.</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker常用命令"><a href="#Docker常用命令" class="headerlink" title="Docker常用命令"></a>Docker常用命令</h2><h4 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker version	# 显示docker的版本信息</span><br><span class="line">docker info		 </span><br><span class="line">docker --help   </span><br></pre></td></tr></table></figure>
+
+<p>文档地址：<a class="link"   target="_blank" rel="noopener" href="https://docs.docker.com/reference/" >Reference documentation | Docker Documentation<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h4><p>docker images  产看本地所有镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# docker images </span><br><span class="line">REPOSITORY    TAG         IMAGE ID       CREATED         SIZE</span><br><span class="line">hello-world   latest      feb5d9fea6a5   13 months ago   13.3kB</span><br><span class="line">node          12-alpine   00881b4ed7f5   19 months ago   88.9MB</span><br><span class="line"></span><br><span class="line">REPOSITORY  镜像仓库源</span><br><span class="line">TAG			标签</span><br><span class="line">IMAGE ID	id</span><br><span class="line">CREATED		创建时间</span><br><span class="line">SIZE		大小</span><br><span class="line"></span><br><span class="line">docker images --help</span><br><span class="line"></span><br><span class="line">[root@localhost /]# docker images --help</span><br><span class="line"></span><br><span class="line">Usage:  docker images [OPTIONS] [REPOSITORY[:TAG]]</span><br><span class="line"></span><br><span class="line">List images</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -a, --all             Show all images (default hides intermediate images)</span><br><span class="line">      --digests         Show digests</span><br><span class="line">  -f, --filter filter   Filter output based on conditions provided</span><br><span class="line">      --format string   Pretty-print images using a Go template</span><br><span class="line">      --no-trunc        Don&#x27;t truncate output</span><br><span class="line">  -q, --quiet           Only show image IDs</span><br></pre></td></tr></table></figure>
+
+<p>docker search 搜素镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost /]# docker search mysql</span><br><span class="line">NAME                            DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</span><br><span class="line">mysql                           MySQL is a widely used, open-source relation…   13424     [OK]       </span><br><span class="line">mariadb                         MariaDB Server is a high performing open sou…   5118      [OK]       </span><br><span class="line">phpmyadmin                      phpMyAdmin - A web interface for MySQL and M…   673       [OK]       </span><br><span class="line">percona                         Percona Server is a fork of the MySQL relati…   592       [OK]       </span><br><span class="line">bitnami/mysql                   Bitnami MySQL Docker Image                      78                   [OK]</span><br><span class="line">databack/mysql-backup           Back up mysql databases to... anywhere!         74                   </span><br><span class="line">linuxserver/mysql-workbench                                                     45                   </span><br><span class="line">ubuntu/mysql                    MySQL open source fast, stable, multi-thread…   38                   </span><br><span class="line">linuxserver/mysql               A Mysql container, brought to you by LinuxSe…   37                   </span><br><span class="line">circleci/mysql                  MySQL is a widely used, open-source relation…   28                   </span><br><span class="line">google/mysql                    MySQL server for Google Compute Engine          21                   [OK]</span><br><span class="line">rapidfort/mysql                 RapidFort optimized, hardened image for MySQL   13                   </span><br><span class="line">bitnami/mysqld-exporter                                                         4                    </span><br><span class="line">ibmcom/mysql-s390x              Docker image for mysql-s390x                    2                    </span><br><span class="line">newrelic/mysql-plugin           New Relic Plugin for monitoring MySQL databa…   1                    [OK]</span><br><span class="line">vitess/mysqlctld                vitess/mysqlctld                                1                    [OK]</span><br><span class="line">hashicorp/mysql-portworx-demo                                                   0                    </span><br><span class="line">docksal/mysql                   MySQL service images for Docksal - https://d…   0                    </span><br><span class="line">rapidfort/mysql8-ib             RapidFort optimized, hardened image for MySQ…   0                    </span><br><span class="line">mirantis/mysql                                                                  0                    </span><br><span class="line">cimg/mysql                                                                      0                    </span><br><span class="line">drud/mysql                                                                      0                    </span><br><span class="line">silintl/mysql-backup-restore    Simple docker image to perform mysql backups…   0                    [OK]</span><br><span class="line">corpusops/mysql                 https://github.com/corpusops/docker-images/     0                  </span><br><span class="line">drud/mysql-local-57             ddev mysql local container                      0       </span><br><span class="line"></span><br><span class="line">docker pull mysql    #下载镜像  </span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Docker/">#Docker</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/30/Git/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Git</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

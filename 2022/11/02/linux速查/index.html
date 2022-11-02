@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            linux速查 |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">linux速查</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-11-02 22:05:00</span>
+        <span class="mobile">2022-11-02 22:05</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/linux-shell/">linux|shell</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h5 id="重置root管理员密码"><a href="#重置root管理员密码" class="headerlink" title="重置root管理员密码"></a>重置root管理员密码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启linux系统  出现引导界面按下键盘上的e键进入内核编辑界面</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">linux16 的那一行后面，空格，再追加 init=/bin/sh</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后按下Ctrl+X组合键来运行修改过的内核程序 大约30秒过后，进入到系统的紧急求援模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">挂载根目录</span></span><br><span class="line">mount -o remount, rw /</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择要修改密码的用户名，这里选择root用户进行修改，可以更换为你要修改的用户</span></span><br><span class="line">passwd root</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新系统信息 <span class="built_in">touch</span> /.authorelabel</span></span><br><span class="line">touch /.authorelabel</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">最后输入以下命令重启系统即可</span></span><br><span class="line">exec /sbin/init  或   exec /sbin/reboot</span><br></pre></td></tr></table></figure>
+
+<h5 id="RPM（红帽软件包管理器）"><a href="#RPM（红帽软件包管理器）" class="headerlink" title="RPM（红帽软件包管理器）"></a>RPM（红帽软件包管理器）</h5><p>在RPM（红帽软件包管理器）公布之前，要想在Linux系统中安装软件只能采取源码包的方式安装。早期在Linux系统中安装程序是一件非常困难、耗费耐心的事情，而且大多数的服务程序仅仅提供源代码，需要运维人员自行编译代码并解决许多的软件依赖关系，因此要安装好一个服务程序，运维人员需要具备丰富知识、高超的技能，甚至良好的耐心。而且在安装、升级、卸载服务程序时还要考虑到其他程序、库的依赖关系，所以在进行校验、安装、卸载、查询、升级等管理软件操作时难度都非常大</p>
+<p>RPM机制则为解决这些问题而设计的。RPM有点像Windows系统中的控制面板，会建立统一的数据库文件，详细记录软件信息并能够自动分析依赖关系。目前RPM的优势已经被公众所认可，使用范围也已不局限在红帽系统中了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh filename.rpm  # 安装</span><br><span class="line">rpm -Uvh filename.rpm  # 升级</span><br><span class="line">rpm -e   filename.rpm  # 卸载</span><br><span class="line">rpm -qpi filename.rpm  # 查询软件描述信息</span><br><span class="line">rpm -qpl filename.rpm  # 列出软件文件信息</span><br><span class="line">rpm -qf  filename.rpm  # 查询文件属于哪个rpm</span><br></pre></td></tr></table></figure>
+
+<h5 id="Yum软件仓库"><a href="#Yum软件仓库" class="headerlink" title="Yum软件仓库"></a>Yum软件仓库</h5><p>Yum软件仓库可以根据用户的要求分析出所需软件包及其相关的依赖关系，然后自动从服务器下载软件包并安装到系统。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">yum repolist all	# 列出所有的仓库</span><br><span class="line">yum list all 		# 列出仓库中的所有软件包</span><br><span class="line">yum info 软件包名称	 # 查看软件包信息</span><br><span class="line">yum install 软件包名称	 # 安装软件包</span><br><span class="line">yum reinstall 软件包名称	 # 重新安装软件包信息</span><br><span class="line">yum update 软件包名称	 # 升级软件包</span><br><span class="line">yum remove 软件包	 # 移除软件包</span><br><span class="line">yum clean all  # 清除所有仓库缓存</span><br><span class="line">yum check-update 	 # 检查可更新的软件包</span><br><span class="line">yum grouplist 	 # 查看系统中已安装的软件包组</span><br><span class="line">yum groupinstall 软件包组	 # 安装软件包组</span><br><span class="line">yum groupremove 软件包组	 # 移除软件包组信息</span><br><span class="line">yum groupinfo 软件包组	 # 查看软件包组信息</span><br></pre></td></tr></table></figure>
+
+<h5 id="systemd初始化进程"><a href="#systemd初始化进程" class="headerlink" title="systemd初始化进程"></a>systemd初始化进程</h5><p>Linux操作系统的开机过程从BIOS开始，然后进入Boot Loader，再加载系统内核，然后内核初始化，最后启动初始化进程。</p>
+<p>初始化进程作为Linux系统的第一个进程，它需要完成Linux系统中相关的初始化工作，为用户提供合适的工作环境。红帽RHEL 7系统已经替换掉了熟悉的初始化进程服务System V init，正式采用全新的systemd初始化进程服务。RHEL 7系统选择systemd初始化进程服务已经是一个既定事实，因此也没有了“运行级别”这个概念，Linux系统在启动时要进行大量的初始化工作，比如挂载文件系统和交换分区、启动各类进程服务等，这些都可以看作是一个一个的单元（Unit）, systemd用目标（target）代替了System V init中运行级别的概念，这两者的区别如表所示。</p>
+<table>
+<thead>
+<tr>
+<th align="left">System V init</th>
+<th>systemd目标名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">0</td>
+<td>runlevel0.target,poweroff.target</td>
+<td>关机</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td>runlevel1.target,rescue.target</td>
+<td>单用户模式</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td>runlevel2.target,multi-user.target</td>
+<td>等同于级别三</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td>runlevel3.target,multi-user.target</td>
+<td>多用户的文本界面</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td>runlevel4.target,multi-user.target</td>
+<td>等同于级别三</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td>runlevel5.target,graphical.target</td>
+<td>多用户的图形界面</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td>runlevel6.target,reboot.target</td>
+<td>重启</td>
+</tr>
+<tr>
+<td align="left">emergency</td>
+<td>emergency.target</td>
+<td>紧急shell</td>
+</tr>
+</tbody></table>
+<p>如果想要将系统默认的运行目标修改为“多用户，无图形”模式，可直接用ln命令把多用户模式目标文件连接到&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /lib/systemd/system/multi-user.target /etc/systemd/system/default.target</span><br></pre></td></tr></table></figure>
+
+<h5 id="systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令"><a href="#systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令" class="headerlink" title="systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令"></a>systemctl管理服务的启动、重启、停止、重载、查看状态等常用命令</h5><table>
+<thead>
+<tr>
+<th>System Vinit命令</th>
+<th>systemctl 命令（RHEL 7 系统）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>service foo start</td>
+<td>systemctl start foo.service</td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td>service foo restart</td>
+<td>systemctl restart foo.service</td>
+<td>重启服务</td>
+</tr>
+<tr>
+<td>service foo stop</td>
+<td>systemctl stop foo.service</td>
+<td>停止服务</td>
+</tr>
+<tr>
+<td>service foo reload</td>
+<td>systemctl reload foo.serivce</td>
+<td>重新加载配置文件（不终止服务）</td>
+</tr>
+<tr>
+<td>service foo status</td>
+<td>systemctl status foo.service</td>
+<td>查看服务状态</td>
+</tr>
+</tbody></table>
+<h5 id="ystemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令"><a href="#ystemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令" class="headerlink" title="ystemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令"></a>ystemctl设置服务开机启动、不启动、查看各级别下服务启动状态等常用命令</h5><table>
+<thead>
+<tr>
+<th>System V init命令</th>
+<th>systemctl 命令（RHEL 7 系统）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>checkconfig foo on</td>
+<td>systemctl enable foo.service</td>
+<td>开机自动启动</td>
+</tr>
+<tr>
+<td>chkconfig foo off</td>
+<td>systemctl disable foo.service</td>
+<td>开机不自动启动</td>
+</tr>
+<tr>
+<td>chkconfig foo</td>
+<td>systemctl is-enabled foo.service</td>
+<td>查看特定服务是否为开机自动启动</td>
+</tr>
+<tr>
+<td>chkconfig –list</td>
+<td>systemctl list-unit-files –type&#x3D;type&#x3D;service</td>
+<td>查看各个级别下服务的启动与禁用情况</td>
+</tr>
+</tbody></table>
+<h5 id="用户与Linux系统的交互"><a href="#用户与Linux系统的交互" class="headerlink" title="用户与Linux系统的交互"></a>用户与Linux系统的交互</h5><p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/image-20221102224807879.4mbbezm35rq0.webp" alt="image-20221102224807879"></p>
+<p>格式：命令名称 [命令参数] [命令对象]    </p>
+<p>长格式：man –help  短格式：man -h</p>
+<p>man man</p>
+<h5 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出字符串或变量</span></span><br><span class="line">[root@localhost ~]# echo hello world</span><br><span class="line">hello world</span><br><span class="line">[root@localhost ~]# echo $BASH</span><br><span class="line">/usr/bin/bash</span><br></pre></td></tr></table></figure>
+
+<h5 id="date命令"><a href="#date命令" class="headerlink" title="date命令"></a><strong>date命令</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# date</span><br><span class="line">2022年 11月 02日 星期三 22:54:55 CST</span><br><span class="line">[root@localhost ~]# date &quot;+%Y-%m-%d %H:%M:%S&quot;</span><br><span class="line">2022-11-02 22:55:06</span><br><span class="line">[root@localhost ~]# date -s &quot;2021-01-08 22:53:28&quot;</span><br><span class="line">2021年 01月 08日 星期五 22:53:28 CST</span><br><span class="line">[root@localhost ~]# date</span><br><span class="line">2021年 01月 08日 星期五 22:53:35 CST</span><br><span class="line">[root@localhost ~]# date &quot;+%j&quot; # date命令中的参数%j可用来查看今天是当年中的第几天</span><br><span class="line">008</span><br></pre></td></tr></table></figure>
+
+<h5 id="wget命令"><a href="#wget命令" class="headerlink" title="wget命令"></a>wget命令</h5><p>wget命令用于在终端中下载网络文件，格式为“wget [参数]下载地址”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# wget https://www.linuxprobe.com/docs/LinuxProbe.pdf --no-check-certificate</span><br><span class="line">--2021-01-08 22:58:00--  https://www.linuxprobe.com/docs/LinuxProbe.pdf</span><br><span class="line">正在解析主机 www.linuxprobe.com (www.linuxprobe.com)... 117.169.12.168</span><br><span class="line">正在连接 www.linuxprobe.com (www.linuxprobe.com)|117.169.12.168|:443... 已连接。</span><br><span class="line">警告: 无法验证 www.linuxprobe.com 的由 “/C=US/O=DigiCert Inc/OU=www.digicert.com/CN=Encryption Everywhere DV TLS CA - G1” 颁发的证书:</span><br><span class="line">  颁发的证书还未生效。</span><br><span class="line">已发出 HTTP 请求，正在等待回应... 200 OK</span><br><span class="line">长度：23335661 (22M) [application/pdf]</span><br><span class="line">正在保存至: “LinuxProbe.pdf”</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">100%</span><span class="language-bash">[=========================================================================================================&gt;] 23,335,661  9.31MB/s 用时 2.4s</span>   </span><br><span class="line"></span><br><span class="line">2021-01-08 22:58:03 (9.31 MB/s) - 已保存 “LinuxProbe.pdf” [23335661/23335661])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>后台下载模式</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>下载到指定目录</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>最大尝试次数</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>断点续传</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>下载页面内所有资源，包括图片视频</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归下载</td>
+</tr>
+</tbody></table>
+<h5 id="ps命令"><a href="#ps命令" class="headerlink" title="ps命令"></a>ps命令</h5><p>ps命令用于查看系统中的进程状态，格式为“ps [参数]”。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>显示所有进程（包括其他用户）</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>用户以及其他详细信息</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>显示没有控制终端的进程</td>
+</tr>
+</tbody></table>
+<p>5种常见的进程状态，分别为运行、中断、不可中断、僵死与停止</p>
+<p>R（运行）：进程正在运行或在运行队列中等待。</p>
+<p>S（中断）：进程处于休眠中，当某个条件形成后或者接收到信号时，则脱离该   状态。</p>
+<p>D（不可中断）：进程不响应系统异步信号，即便用kill命令也不能将其中断。</p>
+<p>Z（僵死）：进程已经终止，但进程描述符依然存在, 直到父进程调用wait4()系统函数后将进程释放。</p>
+<p>T（停止）：进程收到停止信号后停止运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ps -aux</span></span><br><span class="line">  </span><br><span class="line">USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br><span class="line">root          1  0.0  0.1 194092  7248 ?        Ss   14:21   0:03 /usr/lib/systemd/systemd --switched-root --system --deserialize 22</span><br><span class="line">root          2  0.0  0.0      0     0 ?        S    14:21   0:00 [kthreadd]</span><br><span class="line">root          4  0.0  0.0      0     0 ?        S&lt;   14:21   0:00 [kworker/0:0H]</span><br><span class="line">root          6  0.0  0.0      0     0 ?        S    14:21   0:00 [ksoftirqd/0]</span><br><span class="line">root          7  0.0  0.0      0     0 ?        S    14:21   0:00 [migration/0]</span><br><span class="line">root          8  0.0  0.0      0     0 ?        S    14:21   0:00 [rcu_bh]</span><br><span class="line">root          9  0.0  0.0      0     0 ?        S    14:21   0:04 [rcu_sched]</span><br><span class="line">root         10  0.0  0.0      0     0 ?        S&lt;   14:21   0:00 [lru-add-drain]</span><br><span class="line">root         11  0.0  0.0      0     0 ?        S    14:21   0:00 [watchdog/0]</span><br><span class="line">root         12  0.0  0.0      0     0 ?        S    14:21   0:00 [watchdog/1]</span><br><span class="line">root         13  0.0  0.0      0     0 ?        S    14:21   0:00 [migration/1]</span><br><span class="line">root         14  0.0  0.0      0     0 ?        S    14:21   0:00 [ksoftirqd/1]</span><br><span class="line">root         16  0.0  0.0      0     0 ?        S&lt;   14:21   0:00 [kworker/1:0H]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">所有者  ID号  cpu占用  内存占用  虚拟内存使用  固定内存占用  所在终端   进程状态   启动时间  cpu使用时间   命令名称和参数</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="top命令"><a href="#top命令" class="headerlink" title="top命令"></a>top命令</h5><p>top命令用于动态地监视进程活动与系统负载等信息，其格式为top     （Windows任务管理器）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">top - 23:10:22 up  8:48,  3 users,  load average: 0.18, 0.09, 0.06</span><br><span class="line">Tasks: 228 total,   1 running, 225 sleeping,   2 stopped,   0 zombie</span><br><span class="line"><span class="meta prompt_">%</span><span class="language-bash">Cpu(s):  2.6 us,  1.2 sy,  0.0 ni, 96.1 <span class="built_in">id</span>,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st</span></span><br><span class="line">KiB Mem :  3861260 total,   220208 free,  1303200 used,  2337852 buff/cache</span><br><span class="line">KiB Swap:   975868 total,   975868 free,        0 used.  2184816 avail Mem </span><br><span class="line"></span><br><span class="line">   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                   2239 root      20   0 3678012 310132 107300 S   9.0  8.0   2:15.29 gnome-shell                               1704 root      20   0  510376 194192  96164 S   8.0  5.0   0:54.58 X                                        62138 root      20   0  768724  36612  20888 S   2.3  0.9   0:08.44 gnome-terminal-                          58817 root      20   0 1100340  43056  14704 S   0.7  1.1   1:15.03 containerd                                    9 root      20   0       0      0      0 S   0.3  0.0   0:04.38 rcu_sched                                    1 root      20   0  194092   7248   4224 S   0.0  0.2   0:03.96 systemd                                      2 root      20   0       0      0      0 S   0.0  0.0   0:00.03 kthreadd                                    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                6 root      20   0       0      0      0 S   0.0  0.0   0:00.27 ksoftirqd/0                                  7 root      rt   0       0      0      0 S   0.0  0.0   0:00.07 migration/0                                  8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                     10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                               11 root      rt   0       0      0      0 S   0.0  0.0   0:00.26 watchdog/0                                 12 root      rt   0       0      0      0 S   0.0  0.0   0:00.22 watchdog/1                             	   13 root      rt   0       0      0      0 S   0.0  0.0   0:00.09 migration/1                                                                                                                                       # 第1行：系统时间、运行时间、登录终端数、系统负载（三个数值分别为1分钟、5分钟、15分钟内的平均值，数值越小意味着负载越低）。     # 第2行：进程总数、运行中的进程数、睡眠中的进程数、停止的进程数、僵死的进程数。                                            # 第3行：用户占用资源百分比、系统内核占用资源百分比、改变过优先级的进程资源百分比、空闲的资源百分比等。数据均为CPU数据并以百分比格式显示</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第4行：物理内存总量、内存使用量、内存空闲量、作为内核缓存的内存量。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第5行：虚拟内存总量、虚拟内存使用量、虚拟内存空闲量、已被提前加载的内存量。</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="pidof命令"><a href="#pidof命令" class="headerlink" title="pidof命令"></a>pidof命令</h5><p>pidof命令用于查询某个指定服务进程的PID值，格式为“pidof [参数] [服务名称]”。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# pidof sshd</span><br><span class="line">1134</span><br></pre></td></tr></table></figure>
+
+<h5 id="kill命令"><a href="#kill命令" class="headerlink" title="kill命令"></a>kill命令</h5><p>kill命令用于终止某个指定PID的服务进程，格式为“kill [参数] [进程PID]”。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# kill 1134</span><br></pre></td></tr></table></figure>
+
+<h5 id="killall命令"><a href="#killall命令" class="headerlink" title="killall命令"></a>killall命令</h5><p>killall命令用于终止某个指定名称的服务所对应的全部进程，格式为：“killall [参数] [进程名称]”。</p>
+<p><strong>注</strong>：如果我们在系统终端中执行一个命令后想立即停止它，可以同时按下Ctrl+C组合键（生产环境中比较常用的一个快捷键），这样将立即终止该命令的进程。或者，如果有些命令在执行时不断地在屏幕上输出信息，影响到后续命令的输入，则可以在执行命令时在末尾添加上一个&amp;符号，这样命令将进入系统后台来执行</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/linux-shell/">#linux|shell</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/30/Docker/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Docker</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

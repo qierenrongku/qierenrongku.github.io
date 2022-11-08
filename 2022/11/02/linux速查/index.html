@@ -1042,6 +1042,238 @@
 <td>要执行的命令或程序脚本</td>
 </tr>
 </tbody></table>
+<h5 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h5><p>useradd命令用于创建新的用户，格式为useradd [选项]用户名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-d</td>
+<td>指定用户的家目录（默认为&#x2F;home&#x2F;username）</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>帐号有效截至日期，格式：YYYY-MM-DD.</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>指定该用户的默认UID</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>指定一个初始的用户基本组（必须已存在）</td>
+</tr>
+<tr>
+<td>-G</td>
+<td>指定一个或多个扩展用户组</td>
+</tr>
+<tr>
+<td>-N</td>
+<td>不创建与用户同名的基本用户组</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>指定该用户的默认Shell</td>
+</tr>
+</tbody></table>
+<h5 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h5><p>groupadd命令用于创建用户组，格式为groupadd [选项]群组名</p>
+<h5 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h5><p>usermod命令用于修改用户的属性，格式为usermod [选项]用户名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>填写帐号的备注信息</td>
+</tr>
+<tr>
+<td>-d -m</td>
+<td>-m与-d连用，可重新指定用户的家目录并自动把旧的数据转移过去。</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>帐户到期时间，格式“YYYY-MM-DD”</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>变更所属用户组</td>
+</tr>
+<tr>
+<td>-G</td>
+<td>变更扩展用户组</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>锁定用户禁止其登陆系统</td>
+</tr>
+<tr>
+<td>-U</td>
+<td>解锁用户，允许其登陆系统</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>变更默认终端</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>修改用户的UID</td>
+</tr>
+</tbody></table>
+<h5 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h5><p>passwd命令用于修改用户密码、过期时间、认证信息等，格式为passwd 选项 用户名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>锁定用户禁止其登陆</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>解除锁定，允许用户登陆。</td>
+</tr>
+<tr>
+<td>–stdin</td>
+<td>允许从标准输入修改用户密码，如(echo “NewPassWord” | passwd –stdin Username)</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>使帐号无密码</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>强制用户下次登陆时修改密码</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>显示用户的密码状态</td>
+</tr>
+</tbody></table>
+<h5 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h5><p>userdel命令用于删除用户，格式为userdel [选项]用户名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>强制删除用户</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>同时删除用户，家目录与其相关文件</td>
+</tr>
+</tbody></table>
+<h5 id="文件权限与归属"><a href="#文件权限与归属" class="headerlink" title="文件权限与归属"></a>文件权限与归属</h5><ul>
+<li>-：普通文件。</li>
+<li>d：目录文件。</li>
+<li>l：链接文件。</li>
+<li>b：块设备文件。</li>
+<li>c：字符设备文件。</li>
+<li>p：管道文件。</li>
+</ul>
+<h5 id="chattr"><a href="#chattr" class="headerlink" title="chattr"></a>chattr</h5><p>chattr命令用于设置文件的隐藏权限，格式为chattr [参数]文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>无法对文件进行修改；若对目录设置了该参数，则仅能修改其中的子文件内容而 不能新建或删除文件</td>
+</tr>
+<tr>
+<td>a</td>
+<td>仅允许补充（追加）内容，无法覆盖&#x2F;删除内容（Append Only)</td>
+</tr>
+<tr>
+<td>S</td>
+<td>文件内容在变更后立即同步到硬盘（sync)</td>
+</tr>
+<tr>
+<td>s</td>
+<td>彻底从硬盘中删除，不可恢复（用0填充原文件所在硬盘区域）</td>
+</tr>
+<tr>
+<td>A</td>
+<td>不再修改这个文件或目录的最后访问时间（atime）</td>
+</tr>
+<tr>
+<td>b</td>
+<td>不在修改文件或目录的存取时间</td>
+</tr>
+<tr>
+<td>D</td>
+<td>检查压缩文件中的错误</td>
+</tr>
+<tr>
+<td>d</td>
+<td>使用dump命令备份时忽略本文件&#x2F;目录</td>
+</tr>
+<tr>
+<td>c</td>
+<td>默认将文件或目录进行压缩</td>
+</tr>
+<tr>
+<td>u</td>
+<td>当删除该文件后依然保留其在硬盘中的数据，方便日后回复</td>
+</tr>
+<tr>
+<td>t</td>
+<td>让文件系统支持尾部合并（tail-merging）</td>
+</tr>
+<tr>
+<td>X</td>
+<td>可以直接访问压缩文件中的内容</td>
+</tr>
+</tbody></table>
+<h5 id="su"><a href="#su" class="headerlink" title="su"></a>su</h5><p>su命令用于变更使用者的身份（切换登录者），格式为su[-]用户名</p>
+<p>sudo命令用于给普通用户提供额外权利来完成原本超级用户才能完成的任务,格式为sudo[参数]命令名称</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-h</td>
+<td>列出帮助信息。</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>列出当前用户可执行的命令。</td>
+</tr>
+<tr>
+<td>-u 用户名或UID值</td>
+<td>以指定的用户身份执行命令。</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>清空安全时间，下次执行sudo 时需要再次密码验证。</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>在后台执行指定的命令。</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>更改询问密码的提示语。</td>
+</tr>
+</tbody></table>
 
         </div>
 
@@ -1059,6 +1291,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/11/08/makefile/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">makefile</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">

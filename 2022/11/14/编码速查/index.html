@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            编码速查 |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">编码速查</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-11-14 21:21:32</span>
+        <span class="mobile">2022-11-14 21:21</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%BC%96%E7%A0%81/">编码</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="ASCII编码"><a href="#ASCII编码" class="headerlink" title="ASCII编码"></a>ASCII编码</h3><table>
+<thead>
+<tr>
+<th>二进制</th>
+<th>十进制</th>
+<th>十六进制</th>
+<th>字符&#x2F;缩写</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00000000</td>
+<td>0</td>
+<td>00</td>
+<td>NUL (NULL)</td>
+<td>空字符</td>
+</tr>
+<tr>
+<td>00000001</td>
+<td>1</td>
+<td>01</td>
+<td>SOH (Start Of Headling)</td>
+<td>标题开始</td>
+</tr>
+<tr>
+<td>00000010</td>
+<td>2</td>
+<td>02</td>
+<td>STX (Start Of Text)</td>
+<td>正文开始</td>
+</tr>
+<tr>
+<td>00000011</td>
+<td>3</td>
+<td>03</td>
+<td>ETX (End Of Text)</td>
+<td>正文结束</td>
+</tr>
+<tr>
+<td>00000100</td>
+<td>4</td>
+<td>04</td>
+<td>EOT (End Of Transmission)</td>
+<td>传输结束</td>
+</tr>
+<tr>
+<td>00000101</td>
+<td>5</td>
+<td>05</td>
+<td>ENQ (Enquiry)</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>00000110</td>
+<td>6</td>
+<td>06</td>
+<td>ACK (Acknowledge)</td>
+<td>回应&#x2F;响应&#x2F;收到通知</td>
+</tr>
+<tr>
+<td>00000111</td>
+<td>7</td>
+<td>07</td>
+<td>BEL (Bell)</td>
+<td>响铃</td>
+</tr>
+<tr>
+<td>00001000</td>
+<td>8</td>
+<td>08</td>
+<td>BS (Backspace)</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>00001001</td>
+<td>9</td>
+<td>09</td>
+<td>HT (Horizontal Tab)</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>00001010</td>
+<td>10</td>
+<td>0A</td>
+<td>LF&#x2F;NL(Line Feed&#x2F;New Line)</td>
+<td>换行键</td>
+</tr>
+<tr>
+<td>00001011</td>
+<td>11</td>
+<td>0B</td>
+<td>VT (Vertical Tab)</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>00001100</td>
+<td>12</td>
+<td>0C</td>
+<td>FF&#x2F;NP (Form Feed&#x2F;New Page)</td>
+<td>换页键</td>
+</tr>
+<tr>
+<td>00001101</td>
+<td>13</td>
+<td>0D</td>
+<td>CR (Carriage Return)</td>
+<td>回车键</td>
+</tr>
+<tr>
+<td>00001110</td>
+<td>14</td>
+<td>0E</td>
+<td>SO (Shift Out)</td>
+<td>不用切换</td>
+</tr>
+<tr>
+<td>00001111</td>
+<td>15</td>
+<td>0F</td>
+<td>SI (Shift In)</td>
+<td>启用切换</td>
+</tr>
+<tr>
+<td>00010000</td>
+<td>16</td>
+<td>10</td>
+<td>DLE (Data Link Escape)</td>
+<td>数据链路转义</td>
+</tr>
+<tr>
+<td>00010001</td>
+<td>17</td>
+<td>11</td>
+<td>DC1&#x2F;XON (Device Control 1&#x2F;Transmission On)</td>
+<td>设备控制1&#x2F;传输开始</td>
+</tr>
+<tr>
+<td>00010010</td>
+<td>18</td>
+<td>12</td>
+<td>DC2 (Device Control 2)</td>
+<td>设备控制2</td>
+</tr>
+<tr>
+<td>00010011</td>
+<td>19</td>
+<td>13</td>
+<td>DC3&#x2F;XOFF (Device Control 3&#x2F;Transmission Off)</td>
+<td>设备控制3&#x2F;传输中断</td>
+</tr>
+<tr>
+<td>00010100</td>
+<td>20</td>
+<td>14</td>
+<td>DC4 (Device Control 4)</td>
+<td>设备控制4</td>
+</tr>
+<tr>
+<td>00010101</td>
+<td>21</td>
+<td>15</td>
+<td>NAK (Negative Acknowledge)</td>
+<td>无响应&#x2F;非正常响应&#x2F;拒绝接收</td>
+</tr>
+<tr>
+<td>00010110</td>
+<td>22</td>
+<td>16</td>
+<td>SYN (Synchronous Idle)</td>
+<td>同步空闲</td>
+</tr>
+<tr>
+<td>00010111</td>
+<td>23</td>
+<td>17</td>
+<td>ETB (End of Transmission Block)</td>
+<td>传输块结束&#x2F;块传输终止</td>
+</tr>
+<tr>
+<td>00011000</td>
+<td>24</td>
+<td>18</td>
+<td>CAN (Cancel)</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>00011001</td>
+<td>25</td>
+<td>19</td>
+<td>EM (End of Medium)</td>
+<td>已到介质末端&#x2F;介质存储已满&#x2F;介质中断</td>
+</tr>
+<tr>
+<td>00011010</td>
+<td>26</td>
+<td>1A</td>
+<td>SUB (Substitute)</td>
+<td>替补&#x2F;替换</td>
+</tr>
+<tr>
+<td>00011011</td>
+<td>27</td>
+<td>1B</td>
+<td>ESC (Escape)</td>
+<td>逃离&#x2F;取消</td>
+</tr>
+<tr>
+<td>00011100</td>
+<td>28</td>
+<td>1C</td>
+<td>FS (File Separator)</td>
+<td>文件分割符</td>
+</tr>
+<tr>
+<td>00011101</td>
+<td>29</td>
+<td>1D</td>
+<td>GS (Group Separator)</td>
+<td>组分隔符&#x2F;分组符</td>
+</tr>
+<tr>
+<td>00011110</td>
+<td>30</td>
+<td>1E</td>
+<td>RS (Record Separator)</td>
+<td>记录分离符</td>
+</tr>
+<tr>
+<td>00011111</td>
+<td>31</td>
+<td>1F</td>
+<td>US (Unit Separator)</td>
+<td>单元分隔符</td>
+</tr>
+<tr>
+<td>00100000</td>
+<td>32</td>
+<td>20</td>
+<td>(Space)</td>
+<td>空格</td>
+</tr>
+<tr>
+<td>00100001</td>
+<td>33</td>
+<td>21</td>
+<td>!</td>
+<td></td>
+</tr>
+<tr>
+<td>00100010</td>
+<td>34</td>
+<td>22</td>
+<td>“</td>
+<td></td>
+</tr>
+<tr>
+<td>00100011</td>
+<td>35</td>
+<td>23</td>
+<td>#</td>
+<td></td>
+</tr>
+<tr>
+<td>00100100</td>
+<td>36</td>
+<td>24</td>
+<td>$</td>
+<td></td>
+</tr>
+<tr>
+<td>00100101</td>
+<td>37</td>
+<td>25</td>
+<td>%</td>
+<td></td>
+</tr>
+<tr>
+<td>00100110</td>
+<td>38</td>
+<td>26</td>
+<td>&amp;</td>
+<td></td>
+</tr>
+<tr>
+<td>00100111</td>
+<td>39</td>
+<td>27</td>
+<td>‘</td>
+<td></td>
+</tr>
+<tr>
+<td>00101000</td>
+<td>40</td>
+<td>28</td>
+<td>(</td>
+<td></td>
+</tr>
+<tr>
+<td>00101001</td>
+<td>41</td>
+<td>29</td>
+<td>)</td>
+<td></td>
+</tr>
+<tr>
+<td>00101010</td>
+<td>42</td>
+<td>2A</td>
+<td>*</td>
+<td></td>
+</tr>
+<tr>
+<td>00101011</td>
+<td>43</td>
+<td>2B</td>
+<td>+</td>
+<td></td>
+</tr>
+<tr>
+<td>00101100</td>
+<td>44</td>
+<td>2C</td>
+<td>,</td>
+<td></td>
+</tr>
+<tr>
+<td>00101101</td>
+<td>45</td>
+<td>2D</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>00101110</td>
+<td>46</td>
+<td>2E</td>
+<td>.</td>
+<td></td>
+</tr>
+<tr>
+<td>00101111</td>
+<td>47</td>
+<td>2F</td>
+<td>&#x2F;</td>
+<td></td>
+</tr>
+<tr>
+<td>00110000</td>
+<td>48</td>
+<td>30</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>00110001</td>
+<td>49</td>
+<td>31</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>00110010</td>
+<td>50</td>
+<td>32</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>00110011</td>
+<td>51</td>
+<td>33</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>00110100</td>
+<td>52</td>
+<td>34</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>00110101</td>
+<td>53</td>
+<td>35</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>00110110</td>
+<td>54</td>
+<td>36</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>00110111</td>
+<td>55</td>
+<td>37</td>
+<td>7</td>
+<td></td>
+</tr>
+<tr>
+<td>00111000</td>
+<td>56</td>
+<td>38</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>00111001</td>
+<td>57</td>
+<td>39</td>
+<td>9</td>
+<td></td>
+</tr>
+<tr>
+<td>00111010</td>
+<td>58</td>
+<td>3A</td>
+<td>:</td>
+<td></td>
+</tr>
+<tr>
+<td>00111011</td>
+<td>59</td>
+<td>3B</td>
+<td>;</td>
+<td></td>
+</tr>
+<tr>
+<td>00111100</td>
+<td>60</td>
+<td>3C</td>
+<td>&lt;</td>
+<td></td>
+</tr>
+<tr>
+<td>00111101</td>
+<td>61</td>
+<td>3D</td>
+<td>&#x3D;</td>
+<td></td>
+</tr>
+<tr>
+<td>00111110</td>
+<td>62</td>
+<td>3E</td>
+<td>&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>00111111</td>
+<td>63</td>
+<td>3F</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>01000000</td>
+<td>64</td>
+<td>40</td>
+<td>@</td>
+<td></td>
+</tr>
+<tr>
+<td>01000001</td>
+<td>65</td>
+<td>41</td>
+<td>A</td>
+<td></td>
+</tr>
+<tr>
+<td>01000010</td>
+<td>66</td>
+<td>42</td>
+<td>B</td>
+<td></td>
+</tr>
+<tr>
+<td>01000011</td>
+<td>67</td>
+<td>43</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td>01000100</td>
+<td>68</td>
+<td>44</td>
+<td>D</td>
+<td></td>
+</tr>
+<tr>
+<td>01000101</td>
+<td>69</td>
+<td>45</td>
+<td>E</td>
+<td></td>
+</tr>
+<tr>
+<td>01000110</td>
+<td>70</td>
+<td>46</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr>
+<td>01000111</td>
+<td>71</td>
+<td>47</td>
+<td>G</td>
+<td></td>
+</tr>
+<tr>
+<td>01001000</td>
+<td>72</td>
+<td>48</td>
+<td>H</td>
+<td></td>
+</tr>
+<tr>
+<td>01001001</td>
+<td>73</td>
+<td>49</td>
+<td>I</td>
+<td></td>
+</tr>
+<tr>
+<td>01001010</td>
+<td>74</td>
+<td>4A</td>
+<td>J</td>
+<td></td>
+</tr>
+<tr>
+<td>01001011</td>
+<td>75</td>
+<td>4B</td>
+<td>K</td>
+<td></td>
+</tr>
+<tr>
+<td>01001100</td>
+<td>76</td>
+<td>4C</td>
+<td>L</td>
+<td></td>
+</tr>
+<tr>
+<td>01001101</td>
+<td>77</td>
+<td>4D</td>
+<td>M</td>
+<td></td>
+</tr>
+<tr>
+<td>01001110</td>
+<td>78</td>
+<td>4E</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>01001111</td>
+<td>79</td>
+<td>4F</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>01010000</td>
+<td>80</td>
+<td>50</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>01010001</td>
+<td>81</td>
+<td>51</td>
+<td>Q</td>
+<td></td>
+</tr>
+<tr>
+<td>01010010</td>
+<td>82</td>
+<td>52</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>01010011</td>
+<td>83</td>
+<td>53</td>
+<td>S</td>
+<td></td>
+</tr>
+<tr>
+<td>01010100</td>
+<td>84</td>
+<td>54</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td>01010101</td>
+<td>85</td>
+<td>55</td>
+<td>U</td>
+<td></td>
+</tr>
+<tr>
+<td>01010110</td>
+<td>86</td>
+<td>56</td>
+<td>V</td>
+<td></td>
+</tr>
+<tr>
+<td>01010111</td>
+<td>87</td>
+<td>57</td>
+<td>W</td>
+<td></td>
+</tr>
+<tr>
+<td>01011000</td>
+<td>88</td>
+<td>58</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>01011001</td>
+<td>89</td>
+<td>59</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>01011010</td>
+<td>90</td>
+<td>5A</td>
+<td>Z</td>
+<td></td>
+</tr>
+<tr>
+<td>01011011</td>
+<td>91</td>
+<td>5B</td>
+<td>[</td>
+<td></td>
+</tr>
+<tr>
+<td>01011100</td>
+<td>92</td>
+<td>5C</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>01011101</td>
+<td>93</td>
+<td>5D</td>
+<td>]</td>
+<td></td>
+</tr>
+<tr>
+<td>01011110</td>
+<td>94</td>
+<td>5E</td>
+<td>^</td>
+<td></td>
+</tr>
+<tr>
+<td>01011111</td>
+<td>95</td>
+<td>5F</td>
+<td>_</td>
+<td></td>
+</tr>
+<tr>
+<td>01100000</td>
+<td>96</td>
+<td>60</td>
+<td>&#96;</td>
+<td></td>
+</tr>
+<tr>
+<td>01100001</td>
+<td>97</td>
+<td>61</td>
+<td>a</td>
+<td></td>
+</tr>
+<tr>
+<td>01100010</td>
+<td>98</td>
+<td>62</td>
+<td>b</td>
+<td></td>
+</tr>
+<tr>
+<td>01100011</td>
+<td>99</td>
+<td>63</td>
+<td>c</td>
+<td></td>
+</tr>
+<tr>
+<td>01100100</td>
+<td>100</td>
+<td>64</td>
+<td>d</td>
+<td></td>
+</tr>
+<tr>
+<td>01100101</td>
+<td>101</td>
+<td>65</td>
+<td>e</td>
+<td></td>
+</tr>
+<tr>
+<td>01100110</td>
+<td>102</td>
+<td>66</td>
+<td>f</td>
+<td></td>
+</tr>
+<tr>
+<td>01100111</td>
+<td>103</td>
+<td>67</td>
+<td>g</td>
+<td></td>
+</tr>
+<tr>
+<td>01101000</td>
+<td>104</td>
+<td>68</td>
+<td>h</td>
+<td></td>
+</tr>
+<tr>
+<td>01101001</td>
+<td>105</td>
+<td>69</td>
+<td>i</td>
+<td></td>
+</tr>
+<tr>
+<td>01101010</td>
+<td>106</td>
+<td>6A</td>
+<td>j</td>
+<td></td>
+</tr>
+<tr>
+<td>01101011</td>
+<td>107</td>
+<td>6B</td>
+<td>k</td>
+<td></td>
+</tr>
+<tr>
+<td>01101100</td>
+<td>108</td>
+<td>6C</td>
+<td>l</td>
+<td></td>
+</tr>
+<tr>
+<td>01101101</td>
+<td>109</td>
+<td>6D</td>
+<td>m</td>
+<td></td>
+</tr>
+<tr>
+<td>01101110</td>
+<td>110</td>
+<td>6E</td>
+<td>n</td>
+<td></td>
+</tr>
+<tr>
+<td>01101111</td>
+<td>111</td>
+<td>6F</td>
+<td>o</td>
+<td></td>
+</tr>
+<tr>
+<td>01110000</td>
+<td>112</td>
+<td>70</td>
+<td>p</td>
+<td></td>
+</tr>
+<tr>
+<td>01110001</td>
+<td>113</td>
+<td>71</td>
+<td>q</td>
+<td></td>
+</tr>
+<tr>
+<td>01110010</td>
+<td>114</td>
+<td>72</td>
+<td>r</td>
+<td></td>
+</tr>
+<tr>
+<td>01110011</td>
+<td>115</td>
+<td>73</td>
+<td>s</td>
+<td></td>
+</tr>
+<tr>
+<td>01110100</td>
+<td>116</td>
+<td>74</td>
+<td>t</td>
+<td></td>
+</tr>
+<tr>
+<td>01110101</td>
+<td>117</td>
+<td>75</td>
+<td>u</td>
+<td></td>
+</tr>
+<tr>
+<td>01110110</td>
+<td>118</td>
+<td>76</td>
+<td>v</td>
+<td></td>
+</tr>
+<tr>
+<td>01110111</td>
+<td>119</td>
+<td>77</td>
+<td>w</td>
+<td></td>
+</tr>
+<tr>
+<td>01111000</td>
+<td>120</td>
+<td>78</td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td>01111001</td>
+<td>121</td>
+<td>79</td>
+<td>y</td>
+<td></td>
+</tr>
+<tr>
+<td>01111010</td>
+<td>122</td>
+<td>7A</td>
+<td>z</td>
+<td></td>
+</tr>
+<tr>
+<td>01111011</td>
+<td>123</td>
+<td>7B</td>
+<td>{</td>
+<td></td>
+</tr>
+<tr>
+<td>01111100</td>
+<td>124</td>
+<td>7C</td>
+<td>|</td>
+<td></td>
+</tr>
+<tr>
+<td>01111101</td>
+<td>125</td>
+<td>7D</td>
+<td>}</td>
+<td></td>
+</tr>
+<tr>
+<td>01111110</td>
+<td>126</td>
+<td>7E</td>
+<td>~</td>
+<td></td>
+</tr>
+<tr>
+<td>01111111</td>
+<td>127</td>
+<td>7F</td>
+<td>DEL (Delete)</td>
+<td>删除</td>
+</tr>
+</tbody></table>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E7%BC%96%E7%A0%81/">#编码</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/11/13/pwn%E5%AD%A6%E4%B9%A0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pwn学习</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

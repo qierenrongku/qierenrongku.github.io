@@ -9,7 +9,7 @@
     
     <title>
         
-            linux基础 |
+            单例模式 |
         
         且任容枯
     </title>
@@ -118,7 +118,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">linux基础</span>
+            <span class="title-hover-animation">单例模式</span>
         </div>
 
         
@@ -137,8 +137,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-11-08 22:41:29</span>
-        <span class="mobile">2022-11-08 22:41</span>
+        <span class="pc">2022-11-21 21:59:27</span>
+        <span class="mobile">2022-11-21 21:59</span>
     </span>
     
     
@@ -147,7 +147,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/linux/">linux</a>&nbsp;
+                        <a href="/tags/python-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">python 设计模式</a>&nbsp;
                     </li>
                 
             </ul>
@@ -166,197 +166,15 @@
         
 
         <div class="article-content markdown-body">
-            <table>
-<thead>
-<tr>
-<th>目录名称</th>
-<th>应放置文件的内容</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&#x2F;boot</td>
-<td>开机所需文件—内核、开机菜单以及所需配置文件等</td>
-</tr>
-<tr>
-<td>&#x2F;dev</td>
-<td>以文件形式存放任何设备与接口</td>
-</tr>
-<tr>
-<td>&#x2F;etc</td>
-<td>配置文件</td>
-</tr>
-<tr>
-<td>&#x2F;home</td>
-<td>用户主目录</td>
-</tr>
-<tr>
-<td>&#x2F;bin</td>
-<td>存放单用户模式下还可以操作的<a class="link"   target="_blank" rel="noopener" href="https://www.linuxcool.com/" >命令<i class="fas fa-external-link-alt"></i></a></td>
-</tr>
-<tr>
-<td>&#x2F;lib</td>
-<td>开机时用到的函数库，以及&#x2F;bin与&#x2F;sbin下面的命令要调用的函数</td>
-</tr>
-<tr>
-<td>&#x2F;sbin</td>
-<td>开机过程中需要的命令</td>
-</tr>
-<tr>
-<td>&#x2F;media</td>
-<td>用于挂载设备文件的目录</td>
-</tr>
-<tr>
-<td>&#x2F;opt</td>
-<td>放置第三方的软件</td>
-</tr>
-<tr>
-<td>&#x2F;root</td>
-<td>系统管理员的家目录</td>
-</tr>
-<tr>
-<td>&#x2F;srv</td>
-<td>一些网络服务的数据文件目录</td>
-</tr>
-<tr>
-<td>&#x2F;tmp</td>
-<td>任何人均可使用的“共享”临时目录</td>
-</tr>
-<tr>
-<td>&#x2F;proc</td>
-<td>虚拟文件系统，例如系统内核、进程、外部设备及网络状态等</td>
-</tr>
-<tr>
-<td>&#x2F;usr&#x2F;local</td>
-<td>用户自行安装的软件</td>
-</tr>
-<tr>
-<td>&#x2F;usr&#x2F;sbin</td>
-<td>Linux系统开机时不会使用到的软件&#x2F;命令&#x2F;<a class="link"   target="_blank" rel="noopener" href="https://www.linuxcool.com/" >脚本<i class="fas fa-external-link-alt"></i></a></td>
-</tr>
-<tr>
-<td>&#x2F;usr&#x2F;share</td>
-<td>帮助与说明文件，也可放置共享文件</td>
-</tr>
-<tr>
-<td>&#x2F;var</td>
-<td>主要存放经常变化的文件，如日志</td>
-</tr>
-<tr>
-<td>&#x2F;lost+found</td>
-<td>当文件系统发生错误时，将一些丢失的文件片段存放在这里</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>硬件设备</th>
-<th>文件名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IDE设备</td>
-<td>&#x2F;dev&#x2F;hd[a-d]</td>
-</tr>
-<tr>
-<td>SCSI&#x2F;SATA&#x2F;U盘</td>
-<td>&#x2F;dev&#x2F;sd[a-z]</td>
-</tr>
-<tr>
-<td>virtio设备</td>
-<td>&#x2F;dev&#x2F;vd[a-z]</td>
-</tr>
-<tr>
-<td>软驱</td>
-<td>&#x2F;dev&#x2F;fd[0-1]</td>
-</tr>
-<tr>
-<td>打印机</td>
-<td>&#x2F;dev&#x2F;lp[0-15]</td>
-</tr>
-<tr>
-<td>光驱</td>
-<td>&#x2F;dev&#x2F;cdrom</td>
-</tr>
-<tr>
-<td>鼠标</td>
-<td>&#x2F;dev&#x2F;mouse</td>
-</tr>
-<tr>
-<td>磁带机</td>
-<td>&#x2F;dev&#x2F;st0或&#x2F;dev&#x2F;ht0</td>
-</tr>
-</tbody></table>
-<p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/image-20221108224534154.3fq1a7fcvzc0.webp" alt="image-20221108224534154"></p>
-<p> <strong>fdisk命令</strong></p>
-<p>在Linux系统中，管理硬盘设备最常用的方法就当属fdisk命令了。fdisk命令用于管理磁盘分区，格式为“fdisk [磁盘名称]”，它提供了集添加、删除、转换分区等功能于一身的“一站式分区服务”。不过与前面讲解的直接写到命令后面的参数不同，这条命令的参数是交互式的，因此在管理硬盘设备时特别方便，可以根据需求动态调整。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>m</td>
-<td>查看全部可用的参数</td>
-</tr>
-<tr>
-<td>n</td>
-<td>添加新的分区</td>
-</tr>
-<tr>
-<td>d</td>
-<td>删除某个分区信息</td>
-</tr>
-<tr>
-<td>l</td>
-<td>列出所有可用的分区类型</td>
-</tr>
-<tr>
-<td>t</td>
-<td>改变某个分区的类型</td>
-</tr>
-<tr>
-<td>p</td>
-<td>查看分区表信息</td>
-</tr>
-<tr>
-<td>w</td>
-<td>保存并退出</td>
-</tr>
-<tr>
-<td>q</td>
-<td>不保存直接退出</td>
-</tr>
-</tbody></table>
-<p><strong>硬链接（hard link）：</strong>可以将它理解为一个“指向原始文件inode的指针”，系统不为它分配独立的inode和文件。所以，硬链接文件与原始文件其实是同一个文件，只是名字不同。我们每添加一个硬链接，该文件的inode连接数就会增加1；而且只有当该文件的inode连接数为0时，才算彻底将它删除。换言之，由于硬链接实际上是指向原文件inode的指针，因此即便原始文件被删除，依然可以通过硬链接文件来访问。需要注意的是，由于技术的局限性，我们不能跨分区对目录文件进行链接。</p>
-<p><strong>软链接（也称为符号链接[symbolic link]）：</strong>仅仅包含所链接文件的路径名，因此能链接目录文件，也可以跨越文件系统进行链接。但是，当原始文件被删除后，链接文件也将失效，从这一点上来说与Windows系统中的“快捷方式”具有一样的性质。</p>
-<p><strong>ln命令</strong></p>
-<p>ln命令用于创建链接文件，格式为“ln [选项] 目标”，其可用的参数以及作用如表6-6所示。在使用ln命令时，是否添加-s参数，将创建出性质不同的两种“快捷方式”。因此如果没有扎实的理论知识和实践经验做铺垫，尽管能够成功完成实验，但永远不会明白为什么会成功。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-s</td>
-<td>创建“符号链接”（如果不带-s参数，则默认创建硬链接）</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>强制创建文件或目录的链接</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>覆盖前先询问</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>显示创建链接的过程</td>
-</tr>
-</tbody></table>
+            <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
+<h3 id="使用new方法"><a href="#使用new方法" class="headerlink" title="使用new方法"></a>使用new方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, *args, **kwargs</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">hasattr</span>(cls, <span class="string">&quot;_instance&quot;</span>):</span><br><span class="line">            cls._instance = <span class="built_in">super</span>(Singleton, cls).__new__(cls)</span><br><span class="line">        <span class="keyword">return</span> cls._instance</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Myclass</span>(<span class="title class_ inherited__">Singleton</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, a</span>):</span><br><span class="line">        self.a = a</span><br><span class="line"></span><br><span class="line">a = Myclass(<span class="number">10</span>)</span><br><span class="line">b = Myclass(<span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(a.a)</span><br><span class="line"><span class="built_in">print</span>(b.a)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">id</span>(a),<span class="built_in">id</span>(b))</span><br><span class="line"><span class="comment"># 20</span></span><br><span class="line"><span class="comment"># 20</span></span><br><span class="line"><span class="comment"># 2472684130160 2472684130160</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="装饰器版本"><a href="#装饰器版本" class="headerlink" title="装饰器版本"></a>装饰器版本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">singleton</span>(<span class="params">cls, *args, **kw</span>):</span><br><span class="line">    instances = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getinstance</span>():</span><br><span class="line">        <span class="keyword">if</span> cls <span class="keyword">not</span> <span class="keyword">in</span> instances:</span><br><span class="line">            instances[cls] = cls(*args, **kw)</span><br><span class="line">        <span class="keyword">return</span> instances[cls]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> getinstance</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@singleton</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Myclass</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">a = Myclass()</span><br><span class="line">b = Myclass()</span><br><span class="line"><span class="built_in">print</span>(a,b)</span><br><span class="line"><span class="comment"># &lt;__main__.Myclass object at 0x000001FBBF007E20&gt; &lt;__main__.Myclass object at 0x000001FBBF007E20&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="import方法"><a href="#import方法" class="headerlink" title="import方法"></a>import方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mysingleton.py</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">My_Singleton</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">foo</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line">my_singleton = My_Singleton()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># to use</span></span><br><span class="line"><span class="keyword">from</span> mysingleton <span class="keyword">import</span> my_singleton</span><br><span class="line"> </span><br><span class="line">my_singleton.foo()</span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -366,7 +184,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/linux/">#linux</a>&nbsp;
+                        <a href="/tags/python-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#python 设计模式</a>&nbsp;
                     </li>
                 
             </ul>
@@ -378,13 +196,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/11/08/makefile/"
+                           href="/2022/11/21/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">makefile</span>
+                                <span class="post-nav-title-item">适配器模式</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -394,10 +212,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/11/02/linux%E9%80%9F%E6%9F%A5/"
+                           href="/2022/11/21/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">linux速查</span>
+                                <span class="post-nav-title-item">建造者模式</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">

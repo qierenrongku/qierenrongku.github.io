@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            数据和C |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">数据和C</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-12-14 22:00:55</span>
+        <span class="mobile">2022-12-14 22:00</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/c%E8%AF%AD%E8%A8%80/">c语言</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="数据和C"><a href="#数据和C" class="headerlink" title="数据和C"></a>数据和C</h1><h3 id="数据类型关键字"><a href="#数据类型关键字" class="headerlink" title="数据类型关键字"></a>数据类型关键字</h3><table>
+<thead>
+<tr>
+<th>最初的关键字</th>
+<th>C90添加</th>
+<th>C99添加</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int</td>
+<td>singed</td>
+<td>_Bool</td>
+</tr>
+<tr>
+<td>long</td>
+<td>void</td>
+<td>_Complex</td>
+</tr>
+<tr>
+<td>short</td>
+<td></td>
+<td>_Imaginary</td>
+</tr>
+<tr>
+<td>unsinged</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>char</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>double</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>位：最小的存储单元是位，可以存储0或1</p>
+</li>
+<li><p>字节是常用的计算机存储单位，一字节为8位</p>
+</li>
+<li><p>字是设计计算机时给定的自然存储单元，计算机的字长越大，其数据转移越快，允许的内存访问也更多</p>
+</li>
+<li><p>整数没有小数部分，浮点数有小数部分</p>
+</li>
+<li><p>浮点数可以表示的范围比整数大</p>
+</li>
+<li><p>对于一些算术运算（很大的数想减），浮点数损失的精度很多</p>
+</li>
+<li><p>虽然在任何区间都存在无数个实数，但是计算机的浮点数无法表示区间内的所有值7.0会存储位6.99999</p>
+</li>
+</ul>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><h5 id="int"><a href="#int" class="headerlink" title="int"></a>int</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a, b = <span class="number">1</span>   <span class="comment">/*不推荐 不要把初始化和未初始化的变量放在同一条声明中*/</span> </span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;%d&quot;</span>,b)</span><br></pre></td></tr></table></figure>
+
+<p>0x或0X表示十六进制值</p>
+<p>0前缀表示八进制</p>
+<p>使用不同的进制是为了方便，并不会改变数被存储的方式</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">100</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;dec = %d; octal = %o; hex = %x\n&quot;</span>,num,num,num);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;dec = %d; octal = %#o; hex = %#x\n&quot;</span>,num,num,num);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">dec = <span class="number">100</span>; octal = <span class="number">144</span>; hex = <span class="number">64</span></span><br><span class="line">dec = <span class="number">100</span>; octal = <span class="number">0144</span>; hex = <span class="number">0x64</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">2147483647</span>;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> num2 = <span class="number">4294967295</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d\n&quot;</span>, num, num+<span class="number">1</span>, num+<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%u %u %u\n&quot;</span>, num2, num2+<span class="number">1</span>, num2+<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">2147483647</span> <span class="number">-2147483648</span> <span class="number">-2147483647</span></span><br><span class="line"><span class="number">4294967295</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">存的是补码</span><br></pre></td></tr></table></figure>
+
+<p>打印unsinged int 使用%u</p>
+<p>打印long使用%ld  %lx %lo</p>
+<p>打印short 使用%hd  %hx %ho</p>
+<p>打印long long 使用%lld  %llu</p>
+<h5 id="char"><a href="#char" class="headerlink" title="char"></a>char</h5><p>转义序列</p>
+<table>
+<thead>
+<tr>
+<th>转义序列</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\a</td>
+<td>警报</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td>\‘</td>
+<td>单引号</td>
+</tr>
+<tr>
+<td>\\“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>?</td>
+<td>问号</td>
+</tr>
+<tr>
+<td>\0oo</td>
+<td>八进制（o 0-7）</td>
+</tr>
+<tr>
+<td>\xhh</td>
+<td>十六进制（h 0-f）</td>
+</tr>
+</tbody></table>
+<p>int类型的常量写法</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>十六进制</th>
+<th>八进制</th>
+<th>十进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char</td>
+<td>\x41</td>
+<td>\101</td>
+<td>N.A.</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0x41</td>
+<td>0101</td>
+<td>65</td>
+</tr>
+<tr>
+<td>unsigned int</td>
+<td>0x41u</td>
+<td>0101u</td>
+<td>65u</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0x41L</td>
+<td>0101L</td>
+<td>65L</td>
+</tr>
+<tr>
+<td>unsigned long</td>
+<td>0x41UL</td>
+<td>0101UL</td>
+<td>65UL</td>
+</tr>
+<tr>
+<td>long long</td>
+<td>0x41LL</td>
+<td>0101LL</td>
+<td>65LL</td>
+</tr>
+<tr>
+<td>unsigned long long</td>
+<td>0x41ULL</td>
+<td>0101ULL</td>
+<td>65ULL</td>
+</tr>
+</tbody></table>
+<h5 id="可移植类型"><a href="#可移植类型" class="headerlink" title="可移植类型"></a>可移植类型</h5><p>stdint.h  inttypes.h</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;inttypes.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line">    <span class="type">int32_t</span> me32;</span><br><span class="line">    me32 = <span class="number">45933945</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;me32 = %d\n&quot;</span>, me32);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;me32 = %&quot;</span>PRId32<span class="string">&quot;\n&quot;</span>,me32);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="float-、double-、long-double"><a href="#float-、double-、long-double" class="headerlink" title="float 、double 、long double"></a>float 、double 、long double</h5><p>float类型必须至少能表示6位有效数字，且取值范围至少是10^-37^~10^37^</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0xa</span><span class="number">.1f</span>p10</span><br></pre></td></tr></table></figure>
+
+<p>十六进制a.1f      p10 指的是2^10^   C99</p>
+<h5 id="类型大小"><a href="#类型大小" class="headerlink" title="类型大小"></a>类型大小</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;int is %zd bytes.\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;char is %zd bytes.\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">char</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;long is %zd bytes.\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">long</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;long long is %zd bytes.\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">long</span> <span class="type">long</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;double is %zd bytes.\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">double</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;long double is %zd bytes.\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="type">long</span> <span class="type">double</span>));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> is <span class="number">4</span> bytes.</span><br><span class="line"><span class="type">char</span> is <span class="number">1</span> bytes.</span><br><span class="line"><span class="type">long</span> is <span class="number">4</span> bytes.</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> is <span class="number">8</span> bytes.</span><br><span class="line"><span class="type">double</span> is <span class="number">8</span> bytes.</span><br><span class="line"><span class="type">long</span> <span class="type">double</span> is <span class="number">16</span> bytes.</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/c%E8%AF%AD%E8%A8%80/">#c语言</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/12/17/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">字符串和格式化输入输出</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/12/13/C%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">C语言概述</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

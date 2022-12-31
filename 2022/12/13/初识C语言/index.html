@@ -9,7 +9,7 @@
     
     <title>
         
-            桥模式 |
+            初识C语言 |
         
         且任容枯
     </title>
@@ -118,7 +118,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">桥模式</span>
+            <span class="title-hover-animation">初识C语言</span>
         </div>
 
         
@@ -137,8 +137,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-11-21 23:20:52</span>
-        <span class="mobile">2022-11-21 23:20</span>
+        <span class="pc">2022-12-13 22:14:21</span>
+        <span class="mobile">2022-12-13 22:14</span>
     </span>
     
     
@@ -147,7 +147,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/python-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">python 设计模式</a>&nbsp;
+                        <a href="/tags/c%E8%AF%AD%E8%A8%80/">c语言</a>&nbsp;
                     </li>
                 
             </ul>
@@ -166,7 +166,31 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="桥模式"><a href="#桥模式" class="headerlink" title="桥模式"></a>桥模式</h1>
+            <h1 id="初识C语言"><a href="#初识C语言" class="headerlink" title="初识C语言"></a>初识C语言</h1><h3 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h3><p>1972年，贝尔实验室的丹尼斯·里奇和肯·汤普逊在开发UNIX操作系统时设计了C语言。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>高效性：c语言具有通常汇编语言才具有的微调控制能力</p>
+<p>可移植性：各操作系统都有合适的C编译器</p>
+<p>面向程序员（别人都有对象、学C面对自己）：可以访问硬件、操作内存中的位</p>
+<p>缺点：指针、混乱代码大赛、</p>
+<h3 id="应用范围"><a href="#应用范围" class="headerlink" title="应用范围"></a>应用范围</h3><p>嵌入式系统编程、Linux开发、计算机游戏、等</p>
+<h3 id="语言标准"><a href="#语言标准" class="headerlink" title="语言标准"></a>语言标准</h3><p>ANSI&#x2F;ISO C标准：定义了C语言和C标准库 ISO C和ANSI C是完全相同的标准。ANSI&#x2F;ISO标准的最终版本通常叫做C89（ANSI–1989）或C90(ISO–1990)</p>
+<p>C99标准：国际化编程（处理国际字符集）、调整现有世间致力于解决明显的缺陷、提高计算的实用性</p>
+<p>C11标准：略</p>
+<h3 id="使用C语言的7个步骤"><a href="#使用C语言的7个步骤" class="headerlink" title="使用C语言的7个步骤"></a>使用C语言的7个步骤</h3><ol>
+<li>定义程序的目标</li>
+<li>设计程序</li>
+<li>编写代码</li>
+<li>编译</li>
+<li>运行程序</li>
+<li>测试和调试程序</li>
+<li>维护和修改程序</li>
+</ol>
+<h3 id="编程机制"><a href="#编程机制" class="headerlink" title="编程机制"></a>编程机制</h3><p>源代码文件（xxx.c）</p>
+<p>目标代码文件、可执行文件和库：编译器吧源代码转换成中间代码，链接器把中间代码和其他代码合并，生成可执行文件。</p>
+<p><img src="D:\pictures\mark-picture\编译器和链接器.png" alt="编译器和链接器"></p>
+<p>启动代码充当着程序和操作系统之间的接口</p>
+<h3 id="在UNIX系统上编译"><a href="#在UNIX系统上编译" class="headerlink" title="在UNIX系统上编译"></a>在UNIX系统上编译</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gcc -std=c99 a.c</span><br><span class="line">gcc -std=c1x a.c # GCC接受C11之前的草案标准</span><br><span class="line">gcc -std=c11 a.c</span><br></pre></td></tr></table></figure>
+
+
         </div>
 
         
@@ -175,7 +199,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/python-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#python 设计模式</a>&nbsp;
+                        <a href="/tags/c%E8%AF%AD%E8%A8%80/">#c语言</a>&nbsp;
                     </li>
                 
             </ul>
@@ -187,13 +211,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/12/13/%E5%88%9D%E8%AF%86C%E8%AF%AD%E8%A8%80/"
+                           href="/2022/12/13/C%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">初识C语言</span>
+                                <span class="post-nav-title-item">C语言概述</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -203,10 +227,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/11/21/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"
+                           href="/2022/11/21/%E6%A1%A5%E6%A8%A1%E5%BC%8F/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">适配器模式</span>
+                                <span class="post-nav-title-item">桥模式</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            pytest Fixtures reference |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">pytest Fixtures reference</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2023-05-16 20:47:47</span>
+        <span class="mobile">2023-05-16 20:47</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/pytest-python/">pytest python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="内置fixture"><a href="#内置fixture" class="headerlink" title="内置fixture"></a>内置fixture</h2><p>@pytest.fixture  装饰器的形式来使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">capfd</span><br><span class="line">Capture, <span class="keyword">as</span> text, output to file descriptors <span class="number">1</span> <span class="keyword">and</span> <span class="number">2.</span></span><br><span class="line"></span><br><span class="line">capfdbinary</span><br><span class="line">Capture, <span class="keyword">as</span> <span class="built_in">bytes</span>, output to file descriptors <span class="number">1</span> <span class="keyword">and</span> <span class="number">2.</span></span><br><span class="line"></span><br><span class="line">caplog</span><br><span class="line">Control logging <span class="keyword">and</span> access log entries.</span><br><span class="line"></span><br><span class="line">capsys</span><br><span class="line">Capture, <span class="keyword">as</span> text, output to sys.stdout <span class="keyword">and</span> sys.stderr.</span><br><span class="line"></span><br><span class="line">capsysbinary</span><br><span class="line">Capture, <span class="keyword">as</span> <span class="built_in">bytes</span>, output to sys.stdout <span class="keyword">and</span> sys.stderr.</span><br><span class="line"></span><br><span class="line">cache</span><br><span class="line">Store <span class="keyword">and</span> retrieve values across pytest runs.</span><br><span class="line"></span><br><span class="line">doctest_namespace</span><br><span class="line">Provide a <span class="built_in">dict</span> injected into the docstests namespace.</span><br><span class="line"></span><br><span class="line">monkeypatch</span><br><span class="line">Temporarily modify classes, functions, dictionaries, os.environ, <span class="keyword">and</span> other objects.</span><br><span class="line"></span><br><span class="line">pytestconfig</span><br><span class="line">Access to configuration values, pluginmanager <span class="keyword">and</span> plugin hooks.</span><br><span class="line"></span><br><span class="line">record_property</span><br><span class="line">Add extra properties to the test.</span><br><span class="line"></span><br><span class="line">record_testsuite_property</span><br><span class="line">Add extra properties to the test suite.</span><br><span class="line"></span><br><span class="line">recwarn</span><br><span class="line">Record warnings emitted by test functions.</span><br><span class="line"></span><br><span class="line">request</span><br><span class="line">Provide information on the executing test function.</span><br><span class="line"></span><br><span class="line">testdir</span><br><span class="line">Provide a temporary test directory to aid <span class="keyword">in</span> running, <span class="keyword">and</span> testing, pytest plugins.</span><br><span class="line"></span><br><span class="line">tmp_path</span><br><span class="line">Provide a pathlib.Path <span class="built_in">object</span> to a temporary directory which <span class="keyword">is</span> unique to each test function.</span><br><span class="line"></span><br><span class="line">tmp_path_factory</span><br><span class="line">Make session-scoped temporary directories <span class="keyword">and</span> <span class="keyword">return</span> pathlib.Path objects.</span><br><span class="line"></span><br><span class="line">tmpdir</span><br><span class="line">Provide a py.path.local <span class="built_in">object</span> to a temporary directory which <span class="keyword">is</span> unique to each test function; replaced by tmp_path.</span><br><span class="line"></span><br><span class="line">tmpdir_factory</span><br><span class="line">Make session-scoped temporary directories <span class="keyword">and</span> <span class="keyword">return</span> py.path.local objects; replaced by tmp_path_factory.</span><br></pre></td></tr></table></figure>
+
+<h2 id="fixture-使用"><a href="#fixture-使用" class="headerlink" title="fixture 使用"></a>fixture 使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">outer</span>(<span class="params">order, inner</span>):</span><br><span class="line">    order.append(<span class="string">&quot;outer&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestOne</span>:</span><br><span class="line"><span class="meta">    @pytest.fixture</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>(<span class="params">self, order</span>):</span><br><span class="line">        order.append(<span class="string">&quot;one&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">self, order, outer</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;one&quot;</span>, <span class="string">&quot;outer&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestTwo</span>:</span><br><span class="line"><span class="meta">    @pytest.fixture</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inner</span>(<span class="params">self, order</span>):</span><br><span class="line">        order.append(<span class="string">&quot;two&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">self, order, outer</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;two&quot;</span>, <span class="string">&quot;outer&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>因此，当它们运行时，外部将不存在找到内部的问题，因为 pytest 是从测试的角度进行搜索的</p>
+<h2 id="跨文件使用多个fixture-conftest-py"><a href="#跨文件使用多个fixture-conftest-py" class="headerlink" title="跨文件使用多个fixture:conftest.py"></a>跨文件使用多个fixture:conftest.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">tests/</span><br><span class="line">    __init__.py</span><br><span class="line"></span><br><span class="line">    conftest.py</span><br><span class="line">        <span class="comment"># content of tests/conftest.py</span></span><br><span class="line">        <span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">        @pytest.fixture</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="meta">        @pytest.fixture</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">top</span>(<span class="params">order, innermost</span>):</span><br><span class="line">            order.append(<span class="string">&quot;top&quot;</span>)</span><br><span class="line"></span><br><span class="line">    test_top.py</span><br><span class="line">        <span class="comment"># content of tests/test_top.py</span></span><br><span class="line">        <span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">        @pytest.fixture</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">innermost</span>(<span class="params">order</span>):</span><br><span class="line">            order.append(<span class="string">&quot;innermost top&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">order, top</span>):</span><br><span class="line">            <span class="keyword">assert</span> order == [<span class="string">&quot;innermost top&quot;</span>, <span class="string">&quot;top&quot;</span>]</span><br><span class="line"></span><br><span class="line">    subpackage/</span><br><span class="line">        __init__.py</span><br><span class="line"></span><br><span class="line">        conftest.py</span><br><span class="line">            <span class="comment"># content of tests/subpackage/conftest.py</span></span><br><span class="line">            <span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">            @pytest.fixture</span></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">mid</span>(<span class="params">order</span>):</span><br><span class="line">                order.append(<span class="string">&quot;mid subpackage&quot;</span>)</span><br><span class="line"></span><br><span class="line">        test_subpackage.py</span><br><span class="line">            <span class="comment"># content of tests/subpackage/test_subpackage.py</span></span><br><span class="line">            <span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">            @pytest.fixture</span></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">innermost</span>(<span class="params">order, mid</span>):</span><br><span class="line">                order.append(<span class="string">&quot;innermost subpackage&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">order, top</span>):</span><br><span class="line">                <span class="keyword">assert</span> order == [<span class="string">&quot;mid subpackage&quot;</span>, <span class="string">&quot;innermost subpackage&quot;</span>, <span class="string">&quot;top&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三方插件fixture"><a href="#第三方插件fixture" class="headerlink" title="第三方插件fixture"></a>第三方插件fixture</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">tests/</span><br><span class="line">    __init__.py</span><br><span class="line"></span><br><span class="line">    conftest.py</span><br><span class="line">        <span class="comment"># content of tests/conftest.py</span></span><br><span class="line">        <span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">        @pytest.fixture</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">    subpackage/</span><br><span class="line">        __init__.py</span><br><span class="line"></span><br><span class="line">        conftest.py</span><br><span class="line">            <span class="comment"># content of tests/subpackage/conftest.py</span></span><br><span class="line">            <span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">            @pytest.fixture(<span class="params">autouse=<span class="literal">True</span></span>)</span></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">mid</span>(<span class="params">order, b_fix</span>):</span><br><span class="line">                order.append(<span class="string">&quot;mid subpackage&quot;</span>)</span><br><span class="line"></span><br><span class="line">        test_subpackage.py</span><br><span class="line">            <span class="comment"># content of tests/subpackage/test_subpackage.py</span></span><br><span class="line">            <span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">            @pytest.fixture</span></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">inner</span>(<span class="params">order, mid, a_fix</span>):</span><br><span class="line">                order.append(<span class="string">&quot;inner subpackage&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">order, inner</span>):</span><br><span class="line">                <span class="keyword">assert</span> order == [<span class="string">&quot;b_fix&quot;</span>, <span class="string">&quot;mid subpackage&quot;</span>, <span class="string">&quot;a_fix&quot;</span>, <span class="string">&quot;inner subpackage&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>If <code>plugin_a</code> is installed and provides the fixture <code>a_fix</code>, and <code>plugin_b</code> is installed and provides the fixture <code>b_fix</code>, then this is</p>
+<h2 id="fixture-执行顺序"><a href="#fixture-执行顺序" class="headerlink" title="fixture 执行顺序"></a>fixture 执行顺序</h2><p>三个要素  scope dependencies autouse</p>
+<ul>
+<li>scope<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;session&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;function&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;class&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cls</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;class&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;module&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mod</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;module&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;package&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pack</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;package&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;session&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sess</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;session&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestClass</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">self, func, cls, mod, pack, sess, order</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;session&quot;</span>, <span class="string">&quot;package&quot;</span>, <span class="string">&quot;module&quot;</span>, <span class="string">&quot;class&quot;</span>, <span class="string">&quot;function&quot;</span>]</span><br></pre></td></tr></table></figure>
+![[<a class="link"   target="_blank" rel="noopener" href="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted" >https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted<i class="fas fa-external-link-alt"></i></a> image 20230514220520.3cgymwby0s80.webp]]</li>
+<li>依赖关系执行<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;a&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">b</span>(<span class="params">a, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;b&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">c</span>(<span class="params">b, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;c&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">d</span>(<span class="params">c, b, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;d&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e</span>(<span class="params">d, b, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;e&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">e, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;f&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">g</span>(<span class="params">f, c, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;g&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">g, order</span>):</span><br><span class="line">    <span class="keyword">assert</span> order == [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>, <span class="string">&quot;e&quot;</span>, <span class="string">&quot;f&quot;</span>, <span class="string">&quot;g&quot;</span>]</span><br></pre></td></tr></table></figure>
+![[<a class="link"   target="_blank" rel="noopener" href="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted" >https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted<i class="fas fa-external-link-alt"></i></a> image 20230514220714.om6xmy72pj4.webp]]![[<a class="link"   target="_blank" rel="noopener" href="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted" >https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted<i class="fas fa-external-link-alt"></i></a> image 20230514220648.18z260wxf934.webp]]</li>
+</ul>
+<h2 id="Autouse-fixtures-are-executed-first-within-their-scope"><a href="#Autouse-fixtures-are-executed-first-within-their-scope" class="headerlink" title="Autouse fixtures are executed first within their scope"></a>Autouse fixtures are executed first within their scope</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;a&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">b</span>(<span class="params">a, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;b&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">autouse=<span class="literal">True</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">c</span>(<span class="params">b, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;c&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">d</span>(<span class="params">b, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;d&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">e</span>(<span class="params">d, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;e&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">e, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;f&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">g</span>(<span class="params">f, c, order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;g&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_order_and_g</span>(<span class="params">g, order</span>):</span><br><span class="line">    <span class="keyword">assert</span> order == [<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;d&quot;</span>, <span class="string">&quot;e&quot;</span>, <span class="string">&quot;f&quot;</span>, <span class="string">&quot;g&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>看 c和d<br>注意    一个 autouse fixture 将自动执行每一个可以到达它的测试，即使他们没有请求它</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;class&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;class&quot;</span>, autouse=<span class="literal">True</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">c1</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;c1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;class&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">c2</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;c2&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&quot;class&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">c3</span>(<span class="params">order, c1</span>):</span><br><span class="line">    order.append(<span class="string">&quot;c3&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestClassWithC1Request</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">self, order, c1, c3</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;c1&quot;</span>, <span class="string">&quot;c3&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestClassWithoutC1Request</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_order</span>(<span class="params">self, order, c2</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;c1&quot;</span>, <span class="string">&quot;c2&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">order</span>():</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">c1</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;c1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.fixture</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">c2</span>(<span class="params">order</span>):</span><br><span class="line">    order.append(<span class="string">&quot;c2&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestClassWithAutouse</span>:</span><br><span class="line"><span class="meta">    @pytest.fixture(<span class="params">autouse=<span class="literal">True</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">c3</span>(<span class="params">self, order, c2</span>):</span><br><span class="line">        order.append(<span class="string">&quot;c3&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_req</span>(<span class="params">self, order, c1</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;c2&quot;</span>, <span class="string">&quot;c3&quot;</span>, <span class="string">&quot;c1&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_no_req</span>(<span class="params">self, order</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;c2&quot;</span>, <span class="string">&quot;c3&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestClassWithoutAutouse</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_req</span>(<span class="params">self, order, c1</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == [<span class="string">&quot;c1&quot;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_no_req</span>(<span class="params">self, order</span>):</span><br><span class="line">        <span class="keyword">assert</span> order == []</span><br></pre></td></tr></table></figure>
+<p>![[<a class="link"   target="_blank" rel="noopener" href="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted" >https://cdn.staticaly.com/gh/qierenrongku/images@master/Pasted<i class="fas fa-external-link-alt"></i></a> image 20230514222051.ib4uh72mqbk.webp]]</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/pytest-python/">#pytest python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2023/05/16/pytest-how-to-invoke-pytest/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pytest how to invoke pytest</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/05/16/Anaconda-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Anaconda 虚拟环境管理</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

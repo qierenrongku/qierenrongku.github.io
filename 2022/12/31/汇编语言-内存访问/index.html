@@ -142,6 +142,17 @@
     </span>
     
     
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%B1%87%E7%BC%96/">汇编</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
 
     
     
@@ -155,15 +166,121 @@
         
 
         <div class="article-content markdown-body">
-            
+            <h2 id="汇编语言-内存访问"><a href="#汇编语言-内存访问" class="headerlink" title="汇编语言-内存访问"></a>汇编语言-内存访问</h2><h4 id="内存中字的存储"><a href="#内存中字的存储" class="headerlink" title="内存中字的存储"></a>内存中字的存储</h4><p>字单元：即存放一个字型数据（16位）的内存单元，由俩个地址连续的内存单元组成</p>
+<p><strong>注意区分字单元与内存单元的区别</strong></p>
+<p>DS和[address]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov bx,1000H   </span><br><span class="line">mov ds,bx   </span><br><span class="line">mov al [0]  将数据从1000:0单元输入到al,ds为段地址1000H</span><br></pre></td></tr></table></figure>
+
+<h4 id="mov、add、sub"><a href="#mov、add、sub" class="headerlink" title="mov、add、sub"></a>mov、add、sub</h4><table>
+<thead>
+<tr>
+<th>mov 寄存器，数据</th>
+<th>mov ax，8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mov 寄存器，寄存器</td>
+<td>mov ax,bx</td>
+</tr>
+<tr>
+<td>mov 寄存器，内存单元</td>
+<td>mov ax,[0]</td>
+</tr>
+<tr>
+<td>mov 内存单元，寄存器</td>
+<td>mov [0],ax</td>
+</tr>
+<tr>
+<td>mov 段寄存器，寄存器</td>
+<td>mov ds,ax</td>
+</tr>
+<tr>
+<td>mov 寄存器，段寄存器</td>
+<td>mov ax,ds</td>
+</tr>
+<tr>
+<td>mov 内存单元，段寄存器</td>
+<td>mov [0],cs</td>
+</tr>
+<tr>
+<td>mov 段寄存器，内存单元</td>
+<td>mov ds,[0]</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>add 寄存器，数据</th>
+<th>add ax,8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>add 寄存器，寄存器</td>
+<td>add ax,bx</td>
+</tr>
+<tr>
+<td>add 寄存器，内存单元</td>
+<td>add ax,[0]</td>
+</tr>
+<tr>
+<td>add 内存单元，寄存器</td>
+<td>add [0],ax</td>
+</tr>
+<tr>
+<td>sub 寄存器，数据</td>
+<td>sub ax,8</td>
+</tr>
+<tr>
+<td>sub 寄存器，寄存器</td>
+<td>sub ax,bx</td>
+</tr>
+<tr>
+<td>sub 寄存器，内存单元</td>
+<td>sub ax,[0]</td>
+</tr>
+<tr>
+<td>sub 内存单元，寄存器</td>
+<td>sub [0],ax</td>
+</tr>
+</tbody></table>
+<h4 id="CPU提供的栈机制"><a href="#CPU提供的栈机制" class="headerlink" title="CPU提供的栈机制"></a>CPU提供的栈机制</h4><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/8086CPU的栈的操作.5gpqsz4adow0.webp" style="zoom:80%;" />
+
+<p>段寄存器SS和寄存器SP,栈顶的段地址存放在SS中，偏移地址存放在SP中   任意时刻，SS:SP 指向栈顶元素</p>
+<h4 id="栈顶超界的问题"><a href="#栈顶超界的问题" class="headerlink" title="栈顶超界的问题"></a>栈顶超界的问题</h4><p>自己编程时注意，CPU它不管（气不气）</p>
+<h4 id="pop、push"><a href="#pop、push" class="headerlink" title="pop、push"></a>pop、push</h4><p>push 寄存器&#x2F;段寄存器&#x2F;内存单元</p>
+<p>pop 寄存器&#x2F;段寄存器&#x2F;内存单元</p>
+
         </div>
 
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%B1%87%E7%BC%96/">#汇编</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2023/02/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%92%8C%E5%9B%A0%E7%89%B9%E7%BD%91/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">计算机网络和因特网</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
@@ -203,7 +320,7 @@
               <span>2020</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
         </div>
         
         <div class="theme-info info-item">

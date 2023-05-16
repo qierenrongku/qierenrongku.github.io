@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            pytest start |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">pytest start</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2023-05-16 20:48:31</span>
+        <span class="mobile">2023-05-16 20:48</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/pytest-python/">pytest python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="安装pytest"><a href="#安装pytest" class="headerlink" title="安装pytest"></a>安装pytest</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U pytest    # -U就是 --upgrade，意思是如果已安装就升级到最新版</span><br></pre></td></tr></table></figure>
+
+<h2 id="A-sample"><a href="#A-sample" class="headerlink" title="A sample"></a>A sample</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def func(x):  </span><br><span class="line">    return x+1;  </span><br><span class="line">  </span><br><span class="line">def test_answer():  </span><br><span class="line">    assert func(3) == 5</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>test 结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">============================= test session starts =============================</span><br><span class="line">collecting ... collected 1 item</span><br><span class="line"></span><br><span class="line">test_sample.py::test_answer FAILED                                       [100%]</span><br><span class="line">test_sample.py:12 (test_answer)</span><br><span class="line">4 != 5</span><br><span class="line"></span><br><span class="line">Expected :5</span><br><span class="line">Actual   :4</span><br><span class="line">&lt;Click to see difference&gt;</span><br><span class="line"></span><br><span class="line">def test_answer():</span><br><span class="line">&gt;       assert func(3) == 5</span><br><span class="line">E       assert 4 == 5</span><br><span class="line">E         +4</span><br><span class="line">E         -5</span><br><span class="line"></span><br><span class="line">test_sample.py:14: AssertionError</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">======================== 1 failed, 1 warning in 0.23s =========================</span><br></pre></td></tr></table></figure>
+
+<p>使用assert断言来校验预期值</p>
+<h2 id="multiple-tests"><a href="#multiple-tests" class="headerlink" title="multiple tests"></a>multiple tests</h2><p>Pytest 将运行 test _ * 格式的所有文件。工作目录及其子目录中的 py 或 * _ test.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import pytest  </span><br><span class="line">  </span><br><span class="line">def f():  </span><br><span class="line">    raise SystemExit(1)  </span><br><span class="line">  </span><br><span class="line">def test_mytest():  </span><br><span class="line">    with pytest.raises(SystemExit):  </span><br><span class="line">        f()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS D:\project\oneday_onecoding\python\pytest_study&gt; pytest -q .\test_sysexit.py </span><br><span class="line">.                                                                                                                                              [100%]</span><br><span class="line">1 passed, 1 warning in 0.14s</span><br></pre></td></tr></table></figure>
+<p>-q  就是quiet模式  打印的内容简洁</p>
+<h2 id="test-in-class"><a href="#test-in-class" class="headerlink" title="test in class"></a>test in class</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class TestClass:  </span><br><span class="line">    def test_one(self):  </span><br><span class="line">        x = &#x27;this&#x27;  </span><br><span class="line">        assert &quot;h&quot; in x  </span><br><span class="line">  </span><br><span class="line">    def test_two(self):  </span><br><span class="line">        x = &#x27;hello&#x27;  </span><br><span class="line">        assert hasattr(x,&#x27;check&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>在类级别添加属性 ，可以在不同的测试中共享     -k （模糊字符串查找执行用例）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class TestClassDemoInstance:  </span><br><span class="line">    value = 0  </span><br><span class="line">  </span><br><span class="line">    def test_one(self):  </span><br><span class="line">        self.value = 1  </span><br><span class="line">        assert self.value == 1  </span><br><span class="line">  </span><br><span class="line">    def test_two(self):  </span><br><span class="line">        assert self.value == 1</span><br></pre></td></tr></table></figure>
+<p> -k （模糊字符串查找执行用例）   pytest -k TestClassDemoInstance -q</p>
+<h2 id="请求临时目录"><a href="#请求临时目录" class="headerlink" title="请求临时目录"></a>请求临时目录</h2><p><code>pytest</code> provides Builtin fixtures&#x2F;function arguments to request arbitrary resources, like a unique temporary directory<br>Pytest 提供了 Builtin fixture&#x2F;function 参数来请求任意资源，比如一个惟一的临时目录:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def test_needsfiles(tmp_path):  </span><br><span class="line">    print(tmp_path)  </span><br><span class="line">    assert 0</span><br><span class="line"></span><br><span class="line">tmp_path = WindowsPath(&#x27;C:/Users/xsc/AppData/Local/Temp/pytest-of-xsc/pytest-0/test_needsfiles0&#x27;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line">pytest --fixtures</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">C:\Users\xsc&gt;pytest --fixtures</span><br><span class="line">================================================= test session starts =================================================</span><br><span class="line">platform win32 -- Python 3.9.7, pytest-6.2.4, py-1.10.0, pluggy-0.13.1</span><br><span class="line">rootdir: C:\Users\xsc</span><br><span class="line">plugins: anyio-2.2.0, Faker-14.0.0</span><br><span class="line">collected 0 items / 1 error</span><br><span class="line">cache</span><br><span class="line">    Return a cache object that can persist state between testing sessions.</span><br><span class="line"></span><br><span class="line">    cache.get(key, default)</span><br><span class="line">    cache.set(key, value)</span><br><span class="line"></span><br><span class="line">    Keys must be ``/`` separated strings, where the first part is usually the</span><br><span class="line">    name of your plugin or application to avoid clashes with other cache users.</span><br><span class="line"></span><br><span class="line">    Values can be any object handled by the json stdlib module.</span><br><span class="line"></span><br><span class="line">capsys</span><br><span class="line">    Enable text capturing of writes to ``sys.stdout`` and ``sys.stderr``.</span><br><span class="line"></span><br><span class="line">    The captured output is made available via ``capsys.readouterr()`` method</span><br><span class="line">    calls, which return a ``(out, err)`` namedtuple.</span><br><span class="line">    ``out`` and ``err`` will be ``text`` objects.</span><br><span class="line"></span><br><span class="line">capsysbinary</span><br><span class="line">    Enable bytes capturing of writes to ``sys.stdout`` and ``sys.stderr``.</span><br><span class="line"></span><br><span class="line">    The captured output is made available via ``capsysbinary.readouterr()``</span><br><span class="line">    method calls, which return a ``(out, err)`` namedtuple.</span><br><span class="line">    ``out`` and ``err`` will be ``bytes`` objects.</span><br><span class="line"></span><br><span class="line">capfd</span><br><span class="line">    Enable text capturing of writes to file descriptors ``1`` and ``2``.</span><br><span class="line"></span><br><span class="line">    The captured output is made available via ``capfd.readouterr()`` method</span><br><span class="line">    calls, which return a ``(out, err)`` namedtuple.</span><br><span class="line">    ``out`` and ``err`` will be ``text`` objects.</span><br><span class="line"></span><br><span class="line">capfdbinary</span><br><span class="line">    Enable bytes capturing of writes to file descriptors ``1`` and ``2``.</span><br><span class="line"></span><br><span class="line">    The captured output is made available via ``capfd.readouterr()`` method</span><br><span class="line">    calls, which return a ``(out, err)`` namedtuple.</span><br><span class="line">    ``out`` and ``err`` will be ``byte`` objects.</span><br><span class="line"></span><br><span class="line">doctest_namespace [session scope]</span><br><span class="line">    Fixture that returns a :py:class:`dict` that will be injected into the</span><br><span class="line">    namespace of doctests.</span><br><span class="line"></span><br><span class="line">pytestconfig [session scope]</span><br><span class="line">    Session-scoped fixture that returns the :class:`_pytest.config.Config` object.</span><br><span class="line"></span><br><span class="line">    Example::</span><br><span class="line"></span><br><span class="line">        def test_foo(pytestconfig):</span><br><span class="line">            if pytestconfig.getoption(&quot;verbose&quot;) &gt; 0:</span><br><span class="line">                ...</span><br><span class="line"></span><br><span class="line">record_property</span><br><span class="line">    Add extra properties to the calling test.</span><br><span class="line"></span><br><span class="line">    User properties become part of the test report and are available to the</span><br><span class="line">    configured reporters, like JUnit XML.</span><br><span class="line"></span><br><span class="line">    The fixture is callable with ``name, value``. The value is automatically</span><br><span class="line">    XML-encoded.</span><br><span class="line"></span><br><span class="line">    Example::</span><br><span class="line"></span><br><span class="line">        def test_function(record_property):</span><br><span class="line">            record_property(&quot;example_key&quot;, 1)</span><br><span class="line"></span><br><span class="line">record_xml_attribute</span><br><span class="line">    Add extra xml attributes to the tag for the calling test.</span><br><span class="line"></span><br><span class="line">    The fixture is callable with ``name, value``. The value is</span><br><span class="line">    automatically XML-encoded.</span><br><span class="line"></span><br><span class="line">record_testsuite_property [session scope]</span><br><span class="line">    Record a new ``&lt;property&gt;`` tag as child of the root ``&lt;testsuite&gt;``.</span><br><span class="line"></span><br><span class="line">    This is suitable to writing global information regarding the entire test</span><br><span class="line">    suite, and is compatible with ``xunit2`` JUnit family.</span><br><span class="line"></span><br><span class="line">    This is a ``session``-scoped fixture which is called with ``(name, value)``. Example:</span><br><span class="line"></span><br><span class="line">    .. code-block:: python</span><br><span class="line"></span><br><span class="line">        def test_foo(record_testsuite_property):</span><br><span class="line">            record_testsuite_property(&quot;ARCH&quot;, &quot;PPC&quot;)</span><br><span class="line">            record_testsuite_property(&quot;STORAGE_TYPE&quot;, &quot;CEPH&quot;)</span><br><span class="line"></span><br><span class="line">    ``name`` must be a string, ``value`` will be converted to a string and properly xml-escaped.</span><br><span class="line"></span><br><span class="line">    .. warning::</span><br><span class="line"></span><br><span class="line">        Currently this fixture **does not work** with the</span><br><span class="line">        `pytest-xdist &lt;https://github.com/pytest-dev/pytest-xdist&gt;`__ plugin. See issue</span><br><span class="line">        `#7767 &lt;https://github.com/pytest-dev/pytest/issues/7767&gt;`__ for details.</span><br><span class="line"></span><br><span class="line">caplog</span><br><span class="line">    Access and control log capturing.</span><br><span class="line"></span><br><span class="line">    Captured logs are available through the following properties/methods::</span><br><span class="line"></span><br><span class="line">    * caplog.messages        -&gt; list of format-interpolated log messages</span><br><span class="line">    * caplog.text            -&gt; string containing formatted log output</span><br><span class="line">    * caplog.records         -&gt; list of logging.LogRecord instances</span><br><span class="line">    * caplog.record_tuples   -&gt; list of (logger_name, level, message) tuples</span><br><span class="line">    * caplog.clear()         -&gt; clear captured records and formatted log output string</span><br><span class="line"></span><br><span class="line">monkeypatch</span><br><span class="line">    A convenient fixture for monkey-patching.</span><br><span class="line"></span><br><span class="line">    The fixture provides these methods to modify objects, dictionaries or</span><br><span class="line">    os.environ::</span><br><span class="line"></span><br><span class="line">        monkeypatch.setattr(obj, name, value, raising=True)</span><br><span class="line">        monkeypatch.delattr(obj, name, raising=True)</span><br><span class="line">        monkeypatch.setitem(mapping, name, value)</span><br><span class="line">        monkeypatch.delitem(obj, name, raising=True)</span><br><span class="line">        monkeypatch.setenv(name, value, prepend=False)</span><br><span class="line">        monkeypatch.delenv(name, raising=True)</span><br><span class="line">        monkeypatch.syspath_prepend(path)</span><br><span class="line">        monkeypatch.chdir(path)</span><br><span class="line"></span><br><span class="line">    All modifications will be undone after the requesting test function or</span><br><span class="line">    fixture has finished. The ``raising`` parameter determines if a KeyError</span><br><span class="line">    or AttributeError will be raised if the set/deletion operation has no target.</span><br><span class="line"></span><br><span class="line">recwarn</span><br><span class="line">    Return a :class:`WarningsRecorder` instance that records all warnings emitted by test functions.</span><br><span class="line"></span><br><span class="line">    See http://docs.python.org/library/warnings.html for information</span><br><span class="line">    on warning categories.</span><br><span class="line"></span><br><span class="line">tmpdir_factory [session scope]</span><br><span class="line">    Return a :class:`_pytest.tmpdir.TempdirFactory` instance for the test session.</span><br><span class="line"></span><br><span class="line">tmp_path_factory [session scope]</span><br><span class="line">    Return a :class:`_pytest.tmpdir.TempPathFactory` instance for the test session.</span><br><span class="line"></span><br><span class="line">tmpdir</span><br><span class="line">    Return a temporary directory path object which is unique to each test</span><br><span class="line">    function invocation, created as a sub directory of the base temporary</span><br><span class="line">    directory.</span><br><span class="line"></span><br><span class="line">    By default, a new base temporary directory is created each test session,</span><br><span class="line">    and old bases are removed after 3 sessions, to aid in debugging. If</span><br><span class="line">    ``--basetemp`` is used then it is cleared each session. See :ref:`base</span><br><span class="line">    temporary directory`.</span><br><span class="line"></span><br><span class="line">    The returned object is a `py.path.local`_ path object.</span><br><span class="line"></span><br><span class="line">    .. _`py.path.local`: https://py.readthedocs.io/en/latest/path.html</span><br><span class="line"></span><br><span class="line">tmp_path</span><br><span class="line">    Return a temporary directory path object which is unique to each test</span><br><span class="line">    function invocation, created as a sub directory of the base temporary</span><br><span class="line">    directory.</span><br><span class="line"></span><br><span class="line">    By default, a new base temporary directory is created each test session,</span><br><span class="line">    and old bases are removed after 3 sessions, to aid in debugging. If</span><br><span class="line">    ``--basetemp`` is used then it is cleared each session. See :ref:`base</span><br><span class="line">    temporary directory`.</span><br><span class="line"></span><br><span class="line">    The returned object is a :class:`pathlib.Path` object.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/pytest-python/">#pytest python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/05/16/pytest-plugins/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pytest plugins</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            pytest plugins |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">pytest plugins</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2023-05-16 20:48:23</span>
+        <span class="mobile">2023-05-16 20:48</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/pytest-python/">pytest python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="How-to-install-and-use-plugins"><a href="#How-to-install-and-use-plugins" class="headerlink" title="How to install and use plugins"></a>How to install and use plugins</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install pytest-NAME</span><br><span class="line">pip uninstall pytest-NAME</span><br></pre></td></tr></table></figure>
+<p>some popular plugins</p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-django/" >pytest-django<i class="fas fa-external-link-alt"></i></a>: write tests for <a class="link"   target="_blank" rel="noopener" href="https://docs.djangoproject.com/" >django<i class="fas fa-external-link-alt"></i></a> apps, using pytest integration.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-twisted/" >pytest-twisted<i class="fas fa-external-link-alt"></i></a>: write tests for <a class="link"   target="_blank" rel="noopener" href="https://twistedmatrix.com/" >twisted<i class="fas fa-external-link-alt"></i></a> apps, starting a reactor and processing deferreds from test functions.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-cov/" >pytest-cov<i class="fas fa-external-link-alt"></i></a>: coverage reporting, compatible with distributed testing</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-xdist/" >pytest-xdist<i class="fas fa-external-link-alt"></i></a>: to distribute tests to CPUs and remote hosts, to run in boxed mode which allows to survive segmentation faults, to run in looponfailing mode, automatically re-running failing tests on file changes.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-instafail/" >pytest-instafail<i class="fas fa-external-link-alt"></i></a>: to report failures while the test run is happening.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-bdd/" >pytest-bdd<i class="fas fa-external-link-alt"></i></a>: to write tests using behaviour-driven testing.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-timeout/" >pytest-timeout<i class="fas fa-external-link-alt"></i></a>: to timeout tests based on function marks or global definitions.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-pep8/" >pytest-pep8<i class="fas fa-external-link-alt"></i></a>: a <code>--pep8</code> option to enable PEP8 compliance checking.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/pytest-flakes/" >pytest-flakes<i class="fas fa-external-link-alt"></i></a>: check source code with pyflakes.</li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://pypi.org/project/allure-pytest/" >allure-pytest<i class="fas fa-external-link-alt"></i></a>: report test results via <a class="link"   target="_blank" rel="noopener" href="https://github.com/allure-framework/" >allure-framework<i class="fas fa-external-link-alt"></i></a>.</li>
+</ul>
+<p>You can require plugins in a test module or a conftest file using <a target="_blank" rel="noopener" href="https://docs.pytest.org/en/7.3.x/reference/reference.html#globalvar-pytest_plugins"><code>pytest_plugins</code></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest_plugins = (&quot;myapp.testsupport.myplugin&quot;,)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Pytest插件开发"><a href="#Pytest插件开发" class="headerlink" title="Pytest插件开发"></a>Pytest插件开发</h2><p>Pytest测试框架功能非常多，它其实就是由一组插件组成的，具有大量的插件，可以通过插件来扩展、定制功能，能满足大部分的测试需求。本文介绍pytest插件的开发方法，帮助更好的理解pytest测试框架。</p>
+<h1 id="pytest插件介绍"><a href="#pytest插件介绍" class="headerlink" title="pytest插件介绍"></a>pytest插件介绍</h1><h2 id="pytest的三种插件"><a href="#pytest的三种插件" class="headerlink" title="pytest的三种插件"></a>pytest的三种插件</h2><p>pytest插件通过hook函数来实现，pytest主要包括以下三种插件</p>
+<ul>
+<li>内置插件：pytest内部的_pytest目录中加载：<code>\Lib\site-packages\_pytest\hookspec.py</code></li>
+<li>外部插件：pip install 插件，通过setuptools的Entry points机制来发现外部插件，可用插件列表：<a class="link"   target="_blank" rel="noopener" href="https://docs.pytest.org/en/latest/reference/plugin_list.html" >https://docs.pytest.org/en/latest/reference/plugin_list.html<i class="fas fa-external-link-alt"></i></a></li>
+<li>本地插件：conftest.py插件，pytest自动模块发现机制，在项目根目录下的conftest文件起到全局作用，在项目下的子目录中的conftest.py文件作用范围只能在该层级及以下目录生效。</li>
+</ul>
+<p>他们的加载顺序为：</p>
+<ol>
+<li>内置插件</li>
+<li>外部插件</li>
+<li>本地插件</li>
+</ol>
+<h2 id="pytest的hook函数"><a href="#pytest的hook函数" class="headerlink" title="pytest的hook函数"></a>pytest的hook函数</h2><p>hook函数(钩子函数)是程序中预留的函数（相当于暴露了一个钩子），如果我们需要在程序某个步骤执行某个操作，我们就直接重写特定的钩子函数（挂载到钩子上），这样就实现了我们要增加的功能。没有挂载或者注册钩子时，它就是空的，也就是没有执行任何操作。</p>
+<p>Pytest 的hook函数可查看<code>\Lib\site-packages\_pytest\hookspec.py</code> 文件， Pytest hook函数的执行顺序如下(<a class="link"   target="_blank" rel="noopener" href="https://github.com/pytest-dev/pytest/issues/3261" >https://github.com/pytest-dev/pytest/issues/3261<i class="fas fa-external-link-alt"></i></a>)：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">root</span><br><span class="line">└── pytest_cmdline_main</span><br><span class="line">    ├── pytest_plugin_registered</span><br><span class="line">    ├── pytest_configure</span><br><span class="line">    │   └── pytest_plugin_registered</span><br><span class="line">    ├── pytest_sessionstart</span><br><span class="line">    │   ├── pytest_plugin_registered</span><br><span class="line">    │   └── pytest_report_header</span><br><span class="line">    ├── pytest_collection</span><br><span class="line">    │   ├── pytest_collectstart</span><br><span class="line">    │   ├── pytest_make_collect_report</span><br><span class="line">    │   │   ├── pytest_collect_file</span><br><span class="line">    │   │   │   └── pytest_pycollect_makemodule</span><br><span class="line">    │   │   └── pytest_pycollect_makeitem</span><br><span class="line">    │   │       └── pytest_generate_tests</span><br><span class="line">    │   │           └── pytest_make_parametrize_id</span><br><span class="line">    │   ├── pytest_collectreport</span><br><span class="line">    │   ├── pytest_itemcollected</span><br><span class="line">    │   ├── pytest_collection_modifyitems</span><br><span class="line">    │   └── pytest_collection_finish</span><br><span class="line">    │       └── pytest_report_collectionfinish</span><br><span class="line">    ├── pytest_runtestloop</span><br><span class="line">    │   └── pytest_runtest_protocol</span><br><span class="line">    │       ├── pytest_runtest_logstart</span><br><span class="line">    │       ├── pytest_runtest_setup</span><br><span class="line">    │       │   └── pytest_fixture_setup</span><br><span class="line">    │       ├── pytest_runtest_makereport</span><br><span class="line">    │       ├── pytest_runtest_logreport</span><br><span class="line">    │       │   └── pytest_report_teststatus</span><br><span class="line">    │       ├── pytest_runtest_call</span><br><span class="line">    │       │   └── pytest_pyfunc_call</span><br><span class="line">    │       ├── pytest_runtest_teardown</span><br><span class="line">    │       │   └── pytest_fixture_post_finalizer</span><br><span class="line">    │       └── pytest_runtest_logfinish</span><br><span class="line">    ├── pytest_sessionfinish</span><br><span class="line">    │   └── pytest_terminal_summary</span><br><span class="line">    └── pytest_unconfigure</span><br></pre></td></tr></table></figure>
+
+<p>我们可以对上面的hook函数进行改写，实现某些功能。我在以前的pytest文章中（<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/u010698107/article/details/111416069" >Pytest测试框架（三）：pytest fixture 用法<i class="fas fa-external-link-alt"></i></a>）介绍了fixture 插件的用法，fixture实现的功能其实也对pytest的hook函数进行了改写，比如pytest_generate_tests，pytest_sessionstart等hook函数，大家如果感兴趣可以查看源码：<code>\Lib\site-packages\_pytest\fixtures.py</code></p>
+<h2 id="pluggy插件系统"><a href="#pluggy插件系统" class="headerlink" title="pluggy插件系统"></a>pluggy插件系统</h2><p>前面简要介绍了pytest插件，这些插件是怎么管理的呢？pytest的大量插件使用pluggy进行管理，pluggy是pytest使用的一个插件系统，用于pytest插件的管理和钩子调用。也就是说，pluggy使pytest具有了钩子功能，实现主机（主程序）与插件的连接。</p>
+<h1 id="pytest插件：中文编码"><a href="#pytest插件：中文编码" class="headerlink" title="pytest插件：中文编码"></a>pytest插件：中文编码</h1><p>先写一个测试用例test_hook.py:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment">#-*-coding:utf-8-*-</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.mark.parametrize(<span class="params"><span class="string">&quot;name&quot;</span>,[<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;李四&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_name</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+
+<p>执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pytest -vs test_hook.py::test_name</span><br></pre></td></tr></table></figure>
+
+<p>结果（只截取部分）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">test_hook.py::test_name[\u5f20\u4e09] 张三</span><br><span class="line">PASSED</span><br><span class="line">test_hook.py::test_name[\u674e\u56db] 李四</span><br><span class="line">PASSED</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我们发现用例名字编码格式为Unicode，无法显示中文。</p>
+<p>怎么解决呢？我们可以对pytest hook函数pytest_collection_modifyitems()进行重写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">pytest_collection_modifyitems</span>(<span class="params"></span></span><br><span class="line"><span class="params">    session: <span class="string">&quot;Session&quot;</span>, config: <span class="string">&quot;Config&quot;</span>, items: <span class="type">List</span>[<span class="string">&quot;Item&quot;</span>]</span></span><br><span class="line"><span class="params"></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot; called after collection has been performed, may filter or re-order</span></span><br><span class="line"><span class="string">    the items in-place.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    :param _pytest.main.Session session: the pytest session object</span></span><br><span class="line"><span class="string">    :param _pytest.config.Config config: pytest config object</span></span><br><span class="line"><span class="string">    :param List[_pytest.nodes.Item] items: list of item objects</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>根据注释我们知道这个hook函数在用例收集完成后进行调用，可对用例进行过滤或者重新排序（修改用例执行顺序的pytest-ordering插件就修改了这个hook函数）</p>
+<p>接下来开始修改这个hook函数，对用例名进行解码并反转用例顺序，在测试用例同级目录下新建conftest.py函数，修改代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="comment">#-*-coding:utf-8-*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pytest_collection_modifyitems</span>(<span class="params">session, config, items: <span class="type">List</span></span>):</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        item.name = item.name.encode(<span class="string">&#x27;utf-8&#x27;</span>).decode(<span class="string">&#x27;unicode-escape&#x27;</span>)</span><br><span class="line">        item._nodeid = item.nodeid.encode(<span class="string">&#x27;utf-8&#x27;</span>).decode(<span class="string">&#x27;unicode-escape&#x27;</span>)</span><br><span class="line">    items.reverse()</span><br></pre></td></tr></table></figure>
+
+<p>items就是收集到的测试用例，可对它进行各种操作。</p>
+<p>再次执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pytest -vs test_hook.py::test_name</span><br></pre></td></tr></table></figure>
+
+<p>结果（只截取部分）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test_hook.py::test_name[李四] 李四</span><br><span class="line">PASSED</span><br><span class="line">test_hook.py::test_name[张三] 张三</span><br><span class="line">PASSED</span><br></pre></td></tr></table></figure>
+
+<p>解码成功，并且顺序反转了。</p>
+<h1 id="添加命令行参数"><a href="#添加命令行参数" class="headerlink" title="添加命令行参数"></a>添加命令行参数</h1><p>通过改写hook函数pytest_addoption()可以实现添加自定义的命令行参数，几乎每个pytest 插件都会使用这个hook方法。下面在conftest.py中改写pytest_addoption()方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加一个命令行参数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pytest_addoption</span>(<span class="params">parser, pluginmanager</span>):</span><br><span class="line">    mygroup = parser.getgroup(<span class="string">&quot;testgroup&quot;</span>) <span class="comment">#group将下面所有的 optiongroup都展示在这个group下。</span></span><br><span class="line">    mygroup.addoption(<span class="string">&quot;--env&quot;</span>, <span class="comment">#注册一个命令行选项</span></span><br><span class="line">        default=<span class="string">&#x27;test&#x27;</span>,  <span class="comment"># 参数的默认值</span></span><br><span class="line">        dest = <span class="string">&#x27;env&#x27;</span>,  <span class="comment"># 存储的变量</span></span><br><span class="line">        <span class="built_in">help</span> = <span class="string">&#x27;set your run env&#x27;</span> <span class="comment">#帮助提示参数的描述信息</span></span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>然后我们在命令行中输入<code>pytest -h</code>，在打印的帮助信息中，我们可以看到添加的自定义参数：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">testgroup:</span><br><span class="line">  --env=ENV             set your run env</span><br></pre></td></tr></table></figure>
+
+<p>接下来获取这个参数，在conftest.py中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@pytest.fixture(<span class="params">scope=<span class="string">&#x27;session&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cmdoption</span>(<span class="params">request</span>):</span><br><span class="line">    env = request.config.getoption(<span class="string">&quot;--env&quot;</span>, default=<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> env == <span class="string">&quot;test&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;test环境&quot;</span>)</span><br><span class="line">        datapath = <span class="string">&quot;data/test/data.yml&quot;</span></span><br><span class="line">    <span class="keyword">if</span> env == <span class="string">&quot;develop&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;开发环境&quot;</span>)</span><br><span class="line">        datapath = <span class="string">&quot;data/develop/data.yml&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(datapath) <span class="keyword">as</span> f:</span><br><span class="line">        datas = yaml.safe_load(f)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> env,datas</span><br></pre></td></tr></table></figure>
+
+<p>测试数据：<br><img src="https://img2020.cnblogs.com/blog/2229336/202104/2229336-20210424111211632-568506239.png"></p>
+<p>编写测试用例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_env</span>(<span class="params">cmdoption</span>):</span><br><span class="line">    env,datas = cmdoption</span><br><span class="line">    host = datas[<span class="string">&#x27;env&#x27;</span>][<span class="string">&#x27;host&#x27;</span>]</span><br><span class="line">    port = datas[<span class="string">&#x27;env&#x27;</span>][<span class="string">&#x27;port&#x27;</span>]</span><br><span class="line">    url = <span class="built_in">str</span>(host) + <span class="string">&quot;:&quot;</span> + <span class="built_in">str</span>(port)</span><br><span class="line">    <span class="built_in">print</span>(url)</span><br></pre></td></tr></table></figure>
+
+<p>执行测试用例：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pytest -vs test_hook.py::test_env</span><br></pre></td></tr></table></figure>
+
+<p>结果（只截取部分）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test_hook.py::test_env <span class="built_in">test</span>环境</span><br><span class="line">http://192.168.11.1:4567</span><br><span class="line">PASSED</span><br></pre></td></tr></table></figure>
+
+<p>传递参数：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pytest -vs --<span class="built_in">env</span> develop test_hook.py::test_env</span><br></pre></td></tr></table></figure>
+
+<p>结果（只截取部分）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test_hook.py::test_env 开发环境</span><br><span class="line">http://192.168.0.1:1234</span><br><span class="line">PASSED</span><br></pre></td></tr></table></figure>
+
+<p>传递成功</p>
+<h1 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h1><p>你的Python插件开发完成后，可以对它进行打包发布，方便给别人使用，打包后也可以发布代码到到PyPI上，可参考Python打包文档：<a class="link"   target="_blank" rel="noopener" href="https://packaging.python.org/tutorials/packaging-projects/" >https://packaging.python.org/tutorials/packaging-projects/<i class="fas fa-external-link-alt"></i></a> ，下面介绍Python打包过程。</p>
+<h2 id="1、创建包文件"><a href="#1、创建包文件" class="headerlink" title="1、创建包文件"></a>1、创建包文件</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pytest-encode/</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── setup.py</span><br><span class="line">├── pytest_encode/</span><br><span class="line">│   └── __init__.py</span><br><span class="line">└──tests/</span><br><span class="line">    └── test_encode.py</span><br></pre></td></tr></table></figure>
+
+<p>setup.py是一个构建脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> setuptools</span><br><span class="line"></span><br><span class="line">setuptools.setup(</span><br><span class="line">    name=<span class="string">&quot;pytest-encode&quot;</span>, <span class="comment"># Replace with your own username</span></span><br><span class="line">    version=<span class="string">&quot;0.0.1&quot;</span>,</span><br><span class="line">    author=<span class="string">&quot;hiyongz&quot;</span>,</span><br><span class="line">    author_email=<span class="string">&quot;zhiyo2016@163.com@example.com&quot;</span>,</span><br><span class="line">    description=<span class="string">&quot;set your encoding&quot;</span>,</span><br><span class="line">    long_description=<span class="string">&quot;show Chinese for your mark.parametrize().&quot;</span>,</span><br><span class="line">    url=<span class="string">&quot;https://github.com/pypa/sampleproject&quot;</span>,</span><br><span class="line">    project_urls=&#123;</span><br><span class="line">        <span class="string">&quot;Bug Tracker&quot;</span>: <span class="string">&quot;https://github.com/pypa/sampleproject/issues&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    classifiers=[</span><br><span class="line">        <span class="string">&quot;Programming Language :: Python :: 3&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Framework :: Pytest&quot;</span>,</span><br><span class="line">        <span class="string">&quot;Topic :: Software Develoment :: Testing&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">    license=<span class="string">&#x27;MIT License&#x27;</span>,</span><br><span class="line">    packages=[<span class="string">&#x27;pytest_encode&#x27;</span>],</span><br><span class="line">    keywords=[</span><br><span class="line">        <span class="string">&quot;pytest&quot;</span>,</span><br><span class="line">        <span class="string">&quot;py.test&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pytest_encode&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">    install_requires=[</span><br><span class="line">        <span class="string">&#x27;pytest&#x27;</span></span><br><span class="line">    ],</span><br><span class="line">    python_requires=<span class="string">&quot;&gt;=3.6&quot;</span>,</span><br><span class="line">    <span class="comment"># 入口模块或者入口函数</span></span><br><span class="line">    entry_points=&#123;</span><br><span class="line">        <span class="string">&#x27;pytest11&#x27;</span>:[</span><br><span class="line">            <span class="string">&#x27;pytest-encode = pytest_encode&#x27;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">       </span><br><span class="line">    zip_safe=<span class="literal">False</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>其中依赖包可以通过如下命令生成：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip freeze &gt;requirements.txt</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>entry_points为入口函数，使用pluggy插件中PluginManager类的load_setuptools_entrypoints方法加载，其中pytest11为入口点，这是官方定义的固定入口点，用于发现插件，参考<a class="link"   target="_blank" rel="noopener" href="https://docs.pytest.org/en/latest/how-to/writing_plugins.html" >https://docs.pytest.org/en/latest/how-to/writing_plugins.html<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<p><strong>init</strong>.py：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line">logging.basicConfig(level=logging.INFO,</span><br><span class="line">                    <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s&#x27;</span>,</span><br><span class="line">                    datefmt=<span class="string">&#x27;%a, %d %b %Y %H:%M:%S&#x27;</span>,</span><br><span class="line">                    filename=<span class="string">&#x27;report.log&#x27;</span>,</span><br><span class="line">                    filemode=<span class="string">&#x27;w&#x27;</span></span><br><span class="line">                    )</span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pytest_collection_modifyitems</span>(<span class="params">session, config, items: <span class="type">List</span></span>):</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        item.name = item.name.encode(<span class="string">&#x27;utf-8&#x27;</span>).decode(<span class="string">&#x27;unicode-escape&#x27;</span>)</span><br><span class="line">        item._nodeid = item.nodeid.encode(<span class="string">&#x27;utf-8&#x27;</span>).decode(<span class="string">&#x27;unicode-escape&#x27;</span>)</span><br><span class="line">    items.reverse()</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、打包"><a href="#2、打包" class="headerlink" title="2、打包"></a>2、打包</h2><p>打包需要安装两个库：</p>
+<ul>
+<li>wheel：<code>pip install wheel</code></li>
+<li>setuptools：<code>pip install setuptools</code></li>
+</ul>
+<p>进入包目录（pytest-encode）下，执行目录：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python setup.py sdist bdist_wheel</span><br></pre></td></tr></table></figure>
+
+<p>命令执行完成后，新生成如下文件：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">pytest-encode/</span><br><span class="line">├── build/</span><br><span class="line">	├── bdist.win-amd64</span><br><span class="line">    └── lib</span><br><span class="line">		└── pytest_encode</span><br><span class="line">			└── __init__.py</span><br><span class="line">├── dist/</span><br><span class="line">	├── pytest-encode-0.0.1.tar.gz</span><br><span class="line">    └── pytest_encode-0.0.1-py3-none-any.whl		</span><br><span class="line">└──pytest_encode.egg-info/</span><br><span class="line">	├── dependency_links.txt</span><br><span class="line">	├── entry_points.txt</span><br><span class="line">	├── not-zip-safe</span><br><span class="line">	├── PKG-INFO</span><br><span class="line">	├── requires.txt</span><br><span class="line">	├── SOURCES.txt	</span><br><span class="line">    └── test_encode.py</span><br></pre></td></tr></table></figure>
+
+<p>pytest-encode-0.0.1.tar.gz为源码包，pytest_encode-0.0.1-py3-none-any.whl可以通过<code>pip install</code>命令安装</p>
+<h2 id="3、测试打包文件"><a href="#3、测试打包文件" class="headerlink" title="3、测试打包文件"></a>3、测试打包文件</h2><p>我们新建一个Python虚拟环境，在新的虚拟环境下执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ pip list</span><br><span class="line">Package    Version</span><br><span class="line">---------- -------</span><br><span class="line">pip        21.0.1</span><br><span class="line">setuptools 54.2.0</span><br></pre></td></tr></table></figure>
+
+<p>只安装了两个包，下面安装刚才生成的包文件：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pytest_encode-0.0.1-py3-none-any.whl</span><br></pre></td></tr></table></figure>
+
+<p>它会自动安装setup.py中定义的依赖包。</p>
+<p>然后在新的虚拟环境中编写测试用例并执行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="keyword">from</span> pytest_encode <span class="keyword">import</span> logger</span><br><span class="line"></span><br><span class="line"><span class="meta">@pytest.mark.parametrize(<span class="params"><span class="string">&quot;name&quot;</span>,[<span class="string">&quot;张三&quot;</span>,<span class="string">&quot;李四&quot;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_name</span>(<span class="params">name</span>):</span><br><span class="line">    logger.info(<span class="string">&quot;测试编码&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pytest -vs test_encode.py::test_name</span><br></pre></td></tr></table></figure>
+
+<p>结果（只截取部分）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test_hook.py::test_name[李四] 李四</span><br><span class="line">PASSED</span><br><span class="line">test_hook.py::test_name[张三] 张三</span><br><span class="line">PASSED</span><br></pre></td></tr></table></figure>
+
+<p>解码成功，并且生成了日志文件：<br>report.log：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Sat, 03 Apr 2021 20:21:45 test_encode.py[line:13] INFO 测试编码</span><br><span class="line">Sat, 03 Apr 2021 20:21:45 test_encode.py[line:13] INFO 测试编码</span><br></pre></td></tr></table></figure>
+
+<p>表明安装的包生效了。</p>
+<h2 id="4、发布包"><a href="#4、发布包" class="headerlink" title="4、发布包"></a>4、发布包</h2><p>使用Twine来上传包到PyPI，需要注册一个PyPI账号</p>
+<p>然后安装twine:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install twine</span><br></pre></td></tr></table></figure>
+
+<p>上传：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ twine upload --repository test-encode dist/*</span><br></pre></td></tr></table></figure>
+
+<p>上传过程中会让你输入前面注册的用户名和密码，上传成功后就可以在PyPI上查看</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/pytest-python/">#pytest python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2023/05/16/pytest-start/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pytest start</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/05/16/pytest-how-to-invoke-pytest/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">pytest how to invoke pytest</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

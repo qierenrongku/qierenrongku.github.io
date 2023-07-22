@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            数据结构-线性表 |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">数据结构-线性表</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2023-07-22 23:56:11</span>
+        <span class="mobile">2023-07-22 23:56</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="线性表的定义和基本操作"><a href="#线性表的定义和基本操作" class="headerlink" title="线性表的定义和基本操作"></a>线性表的定义和基本操作</h2><p>线性表是具有相同数据类型的n个数据元素的有限序列，n为表长。</p>
+<ul>
+<li>表中元素个数有限</li>
+<li>元素有先后顺序</li>
+<li>元素类型相同，意味元素占有相同大小的存储空间</li>
+</ul>
+<p><strong>线性表是一种逻辑结构，表示元素之间一对一的相邻关系。顺序表和链表是指存储结构，勿混淆</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">InitList(&amp;L) <span class="comment">// 初始化表</span></span><br><span class="line"></span><br><span class="line">Length(L) <span class="comment">// 求表长</span></span><br><span class="line"></span><br><span class="line">LocateElem(L,e) <span class="comment">// 按值查找</span></span><br><span class="line"></span><br><span class="line">GetElem(L,i) <span class="comment">// 按位查找</span></span><br><span class="line"></span><br><span class="line">ListInsert(&amp;L, i, e) <span class="comment">// 插入操作</span></span><br><span class="line"></span><br><span class="line">ListDelete(&amp;L, i, &amp;e) <span class="comment">// 删除操作</span></span><br><span class="line"></span><br><span class="line">PrintList(L)  <span class="comment">// 打印</span></span><br><span class="line"></span><br><span class="line">Empty(L)  <span class="comment">// 判空操作</span></span><br><span class="line"></span><br><span class="line">Destroy(&amp;L) <span class="comment">// 销毁释放内存</span></span><br></pre></td></tr></table></figure>
+<h2 id="线性表的顺序表示"><a href="#线性表的顺序表示" class="headerlink" title="线性表的顺序表示"></a>线性表的顺序表示</h2><p>顺序表的顺序存储又称为顺序表<br><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720224236.4awmgojdv440.webp" alt="Pastedimage20230720224236"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    ElemType data[MaxSize];</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line"></span><br><span class="line">&#125;SqList;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> InitSize 100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    ElemType *data;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> MaxSize, length;</span><br><span class="line"></span><br><span class="line">&#125;SeqList;</span><br></pre></td></tr></table></figure>
+<h3 id="顺序表的基本操作实现"><a href="#顺序表的基本操作实现" class="headerlink" title="顺序表的基本操作实现"></a>顺序表的基本操作实现</h3><h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h4><p>在顺序表的第i个元素插入新元素e  O(n)<br><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720224945.2ineq8gqppq0.webp" alt="Pastedimage20230720224945"></p>
+<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><p>删除顺序表的第i个元素并用变量e返会 O(n)<br><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720225123.256dikvebvi8.webp" alt="Pastedimage20230720225123"></p>
+<h4 id="按值查找"><a href="#按值查找" class="headerlink" title="按值查找"></a>按值查找</h4><p>查找第一个值位e的元素并返回位序  O(n)<br><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720225332.624masl1qac0.webp" alt="Pastedimage20230720225332"></p>
+<h2 id="线性表的链式表示"><a href="#线性表的链式表示" class="headerlink" title="线性表的链式表示"></a>线性表的链式表示</h2><h3 id="单链表的定义"><a href="#单链表的定义" class="headerlink" title="单链表的定义"></a>单链表的定义</h3><p>线性表的链式存储又称单链表</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    ElemType data;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">next</span>;</span></span><br><span class="line"></span><br><span class="line">&#125;LNode, *LinkList;</span><br></pre></td></tr></table></figure>
+<p>带头结点的单链表<br><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720230256.3b3fngwaam00.webp" alt="Pastedimage20230720230256"></p>
+<ul>
+<li>不管带不带头结点，头指针都指向链表的第一个结点<br>头结点的优点</li>
+<li>由于第一个数据结点的位置被存放在头结点的指针域中，因此在<strong>链表的第一个位置上的操收和在表的其他位置上的操作一致</strong>无须讲行特殊处理。</li>
+<li>无论链表是否为空，其头指针都指向头结点的非空指针（空表中头结点的指针域为空)，因此<strong>空表和非空表的处理也就得到了统一</strong>。</li>
+</ul>
+<h3 id="单链表上操作的实现"><a href="#单链表上操作的实现" class="headerlink" title="单链表上操作的实现"></a>单链表上操作的实现</h3><h4 id="头插法建立单链表-O-n"><a href="#头插法建立单链表-O-n" class="headerlink" title="头插法建立单链表 O(n)"></a>头插法建立单链表 O(n)</h4><p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720230803.1fmbstgvjh28.webp" alt="Pastedimage20230720230803"> </p>
+<h4 id="尾插法-O-n"><a href="#尾插法-O-n" class="headerlink" title="尾插法 O(n)"></a>尾插法 O(n)</h4><p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720231000.4mv0d5bv4cu0.webp" alt="Pastedimage20230720231000"></p>
+<h3 id="按序号查找结点值-O-n"><a href="#按序号查找结点值-O-n" class="headerlink" title="按序号查找结点值 O(n)"></a>按序号查找结点值 O(n)</h3><h4 id="按值查找结点-O-n"><a href="#按值查找结点-O-n" class="headerlink" title="按值查找结点 O(n)"></a>按值查找结点 O(n)</h4><h4 id="插入结点"><a href="#插入结点" class="headerlink" title="插入结点"></a>插入结点</h4><p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720231433.2x84gghzp8g0.webp" alt="Pastedimage20230720231433"><br>查找到元素的插入位置的时间复杂度 O(n)  实际插入是O(1)</p>
+<h4 id="删除结点操作"><a href="#删除结点操作" class="headerlink" title="删除结点操作"></a>删除结点操作</h4><p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720231625.5wcd90puk1c0.webp" alt="Pastedimage20230720231625"></p>
+<h3 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">DNode</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    ElemType data;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">DNode</span> *<span class="title">prior</span>,*<span class="title">next</span>;</span></span><br><span class="line"></span><br><span class="line">&#125;DNode, *DLinkList;</span><br></pre></td></tr></table></figure>
+<h4 id="插入操作-1"><a href="#插入操作-1" class="headerlink" title="插入操作"></a>插入操作</h4><p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720231854.384ztrgc8cu0.webp" alt="Pastedimage20230720231854"></p>
+<h4 id="删除操作-1"><a href="#删除操作-1" class="headerlink" title="删除操作"></a>删除操作</h4><p><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720232227.3wvel3y2tp60.webp" alt="Pastedimage20230720232227"></p>
+<h3 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h3><ul>
+<li>循环单链表<br>在循环单链表中，表尾结点*r的next域指向L，故表中没有指针域为NULL的结点，因此，循环单链表的判空条件不是头结点的指针是否为空，而是它是否等于头指针。·<br><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720232306.1erwhj2czheo.webp" alt="Pastedimage20230720232306"></li>
+<li>循环双链表<br>在循环双链表工中，某结点*p为尾结点时，p-&gt;next &#x3D;&#x3D; L;当循环双链表为空表时，其头结点的prior域和next域都等于L。<br><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720232432.2aul8dc7b9z4.webp" alt="Pastedimage20230720232432"><h3 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h3><img src="https://cdn.staticaly.com/gh/qierenrongku/images@master/Pastedimage20230720232812.4c26btrwpsw0.webp" alt="Pastedimage20230720232812"><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    ElemType data;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> next;</span><br><span class="line"></span><br><span class="line">&#125;SLinkList[MaxSize];</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2023/07/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E3%80%81%E6%95%B0%E7%BB%84/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数据结构-栈、队列、数组</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2023/07/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BB%AA%E8%AE%BA/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数据结构-绪论</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

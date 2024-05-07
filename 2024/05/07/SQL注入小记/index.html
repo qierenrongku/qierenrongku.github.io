@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation"></span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2024-05-07 08:07:41</span>
+        <span class="mobile">2024-05-07 08:07</span>
+    </span>
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="SQL注入小记"><a href="#SQL注入小记" class="headerlink" title="SQL注入小记"></a>SQL注入小记</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>联合查询</li>
+<li>布尔盲注</li>
+<li>报错注入</li>
+<li>延时注入</li>
+<li>堆叠查询</li>
+<li>get  post  cookie  http头部</li>
+</ul>
+<h2 id="mysql元数据库数据库-information-schema"><a href="#mysql元数据库数据库-information-schema" class="headerlink" title="mysql元数据库数据库 information_schema"></a>mysql元数据库数据库 information_schema</h2><pre><code>information_schema
+        ---tables
+                ---table_name
+                ---table_schema
+        ---columns
+                ---column_name
+                ---table_name
+                ---tbale_schema
+</code></pre>
+<h2 id="mysql-常用函数"><a href="#mysql-常用函数" class="headerlink" title="mysql 常用函数"></a>mysql 常用函数</h2><ul>
+<li><p>select version();</p>
+</li>
+<li><p>select database(); 当前数据库</p>
+</li>
+<li><p>selsect user(); 用户名 </p>
+</li>
+<li><p>select current_user();当前</p>
+</li>
+<li><p>select system_user();系统</p>
+</li>
+<li><p>select @@datadir; 数据库路径</p>
+</li>
+<li><p>select @@version_complie_os; 操作系统版本</p>
+</li>
+<li><p>select length(database());</p>
+</li>
+<li><p>substring(截取的字符串,起点,长度) 截取字符串 </p>
+</li>
+<li><p>left(“12345”,3) 123</p>
+</li>
+<li><p>concat(‘a’,’b’,’c’) abc</p>
+</li>
+<li><p>concat_ws(“-“,’a’,’b’,’c’) a-b-c</p>
+</li>
+<li><p>group_concat()</p>
+</li>
+<li><p>ord() 返回ascii码</p>
+</li>
+<li><p>rand() 0-1 随机数 left(rand(),3)  0.1&#x2F;0.2&#x2F;….</p>
+</li>
+<li><p>sleep() 睡眠</p>
+</li>
+<li><p>if(判断,t,f) </p>
+</li>
+<li><p>and&gt;or 优先级；</p>
+</li>
+</ul>
+<h2 id="注入点判断"><a href="#注入点判断" class="headerlink" title="注入点判断"></a>注入点判断</h2><p><strong>字符型注入</strong></p>
+<p>当输入的参数x为字符型时，通常sql语句会这样的<br>select <em>from users where id &#x3D;**’<strong>x</strong>‘*</em><br>这种类型我们可以使用and ‘1’&#x3D;’1 和 and ‘1’&#x3D;’2来进行测试<br><a class="link"   target="_blank" rel="noopener" href="http://www.xxx.com/ccc.php?id=1%E2%80%99" >www.xxx.com/ccc.php?id=1’<i class="fas fa-external-link-alt"></i></a> and ‘1’&#x3D;’1<br>页面正常，继续下一步<br><a class="link"   target="_blank" rel="noopener" href="http://www.xxx.com/ccc.php?id=1%E2%80%99" >www.xxx.com/ccc.php?id=1’<i class="fas fa-external-link-alt"></i></a> and ‘1’&#x3D;’2<br>页面报错，则说明存在字符型注入。</p>
+<p>原因如下：<br>当输入and ‘1’&#x3D;‘1的时候，后台执行的语句是<br>select* from users where id&#x3D;<strong>‘<strong>x’ and ‘1’&#x3D;’1</strong>‘</strong><br>语法正确，逻辑判断正确，返回正确<br>当输入and ‘1’&#x3D;‘2的时候，后台执行的语句是<br>select * from users where id&#x3D;<strong>‘<strong>x’ and ‘1’&#x3D;’2</strong>‘</strong><br>语法正确，逻辑判断错误，返回错误<br>字符型和数字型最大的一个区别在于，数字型不需要单引号来闭合，而字符串一般需要通过单引号来闭合的。</p>
+<p><strong>数字型注入</strong></p>
+<p>当输入的参数x为整型的时候，通常sql语句是这样的<br>select *from users where id &#x3D;x<br>这种类型可以使用经典的and 1&#x3D;1 and 1&#x3D;2来判断<br>url地址中输入<a class="link"   target="_blank" rel="noopener" href="http://www.xxxx.com/ccc.php?id=x" >www.xxxx.com/ccc.php?id=x<i class="fas fa-external-link-alt"></i></a> and 1&#x3D;1<br>页面显示正常，继续下一步<br>url地址中输入<a class="link"   target="_blank" rel="noopener" href="http://www.xxxx.com/ccc.php?id=x" >www.xxxx.com/ccc.php?id=x<i class="fas fa-external-link-alt"></i></a> and 1&#x3D;2<br>页面错误，这说明存在数字型注入。</p>
+<p>原因如下：<br>当输入and 1&#x3D;1时，后台会执行sql语句是<br>select* from users where id &#x3D;x and 1&#x3D;1；<br>没有语法显示错误且，返回正常<br>当输入and 1&#x3D;2时，后台会执行sql语句是<br>select <em>from users where id &#x3D;1 and 1&#x3D;2;<br>没有语法错误且，返回错误<br>我们在使用假设：<br>如果是字符型注入的话，我们输入的语句应该会出现这样的状况<br>select</em> from users where id &#x3D;’1 and 1&#x3D;1’;<br>select* from users where id &#x3D;’1 and 1&#x3D;2’;<br>查询语句将and语句全部转换成字符串，并没有进行and的逻辑判断，所以不会出现以上结果，所以这个等式是不成立的。</p>
+<h2 id="口诀"><a href="#口诀" class="headerlink" title="口诀"></a>口诀</h2><ul>
+<li>是否回显 联合查询</li>
+<li>是否报错 报错注入</li>
+<li>是否有布尔类型 布尔盲注</li>
+<li>延时注入</li>
+</ul>
+<h2 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h2><ul>
+<li>-u “url” 检测注入点</li>
+<li>–dbs 列出所有数据库名</li>
+<li>–current-db 当前数据库名</li>
+<li>-D 指定数据库</li>
+<li>–tables 列出表名</li>
+<li>-T 指定表名</li>
+<li>–columns 列出所有的字符段名</li>
+<li>-C 指定字段</li>
+<li>–dump 列出字段内容</li>
+</ul>
+<p>post注入</p>
+<ul>
+<li>sqlmap -r post.txt</li>
+</ul>
+<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><ul>
+<li><p>1 通过floor报错</p>
+<pre><code>  and (select 1 from (select count(*),concat((payload),floor(rand(0)*2))as x from information_schema.tables group by x)as y)
+</code></pre>
+</li>
+<li><p>2 通过updatexml报错 </p>
+<pre><code>  and updatexml(1,payload,1)
+</code></pre>
+</li>
+<li><p>3 通过 extractvalue报错</p>
+<pre><code>  and extractvalue(1,payload)
+</code></pre>
+</li>
+</ul>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2024/05/07/google-hacking/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">google hacking</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2024&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

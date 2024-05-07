@@ -9,6 +9,8 @@
     
     <title>
         
+            nmap常用选项 |
+        
         且任容枯
     </title>
     
@@ -116,7 +118,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation"></span>
+            <span class="title-hover-animation">nmap常用选项</span>
         </div>
 
         
@@ -135,10 +137,21 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2024-05-07 08:07:41</span>
-        <span class="mobile">2024-05-07 08:07</span>
+        <span class="pc">2024-05-07 08:16:16</span>
+        <span class="mobile">2024-05-07 08:16</span>
     </span>
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/namp/">namp</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -153,135 +166,50 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id="SQL注入小记"><a href="#SQL注入小记" class="headerlink" title="SQL注入小记"></a>SQL注入小记</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
-<li>联合查询</li>
-<li>布尔盲注</li>
-<li>报错注入</li>
-<li>延时注入</li>
-<li>堆叠查询</li>
-<li>get  post  cookie  http头部</li>
-</ul>
-<h2 id="mysql元数据库数据库-information-schema"><a href="#mysql元数据库数据库-information-schema" class="headerlink" title="mysql元数据库数据库 information_schema"></a>mysql元数据库数据库 information_schema</h2><pre><code>information_schema
-        ---tables
-                ---table_name
-                ---table_schema
-        ---columns
-                ---column_name
-                ---table_name
-                ---tbale_schema
-</code></pre>
-<h2 id="mysql-常用函数"><a href="#mysql-常用函数" class="headerlink" title="mysql 常用函数"></a>mysql 常用函数</h2><ul>
-<li><p>select version();</p>
-</li>
-<li><p>select database(); 当前数据库</p>
-</li>
-<li><p>selsect user(); 用户名 </p>
-</li>
-<li><p>select current_user();当前</p>
-</li>
-<li><p>select system_user();系统</p>
-</li>
-<li><p>select @@datadir; 数据库路径</p>
-</li>
-<li><p>select @@version_complie_os; 操作系统版本</p>
-</li>
-<li><p>select length(database());</p>
-</li>
-<li><p>substring(截取的字符串,起点,长度) 截取字符串 </p>
-</li>
-<li><p>left(“12345”,3) 123</p>
-</li>
-<li><p>concat(‘a’,’b’,’c’) abc</p>
-</li>
-<li><p>concat_ws(“-“,’a’,’b’,’c’) a-b-c</p>
-</li>
-<li><p>group_concat()</p>
-</li>
-<li><p>ord() 返回ascii码</p>
-</li>
-<li><p>rand() 0-1 随机数 left(rand(),3)  0.1&#x2F;0.2&#x2F;….</p>
-</li>
-<li><p>sleep() 睡眠</p>
-</li>
-<li><p>if(判断,t,f) </p>
-</li>
-<li><p>and&gt;or 优先级；</p>
-</li>
-</ul>
-<h2 id="注入点判断"><a href="#注入点判断" class="headerlink" title="注入点判断"></a>注入点判断</h2><p><strong>字符型注入</strong></p>
-<p>当输入的参数x为字符型时，通常sql语句会这样的<br>select <em>from users where id &#x3D;**’<strong>x</strong>‘*</em><br>这种类型我们可以使用and ‘1’&#x3D;’1 和 and ‘1’&#x3D;’2来进行测试<br><a class="link"   target="_blank" rel="noopener" href="http://www.xxx.com/ccc.php?id=1%E2%80%99" >www.xxx.com/ccc.php?id=1’<i class="fas fa-external-link-alt"></i></a> and ‘1’&#x3D;’1<br>页面正常，继续下一步<br><a class="link"   target="_blank" rel="noopener" href="http://www.xxx.com/ccc.php?id=1%E2%80%99" >www.xxx.com/ccc.php?id=1’<i class="fas fa-external-link-alt"></i></a> and ‘1’&#x3D;’2<br>页面报错，则说明存在字符型注入。</p>
-<p>原因如下：<br>当输入and ‘1’&#x3D;‘1的时候，后台执行的语句是<br>select* from users where id&#x3D;<strong>‘<strong>x’ and ‘1’&#x3D;’1</strong>‘</strong><br>语法正确，逻辑判断正确，返回正确<br>当输入and ‘1’&#x3D;‘2的时候，后台执行的语句是<br>select * from users where id&#x3D;<strong>‘<strong>x’ and ‘1’&#x3D;’2</strong>‘</strong><br>语法正确，逻辑判断错误，返回错误<br>字符型和数字型最大的一个区别在于，数字型不需要单引号来闭合，而字符串一般需要通过单引号来闭合的。</p>
-<p><strong>数字型注入</strong></p>
-<p>当输入的参数x为整型的时候，通常sql语句是这样的<br>select *from users where id &#x3D;x<br>这种类型可以使用经典的and 1&#x3D;1 and 1&#x3D;2来判断<br>url地址中输入<a class="link"   target="_blank" rel="noopener" href="http://www.xxxx.com/ccc.php?id=x" >www.xxxx.com/ccc.php?id=x<i class="fas fa-external-link-alt"></i></a> and 1&#x3D;1<br>页面显示正常，继续下一步<br>url地址中输入<a class="link"   target="_blank" rel="noopener" href="http://www.xxxx.com/ccc.php?id=x" >www.xxxx.com/ccc.php?id=x<i class="fas fa-external-link-alt"></i></a> and 1&#x3D;2<br>页面错误，这说明存在数字型注入。</p>
-<p>原因如下：<br>当输入and 1&#x3D;1时，后台会执行sql语句是<br>select* from users where id &#x3D;x and 1&#x3D;1；<br>没有语法显示错误且，返回正常<br>当输入and 1&#x3D;2时，后台会执行sql语句是<br>select <em>from users where id &#x3D;1 and 1&#x3D;2;<br>没有语法错误且，返回错误<br>我们在使用假设：<br>如果是字符型注入的话，我们输入的语句应该会出现这样的状况<br>select</em> from users where id &#x3D;’1 and 1&#x3D;1’;<br>select* from users where id &#x3D;’1 and 1&#x3D;2’;<br>查询语句将and语句全部转换成字符串，并没有进行and的逻辑判断，所以不会出现以上结果，所以这个等式是不成立的。</p>
-<h2 id="口诀"><a href="#口诀" class="headerlink" title="口诀"></a>口诀</h2><ul>
-<li>是否回显 联合查询</li>
-<li>是否报错 报错注入</li>
-<li>是否有布尔类型 布尔盲注</li>
-<li>延时注入</li>
-</ul>
-<h2 id="sqlmap"><a href="#sqlmap" class="headerlink" title="sqlmap"></a>sqlmap</h2><ul>
-<li>-u “url” 检测注入点</li>
-<li>–dbs 列出所有数据库名</li>
-<li>–current-db 当前数据库名</li>
-<li>-D 指定数据库</li>
-<li>–tables 列出表名</li>
-<li>-T 指定表名</li>
-<li>–columns 列出所有的字符段名</li>
-<li>-C 指定字段</li>
-<li>–dump 列出字段内容</li>
-</ul>
-<p>post注入</p>
-<ul>
-<li>sqlmap -r post.txt</li>
-</ul>
-<h2 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h2><ul>
-<li><p>1 通过floor报错</p>
-<pre><code>  and (select 1 from (select count(*),concat((payload),floor(rand(0)*2))as x from information_schema.tables group by x)as y)
-</code></pre>
-</li>
-<li><p>2 通过updatexml报错 </p>
-<pre><code>  and updatexml(1,payload,1)
-</code></pre>
-</li>
-<li><p>3 通过 extractvalue报错</p>
-<pre><code>  and extractvalue(1,payload)
-</code></pre>
-</li>
-</ul>
+            <p>目标说明<br>TARGET SPECIFICATION: Can pass hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com&#x2F;24, 192.168.0.1; 10.0.0-255.1-254 -iL : Input from list of hosts&#x2F;networks -iR : Choose random targets –exclude &lt;host1[,host2][,host3],…&gt;: Exclude hosts&#x2F;networks –excludefile <exclude_file>: Exclude list from file -iL 从主机地址列表文件中导入扫描地址 -iR 随机选择目标进行扫描，num hosts表示数目，是指为0则无休止扫描 –exclude 排除模糊个主机地址 –excludefile 排除主机地址列表文件中的地址</p>
+<p>主机发现<br>HOST DISCOVERY: -sL: List Scan - simply list targets to scan -sn: Ping Scan - disable port scan -Pn: Treat all hosts as online – skip host discovery -PS&#x2F;PA&#x2F;PU&#x2F;PY[portlist]: TCP SYN&#x2F;ACK, UDP or SCTP discovery to given ports -PE&#x2F;PP&#x2F;PM: ICMP echo, timestamp, and netmask request discovery probes -PO[protocol list]: IP Protocol Ping -n&#x2F;-R: Never do DNS resolution&#x2F;Always resolve [default: sometimes] –dns-servers &lt;serv1[,serv2],…&gt;: Specify custom DNS servers 自定义域名解析服务器地址 –system-dns: Use OS’s DNS resolver –traceroute: Trace hop path to each host 路由 -sL 列表扫描，仅将指定的目标IP列举出来，不进行主机发现 -sn 和-sP一样，只利用ping扫描进行主机的发现，不扫描目标主机的端口 -Pn 将所有指定的主机视为已开启的状态，跳过主机发现过程</p>
+<p>端口扫描<br>端口状态： open(开放的),closed(关闭的),filtered(过滤的),unfiltered,open|filtered,closed|filtered</p>
+<p>SCAN TECHNIQUES: -sS&#x2F;sT&#x2F;sA&#x2F;sW&#x2F;sM: TCP SYN&#x2F;Connect()连接扫描&#x2F;ACK&#x2F;Window&#x2F;Maimon scans -sU: UDP Scan -sN&#x2F;sF&#x2F;sX: TCP Null, FIN, and Xmas scans –scanflags : Customize TCP scan flags -sI &lt;zombie host[:probeport]&gt;: Idle scan -sY&#x2F;sZ: SCTP INIT&#x2F;COOKIE-ECHO scans -sO: IP protocol scan -b : FTP bounce scan</p>
+<p>端口说明和扫描顺序<br>PORT SPECIFICATION AND SCAN ORDER: -p : Only scan specified ports Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9 –exclude-ports : Exclude the specified ports from scanning -F: Fast mode - Scan fewer ports than the default scan 快速扫描，100个常用端口 -r: Scan ports consecutively - don’t randomize –top-ports : Scan most common ports –port-ratio : Scan ports more common than -p 指定端口 -p 指定扫描的协议</p>
+<p>服务与版本扫描<br>SERVICE&#x2F;VERSION DETECTION: -sV: Probe open ports to determine service&#x2F;version info –version-intensity : Set from 0 (light) to 9 (try all probes) –version-light: Limit to most likely probes (intensity 2) –version-all: Try every single probe (intensity 9) –version-trace: Show detailed version scan activity (for debugging)</p>
+<p>脚本扫描(《nmap-script使用帮助手册》)<br>SCRIPT SCAN: -sC: equivalent to –script&#x3D;default –script&#x3D;: is a comma separated list of directories, script-files or script-categories –script-args&#x3D;&lt;n1&#x3D;v1,[n2&#x3D;v2,…]&gt;: provide arguments to scripts –script-args-file&#x3D;filename: provide NSE script args in a file –script-trace: Show all data sent and received –script-updatedb: Update the script database. –script-help&#x3D;: Show help about scripts. is a comma-separated list of script-files or script-categories.</p>
+<p>操作系统扫描<br>OS DETECTION: -O: Enable OS detection –osscan-limit: Limit OS detection to promising targets –osscan-guess: Guess OS more aggressively</p>
+<p>时间和性能<br>TIMING AND PERFORMANCE: Options which take are in seconds, or append ‘ms’ (milliseconds) ‘s’ (seconds), ‘m’ (minutes), or ‘h’ (hours) to the value (e.g. 30m). -T&lt;0-5&gt;: Set timing template (higher is faster) –min-hostgroup&#x2F;max-hostgroup : Parallel host scan group sizes –min-parallelism&#x2F;max-parallelism : Probe parallelization –min-rtt-timeout&#x2F;max-rtt-timeout&#x2F;initial-rtt-timeout : Specifies probe round trip time. –max-retries : Caps number of port scan probe retransmissions. –host-timeout : Give up on target after this long –scan-delay&#x2F;–max-scan-delay : Adjust delay between probes –min-rate : Send packets no slower than per second –max-rate : Send packets no faster than per second</p>
+<p>防火墙&#x2F;IDS规避和欺骗<br>FIREWALL&#x2F;IDS EVASION AND SPOOFING: -f(报文分段); –mtu(使用指定的MTU) : fragment packets (optionally w&#x2F;given MTU) -D &lt;decoy1,decoy2[,ME],…&gt;: Cloak a scan with decoys -S <IP_Address>: Spoof source address -e : Use specified interface -g&#x2F;–source-port : Use given port number –proxies &lt;url1,[url2],…&gt;: Relay connections through HTTP&#x2F;SOCKS4 proxies –data : Append a custom payload to sent packets –data-string : Append a custom ASCII string to sent packets –data-length : Append random data to sent packets –ip-options : Send packets with specified ip options –ttl : Set IP time-to-live field –spoof-mac &lt;mac address&#x2F;prefix&#x2F;vendor name&gt;: Spoof your MAC address –badsum: Send packets with a bogus TCP&#x2F;UDP&#x2F;SCTP checksum</p>
+<p>输出选项<br>OUTPUT: -oN&#x2F;-oX&#x2F;-oS&#x2F;-oG : Output scan in normal, XML, s|&lt;rIpt kIddi3, and Grepable format, respectively, to the given filename. -oA : Output in the three major formats at once -v: Increase verbosity level (use -vv or more for greater effect) -d: Increase debugging level (use -dd or more for greater effect) –reason: Display the reason a port is in a particular state –open: Only show open (or possibly open) ports –packet-trace: Show all packets sent and received –iflist: Print host interfaces and routes (for debugging) –append-output: Append to rather than clobber specified output files –resume : Resume an aborted scan –stylesheet &lt;path&#x2F;URL&gt;: XSL stylesheet to transform XML output to HTML –webxml: Reference stylesheet from Nmap.Org for more portable XML –no-stylesheet: Prevent associating of XSL stylesheet w&#x2F;XML output</p>
+<p>常用扫描技巧<br>1 扫描单一目标主机 nmap ip&#x2F;dns</p>
+<p>2 扫描整个子网 nmap 192.168.0.1&#x2F;24</p>
+<p>3 扫描多个目标 nmap ip1 ip2 dns1dns2</p>
+<p>4 扫描一个范围 nmap 192.168.1-100</p>
+<p>5 导入IP列表 nmap -iL ip.txt</p>
+<p>6 列举目标地址但不扫描 nmap -sL 192.168.0.1&#x2F;24</p>
+<p>7 端口 nmap -p port</p>
 
         </div>
 
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/namp/">#namp</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
             <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2024/05/07/nmap%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">nmap常用选项</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
                 
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2024/05/07/google-hacking/"
+                           href="/2024/05/07/SQL%E6%B3%A8%E5%85%A5%E5%B0%8F%E8%AE%B0/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">google hacking</span>
+                                <span class="post-nav-title-item"></span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">

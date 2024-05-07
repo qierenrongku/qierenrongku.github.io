@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+    <meta name="author" content="且任容枯">
+    
+    <title>
+        
+            位运算 |
+        
+        且任容枯
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io.git","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                且任容枯
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">位运算</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">且任容枯</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2024-05-07 20:39:20</span>
+        <span class="mobile">2024-05-07 20:39</span>
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/c/">c</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="按位逻辑运算"><a href="#按位逻辑运算" class="headerlink" title="按位逻辑运算"></a>按位逻辑运算</h2><h3 id="取反"><a href="#取反" class="headerlink" title="取反 ~"></a>取反 ~</h3><p>一元运算符～把1变为0，把0变为1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~(<span class="number">10011010</span>)</span><br><span class="line"><span class="number">01100101</span></span><br><span class="line"></span><br><span class="line">val = ~val</span><br></pre></td></tr></table></figure>
+
+<h3 id="按位与-amp"><a href="#按位与-amp" class="headerlink" title="按位与 &amp;"></a>按位与 &amp;</h3><p>二元运算符&amp;通过逐位比较两个运算对象，生成一个新值。对于每个位，只有两个运算对象中相应的位都为1时，结果才为1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10010011</span>) &amp; (<span class="number">00111101</span>)</span><br><span class="line">(<span class="number">00010001</span>)</span><br><span class="line"></span><br><span class="line">val &amp;= <span class="number">0377</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="按位或"><a href="#按位或" class="headerlink" title="按位或 |"></a>按位或 |</h3><p>二元运算符&amp;通过逐位比较两个运算对象，生成一个新值。对于每个位，只有两个运算对象中相应的位都为1时，结果才为1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10010011</span>) | (<span class="number">00111101</span>)</span><br><span class="line">(<span class="number">10111111</span>)</span><br><span class="line"></span><br><span class="line">val |= <span class="number">0377</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="按位异或"><a href="#按位异或" class="headerlink" title="按位异或 ^"></a>按位异或 ^</h3><p>二元运算符&amp;通过逐位比较两个运算对象，生成一个新值。对于每个位，只有两个运算对象中相应的位都为1时，结果才为1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10010011</span>) ^ (<span class="number">00111101</span>)</span><br><span class="line">(<span class="number">10101110</span>)</span><br><span class="line"></span><br><span class="line">val ^= <span class="number">0377</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="掩码"><a href="#掩码" class="headerlink" title="掩码"></a>掩码</h3><p>mask &#x3D; 2 (0000 0010)  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag = flag &amp; mask</span><br></pre></td></tr></table></figure>
+<p>那么flag 的位都会置位为0 除了掩码为1的第二位<br>可以这样类比：把掩码中的0看作不透明，1看作透明 用掩码中的0将flag给掩盖起来了</p>
+<h3 id="打开位"><a href="#打开位" class="headerlink" title="打开位"></a>打开位</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag = flag | mask</span><br></pre></td></tr></table></figure>
+<p>flags的1号位设置为1，且其他位不变<br>根据MASK中为1的位，把flags中对应的位设置为1，其他位不变</p>
+<h3 id="关闭位"><a href="#关闭位" class="headerlink" title="关闭位"></a>关闭位</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag = flag &amp; ～mask;</span><br></pre></td></tr></table></figure>
+<p>根据MASK中为1的位，把flags中对应的位设置为0，其他位不变</p>
+<h3 id="切换位"><a href="#切换位" class="headerlink" title="切换位"></a>切换位</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag = flag ^ mask</span><br></pre></td></tr></table></figure>
+<p>根据MASK中为1的位，把flags中对应的位取反，其他位不变</p>
+<h3 id="检查位的值"><a href="#检查位的值" class="headerlink" title="检查位的值"></a>检查位的值</h3><p>flags中1号位是否被设置为1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((flags &amp; MASK) == MASK) </span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">&quot;Wow!&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="移位运算符"><a href="#移位运算符" class="headerlink" title="移位运算符"></a>移位运算符</h2><h3 id="左移-lt-lt"><a href="#左移-lt-lt" class="headerlink" title="左移 &lt;&lt;"></a>左移 &lt;&lt;</h3><p>左移运算符（&lt;&lt;）将其左侧运算对象每一位的值向左移动其右侧运算对象指定的位数。左侧运算对象移出左末端位的值丢失，用0填充空出的位置。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10001010</span>) &lt;&lt; <span class="number">2</span></span><br><span class="line">(<span class="number">00101000</span>)</span><br></pre></td></tr></table></figure>
+<p>该操作产生了一个新的位值，但是不改变其运算对象。例如，假设stonk为1，那么stonk&lt;&lt;2为4，但是stonk本身不变，仍为1。可以使用左移赋值运算符（&lt;&lt;&#x3D;）来更改变量的值。该运算符将变量中的位向左移动其右侧运算对象给定值的位数。如下例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> stonk = <span class="number">1</span>; </span><br><span class="line"><span class="type">int</span> onkoo; </span><br><span class="line">onkoo = stonk &lt;&lt; <span class="number">2</span>; <span class="comment">/* 把4赋给onkoo */</span> </span><br><span class="line">stonk &lt;&lt;= <span class="number">2</span>; <span class="comment">/* 把stonk的值改为4 */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="右移-gt-gt"><a href="#右移-gt-gt" class="headerlink" title="右移 &gt;&gt;"></a>右移 &gt;&gt;</h3><p>右移运算符（&gt;&gt;）将其左侧运算对象每一位的值向右移动其右侧运算对象指定的位数。左侧运算对象移出右末端位的值丢。</p>
+<ul>
+<li><p>无符号 用0补位</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10001010</span>) &gt;&gt; <span class="number">2</span></span><br><span class="line">(<span class="number">00100010</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有符号 结果取决于机器 用0或者符号位的副本填充</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10001010</span>) &gt;&gt; <span class="number">2</span> <span class="comment">// 表达式，有符号值 </span></span><br><span class="line">(<span class="number">00100010</span>) <span class="comment">// 在某些系统中的结果值 </span></span><br><span class="line">(<span class="number">10001010</span>) &gt;&gt; <span class="number">2</span> <span class="comment">// 表达式，有符号值 </span></span><br><span class="line">(<span class="number">11100010</span>) <span class="comment">// 在另一些系统上的结果值</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="运用"><a href="#运用" class="headerlink" title="运用"></a>运用</h3><ul>
+<li><p>移位运算符针对2的幂提供快速有效的乘法和除法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">number &lt;&lt; n  <span class="comment">// number 乘以2的n次幂</span></span><br><span class="line">number &gt;&gt; n</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移位运算符针对2的幂提供快速有效的乘法和除法<br>假设用一个unsigned long类型的值表示颜色值，低阶位字节存储红色的强度，下一个字节存储绿色的强度，第3个字节存储蓝色的强度。随后你希望把每种颜色的强度分别存储在3个不同的unsigned char类型的变量中</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> BYTE_MASK 0xff </span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> color = <span class="number">0x002a162f</span>; </span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> blue, green, red; </span><br><span class="line">red = color &amp; BYTE_MASK; </span><br><span class="line">green = (color &gt;&gt; <span class="number">8</span>) &amp; BYTE_MASK; </span><br><span class="line">blue = (color &gt;&gt; <span class="number">16</span>) &amp; BYTE_MASK;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/c/">#c</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2024/05/07/SQL%E6%B3%A8%E5%85%A5%E5%B0%8F%E8%AE%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">sqlz注入小记</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2024&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">且任容枯</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

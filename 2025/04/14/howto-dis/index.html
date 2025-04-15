@@ -236,9 +236,7 @@
 <li>LIST_EXTEND(i):<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">seq = STACK.pop()</span><br><span class="line"><span class="built_in">list</span>.extend(STACK[-i], seq)</span><br></pre></td></tr></table></figure></li>
 <li>SET_UPDATE(i)<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">seq = STACK.pop()</span><br><span class="line"><span class="built_in">set</span>.update(STACK[-i], seq)</span><br></pre></td></tr></table></figure></li>
 <li>SET_UPDATE(i):<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span> = STACK.pop()</span><br><span class="line"><span class="built_in">dict</span>.update(STACK[-i], <span class="built_in">map</span>)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>-DICT_MERGE(i): Like DICT_UPDATE but raises an exception for duplicate keys.</p>
-<ul>
+<li>DICT_MERGE(i): Like DICT_UPDATE but raises an exception for duplicate keys.</li>
 <li>LOAD_ATTR(namei): If the low bit of namei is not set, this replaces STACK[-1] with getattr(STACK[-1], co_names[namei&gt;&gt;1]).</li>
 </ul>
 <p>If the low bit of namei is set, this will attempt to load a method named co_names[namei&gt;&gt;1] from the STACK[-1] object. STACK[-1] is popped. This bytecode distinguishes two cases: if STACK[-1] has a method with the correct name, the bytecode pushes the unbound method and STACK[-1]. STACK[-1] will be used as the first argument (self) by CALL when calling the unbound method. Otherwise, NULL and the object returned by the attribute lookup are pushed.</p>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="Hexo Theme Keep">
+  <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+  <meta name="author" content="Keep Team">
+  
+  <title>
+    
+      nmap常用选项 |
+    
+    Keep Theme
+  </title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+  
+  <script>
+    (function () {
+      let theme = localStorage.getItem('KEEP-THEME-STATUS');
+      let classname = "";
+      if (!theme || (JSON.parse(theme).isAutoTheme)){
+        classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
+      }
+      else{
+        classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+      }
+      document.documentElement.classList.add(classname);
+    })();
+  </script>
+  <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io","root":"/","language":"zh-CN"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Keep Theme","author":"Keep Team","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"word":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"2.0.8"},"waline":{"server_url":null,"reaction":false,"version":"3.15.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs","custom":{"enable":false,"url":null}},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.4.0"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+  
+
+  
+</div>
+
+
+
+<main class="page-container border-box">
+  <!-- home first screen  -->
+  
+
+  <!-- page content -->
+  <div class="page-main-content border-box">
+    <div class="page-main-content-top">
+      
+<header class="header-wrapper">
+
+  <div class="border-box header-content">
+    <div class="left flex-start border-box">
+      
+        <a class="logo-image border-box" href="/">
+          <img src="/images/logo.svg">
+        </a>
+      
+      <a class="site-name border-box" href="/">
+        Keep Theme
+      </a>
+    </div>
+
+    <div class="right border-box">
+      <div class="pc border-box">
+        <ul class="menu-list border-box">
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/">
+                
+                首页
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/archives">
+                
+                归档
+                
+              </a>
+              
+            </li>
+          
+          
+        </ul>
+      </div>
+      <div class="mobile border-box flex-start">
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list border-box">
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+              
+              首页
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+              
+              归档
+            </a>
+            
+          </label>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-main-content-middle border-box">
+
+      <div class="main-content border-box">
+        
+
+          
+<div class="fade-in-down-animation">
+  <div class="post-page-container border-box">
+    <div class="post-content-container border-box">
+      
+
+      <div class="post-content-bottom border-box">
+        
+          <div class="post-title">
+            nmap常用选项
+          </div>
+        
+
+        
+          <div class="post-header border-box">
+            
+              <div class="avatar-box border-box">
+                <img src="/images/avatar.svg">
+              </div>
+            
+            <div class="info-box">
+              <div class="author border-box">
+                <span class="name">Keep Team</span>
+                
+                  <span class="author-badge">Lv4</span>
+                
+              </div>
+              <div class="meta-info border-box">
+                
+
+<div class="post-meta-info-container border-box post">
+  <div class="post-meta-info border-box">
+    
+
+    
+      <span class="meta-info-item post-create-date">
+        <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+        <span class="datetime">2024-05-07 08:16:16</span>
+      </span>
+
+      
+        <span class="meta-info-item post-update-date">
+          <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+          <span class="datetime" data-updated="Tue May 07 2024 08:17:15 GMT+0800">2024-05-07 08:17:15</span>
+        </span>
+      
+    
+
+    
+
+    
+      <span class="post-tag meta-info-item border-box">
+        <ul class="post-tag-ul">
+          
+              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/namp/">namp</a></li>
+            
+          
+        </ul>
+      </span>
+    
+
+    
+    
+      <span class="meta-info-item post-word-count">
+        <i class="icon fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+      </span>
+    
+    
+      <span class="meta-info-item post-min2read">
+        <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+      </span>
+    
+    
+  </div>
+
+  
+</div>
+
+              </div>
+            </div>
+          </div>
+        
+
+        <div class="post-content keep-markdown-body ">
+          
+
+          
+            <p>目标说明<br>TARGET SPECIFICATION: Can pass hostnames, IP addresses, networks, etc. Ex: scanme.nmap.org, microsoft.com&#x2F;24, 192.168.0.1; 10.0.0-255.1-254 -iL : Input from list of hosts&#x2F;networks -iR : Choose random targets –exclude &lt;host1[,host2][,host3],…&gt;: Exclude hosts&#x2F;networks –excludefile <exclude_file>: Exclude list from file -iL 从主机地址列表文件中导入扫描地址 -iR 随机选择目标进行扫描，num hosts表示数目，是指为0则无休止扫描 –exclude 排除模糊个主机地址 –excludefile 排除主机地址列表文件中的地址</p>
+<p>主机发现<br>HOST DISCOVERY: -sL: List Scan - simply list targets to scan -sn: Ping Scan - disable port scan -Pn: Treat all hosts as online – skip host discovery -PS&#x2F;PA&#x2F;PU&#x2F;PY[portlist]: TCP SYN&#x2F;ACK, UDP or SCTP discovery to given ports -PE&#x2F;PP&#x2F;PM: ICMP echo, timestamp, and netmask request discovery probes -PO[protocol list]: IP Protocol Ping -n&#x2F;-R: Never do DNS resolution&#x2F;Always resolve [default: sometimes] –dns-servers &lt;serv1[,serv2],…&gt;: Specify custom DNS servers 自定义域名解析服务器地址 –system-dns: Use OS’s DNS resolver –traceroute: Trace hop path to each host 路由 -sL 列表扫描，仅将指定的目标IP列举出来，不进行主机发现 -sn 和-sP一样，只利用ping扫描进行主机的发现，不扫描目标主机的端口 -Pn 将所有指定的主机视为已开启的状态，跳过主机发现过程</p>
+<p>端口扫描<br>端口状态： open(开放的),closed(关闭的),filtered(过滤的),unfiltered,open|filtered,closed|filtered</p>
+<p>SCAN TECHNIQUES: -sS&#x2F;sT&#x2F;sA&#x2F;sW&#x2F;sM: TCP SYN&#x2F;Connect()连接扫描&#x2F;ACK&#x2F;Window&#x2F;Maimon scans -sU: UDP Scan -sN&#x2F;sF&#x2F;sX: TCP Null, FIN, and Xmas scans –scanflags : Customize TCP scan flags -sI &lt;zombie host[:probeport]&gt;: Idle scan -sY&#x2F;sZ: SCTP INIT&#x2F;COOKIE-ECHO scans -sO: IP protocol scan -b : FTP bounce scan</p>
+<p>端口说明和扫描顺序<br>PORT SPECIFICATION AND SCAN ORDER: -p : Only scan specified ports Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9 –exclude-ports : Exclude the specified ports from scanning -F: Fast mode - Scan fewer ports than the default scan 快速扫描，100个常用端口 -r: Scan ports consecutively - don’t randomize –top-ports : Scan most common ports –port-ratio : Scan ports more common than -p 指定端口 -p 指定扫描的协议</p>
+<p>服务与版本扫描<br>SERVICE&#x2F;VERSION DETECTION: -sV: Probe open ports to determine service&#x2F;version info –version-intensity : Set from 0 (light) to 9 (try all probes) –version-light: Limit to most likely probes (intensity 2) –version-all: Try every single probe (intensity 9) –version-trace: Show detailed version scan activity (for debugging)</p>
+<p>脚本扫描(《nmap-script使用帮助手册》)<br>SCRIPT SCAN: -sC: equivalent to –script&#x3D;default –script&#x3D;: is a comma separated list of directories, script-files or script-categories –script-args&#x3D;&lt;n1&#x3D;v1,[n2&#x3D;v2,…]&gt;: provide arguments to scripts –script-args-file&#x3D;filename: provide NSE script args in a file –script-trace: Show all data sent and received –script-updatedb: Update the script database. –script-help&#x3D;: Show help about scripts. is a comma-separated list of script-files or script-categories.</p>
+<p>操作系统扫描<br>OS DETECTION: -O: Enable OS detection –osscan-limit: Limit OS detection to promising targets –osscan-guess: Guess OS more aggressively</p>
+<p>时间和性能<br>TIMING AND PERFORMANCE: Options which take are in seconds, or append ‘ms’ (milliseconds) ‘s’ (seconds), ‘m’ (minutes), or ‘h’ (hours) to the value (e.g. 30m). -T&lt;0-5&gt;: Set timing template (higher is faster) –min-hostgroup&#x2F;max-hostgroup : Parallel host scan group sizes –min-parallelism&#x2F;max-parallelism : Probe parallelization –min-rtt-timeout&#x2F;max-rtt-timeout&#x2F;initial-rtt-timeout : Specifies probe round trip time. –max-retries : Caps number of port scan probe retransmissions. –host-timeout : Give up on target after this long –scan-delay&#x2F;–max-scan-delay : Adjust delay between probes –min-rate : Send packets no slower than per second –max-rate : Send packets no faster than per second</p>
+<p>防火墙&#x2F;IDS规避和欺骗<br>FIREWALL&#x2F;IDS EVASION AND SPOOFING: -f(报文分段); –mtu(使用指定的MTU) : fragment packets (optionally w&#x2F;given MTU) -D &lt;decoy1,decoy2[,ME],…&gt;: Cloak a scan with decoys -S <IP_Address>: Spoof source address -e : Use specified interface -g&#x2F;–source-port : Use given port number –proxies &lt;url1,[url2],…&gt;: Relay connections through HTTP&#x2F;SOCKS4 proxies –data : Append a custom payload to sent packets –data-string : Append a custom ASCII string to sent packets –data-length : Append random data to sent packets –ip-options : Send packets with specified ip options –ttl : Set IP time-to-live field –spoof-mac &lt;mac address&#x2F;prefix&#x2F;vendor name&gt;: Spoof your MAC address –badsum: Send packets with a bogus TCP&#x2F;UDP&#x2F;SCTP checksum</p>
+<p>输出选项<br>OUTPUT: -oN&#x2F;-oX&#x2F;-oS&#x2F;-oG : Output scan in normal, XML, s|&lt;rIpt kIddi3, and Grepable format, respectively, to the given filename. -oA : Output in the three major formats at once -v: Increase verbosity level (use -vv or more for greater effect) -d: Increase debugging level (use -dd or more for greater effect) –reason: Display the reason a port is in a particular state –open: Only show open (or possibly open) ports –packet-trace: Show all packets sent and received –iflist: Print host interfaces and routes (for debugging) –append-output: Append to rather than clobber specified output files –resume : Resume an aborted scan –stylesheet &lt;path&#x2F;URL&gt;: XSL stylesheet to transform XML output to HTML –webxml: Reference stylesheet from Nmap.Org for more portable XML –no-stylesheet: Prevent associating of XSL stylesheet w&#x2F;XML output</p>
+<p>常用扫描技巧<br>1 扫描单一目标主机 nmap ip&#x2F;dns</p>
+<p>2 扫描整个子网 nmap 192.168.0.1&#x2F;24</p>
+<p>3 扫描多个目标 nmap ip1 ip2 dns1dns2</p>
+<p>4 扫描一个范围 nmap 192.168.1-100</p>
+<p>5 导入IP列表 nmap -iL ip.txt</p>
+<p>6 列举目标地址但不扫描 nmap -sL 192.168.0.1&#x2F;24</p>
+<p>7 端口 nmap -p port</p>
+
+          
+        </div>
+
+        
+
+        <div class="post-bottom-tags-and-share border-box">
+          <div>
+            
+              <ul class="post-tags-box border-box">
+                
+                  <li class="tag-item border-box">
+                    <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/namp/">namp</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+          <div>
+            
+          </div>
+        </div>
+
+        
+
+        
+          <div class="post-nav border-box">
+            
+              <div class="prev-post">
+                <a class="prev"
+                  rel="prev"
+                  href="/2024/05/07/SQL%E6%B3%A8%E5%85%A5%E5%B0%8F%E8%AE%B0/"
+                  title="sqlz注入小记"
+                >
+                  <span class="left arrow-icon flex-center">
+                    <i class="fas fa-chevron-left"></i>
+                  </span>
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">sqlz注入小记</span>
+                    <span class="post-nav-item">上一篇</span>
+                  </span>
+                </a>
+              </div>
+            
+            
+              <div class="next-post">
+                <a class="next"
+                  rel="next"
+                  href="/2024/05/07/google-hacking/"
+                  title="google hacking"
+                >
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">google hacking</span>
+                    <span class="post-nav-item">下一篇</span>
+                  </span>
+                  <span class="right arrow-icon flex-center">
+                    <i class="fas fa-chevron-right"></i>
+                  </span>
+                </a>
+              </div>
+            
+          </div>
+        
+
+        
+          
+
+
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+    </div>
+
+    <div class="page-main-content-bottom border-box">
+      
+<footer class="footer border-box">
+  <div class="copyright-info info-item">
+  &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+  
+      &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
+    
+  </div>
+
+  <div class="theme-info info-item">
+    由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+  </div>
+
+  
+
+  
+
+  
+</footer>
+
+    </div>
+  </div>
+
+  <!-- post tools -->
+  
+    <div class="post-tools right-toc">
+      <div class="post-tools-container border-box">
+  <ul class="post-tools-list border-box">
+    <!-- PC encrypt again -->
+    
+
+    <!-- PC TOC show toggle -->
+    
+
+    <!-- PC go comment -->
+    
+
+    <!-- PC full screen -->
+    <li class="tools-item flex-center full-screen">
+      <i class="fa-solid fa-expand"></i>
+    </li>
+  </ul>
+</div>
+
+    </div>
+  
+
+  <!-- side tools -->
+  <div class="side-tools">
+    <div class="side-tools-container border-box ">
+  <ul class="side-tools-list side-tools-show-handle border-box">
+    <li class="tools-item tool-font-adjust-plus flex-center">
+      <i class="fas fa-search-plus"></i>
+    </li>
+
+    <li class="tools-item tool-font-adjust-minus flex-center">
+      <i class="fas fa-search-minus"></i>
+    </li>
+
+    <!-- toggle chinese -->
+    
+      <li class="tools-item tool-toggle-chinese flex-center">
+        <button type="button"
+            data-native-script="cn"
+            data-opencc-src="/js/libs/opencc.full.js"
+            data-label-cn="切换为简体中文"
+            data-label-tw="切换为繁体中文"
+            data-label-error="简繁转换加载失败，点击重试"
+        >
+          繁
+        </button>
+      </li>
+    
+
+    <!-- toggle mode -->
+    
+      <li class="tools-item tool-toggle-theme-mode flex-center">
+        <i class="fas fa-moon"></i>
+      </li>
+    
+
+    <!-- rss -->
+    
+
+    <!-- to bottom -->
+    <li class="tools-item tool-scroll-to-bottom flex-center">
+      <i class="fas fa-arrow-down"></i>
+    </li>
+  </ul>
+
+  <ul class="exposed-tools-list border-box">
+    
+
+    
+
+    <li class="tools-item tool-toggle-show flex-center">
+      <i class="fas fa-cog fa-spin"></i>
+    </li>
+
+    <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+      <i class="arrow fas fa-arrow-up"></i>
+      <span class="percent"></span>
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- image mask -->
+  <div class="zoom-in-image-mask">
+  <img class="zoom-in-image">
+</div>
+
+
+  <!-- local search -->
+  
+
+  <!-- tablet toc -->
+  
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/chinese-convert.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+  <!-- home page -->
+  
+
+  <!-- post page -->
+  
+    <!-- post-helper -->
+    
+<script src="/js/post/post-helper.js"></script>
+
+
+    <!-- toc -->
+    
+
+    <!-- copyright-info -->
+    
+
+    <!-- share -->
+    
+  
+
+  <!-- categories page -->
+  
+
+  <!-- links page -->
+  
+
+  <!-- photos page -->
+  
+
+  <!-- tools page -->
+  
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>

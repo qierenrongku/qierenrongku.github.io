@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="Hexo Theme Keep">
+  <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+  <meta name="author" content="Keep Team">
+  
+  <title>
+    
+      google hacking |
+    
+    Keep Theme
+  </title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+  
+  <script>
+    (function () {
+      let theme = localStorage.getItem('KEEP-THEME-STATUS');
+      let classname = "";
+      if (!theme || (JSON.parse(theme).isAutoTheme)){
+        classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
+      }
+      else{
+        classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+      }
+      document.documentElement.classList.add(classname);
+    })();
+  </script>
+  <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io","root":"/","language":"zh-CN"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Keep Theme","author":"Keep Team","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"word":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"2.0.8"},"waline":{"server_url":null,"reaction":false,"version":"3.15.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs","custom":{"enable":false,"url":null}},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.4.0"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+  
+
+  
+</div>
+
+
+
+<main class="page-container border-box">
+  <!-- home first screen  -->
+  
+
+  <!-- page content -->
+  <div class="page-main-content border-box">
+    <div class="page-main-content-top">
+      
+<header class="header-wrapper">
+
+  <div class="border-box header-content">
+    <div class="left flex-start border-box">
+      
+        <a class="logo-image border-box" href="/">
+          <img src="/images/logo.svg">
+        </a>
+      
+      <a class="site-name border-box" href="/">
+        Keep Theme
+      </a>
+    </div>
+
+    <div class="right border-box">
+      <div class="pc border-box">
+        <ul class="menu-list border-box">
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/">
+                
+                首页
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/archives">
+                
+                归档
+                
+              </a>
+              
+            </li>
+          
+          
+        </ul>
+      </div>
+      <div class="mobile border-box flex-start">
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list border-box">
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+              
+              首页
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+              
+              归档
+            </a>
+            
+          </label>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-main-content-middle border-box">
+
+      <div class="main-content border-box">
+        
+
+          
+<div class="fade-in-down-animation">
+  <div class="post-page-container border-box">
+    <div class="post-content-container border-box">
+      
+
+      <div class="post-content-bottom border-box">
+        
+          <div class="post-title">
+            google hacking
+          </div>
+        
+
+        
+          <div class="post-header border-box">
+            
+              <div class="avatar-box border-box">
+                <img src="/images/avatar.svg">
+              </div>
+            
+            <div class="info-box">
+              <div class="author border-box">
+                <span class="name">Keep Team</span>
+                
+                  <span class="author-badge">Lv4</span>
+                
+              </div>
+              <div class="meta-info border-box">
+                
+
+<div class="post-meta-info-container border-box post">
+  <div class="post-meta-info border-box">
+    
+
+    
+      <span class="meta-info-item post-create-date">
+        <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+        <span class="datetime">2024-05-07 08:01:40</span>
+      </span>
+
+      
+        <span class="meta-info-item post-update-date">
+          <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+          <span class="datetime" data-updated="Tue May 07 2024 08:20:46 GMT+0800">2024-05-07 08:20:46</span>
+        </span>
+      
+    
+
+    
+
+    
+      <span class="post-tag meta-info-item border-box">
+        <ul class="post-tag-ul">
+          
+              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%90%9C%E7%B4%A2/">搜索</a></li>
+            
+          
+        </ul>
+      </span>
+    
+
+    
+    
+      <span class="meta-info-item post-word-count">
+        <i class="icon fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+      </span>
+    
+    
+      <span class="meta-info-item post-min2read">
+        <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+      </span>
+    
+    
+  </div>
+
+  
+</div>
+
+              </div>
+            </div>
+          </div>
+        
+
+        <div class="post-content keep-markdown-body ">
+          
+
+          
+            <h2 id="google-hacking"><a href="#google-hacking" class="headerlink" title="google hacking"></a>google hacking</h2><h3 id="基本搜索"><a href="#基本搜索" class="headerlink" title="基本搜索"></a>基本搜索</h3><p>逻辑或or<br>语法：a or b  a + b<br>功能: 两者皆有，或其一</p>
+<p>逻辑and<br>语法：a and b a*b<br>功能：同时包含 a,b</p>
+<p>逻辑非not<br>语法：not a  -a<br>功能：不出现关键词a</p>
+<p>完整匹配<br>语法：“a”<br>功能：强制出现关键词a</p>
+<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><p><strong>site:网址</strong><br>搜索指定的域名的网页内容，可以用来搜索子域名，跟此域名相关的内容。</p>
+<p><strong>filetype:文件类型</strong><br>指定搜索的文件类型<br>site:xx.com filetype:asp<br>site:xx.com filetype:php<br>site:xx.com filetype:jsp<br>site:xx.com filetype:aspx</p>
+<p><strong>inurl:keyword</strong><br>搜索url网址存在特定关键字的网页、可以用来搜寻有注入点的网站<br>inurl:.php?id&#x3D;<br>inurl:.jsp?id&#x3D;<br>inurl:.asp?id&#x3D;<br>inurl: &#x2F;admin&#x2F;login.php  搜索网址中有”&#x2F;admin&#x2F;login.php”的网页<br>inurl:login              搜索网址中有”login”等登录网页<br>inurl:admin              搜索网址中有”admin”等登录网页<br>inurl:config.txt</p>
+<p><strong>intitle:keyword</strong><br>搜索标题存在特定关键字的网页<br>intitle:后台登录  、管理员登录<br>intitle:index of             搜索此关键字相关的索引目录信息<br>intitle:index of “parent directory” 搜索根目录相关的索引目录信息<br>intitle:index of “password”       搜索密码相关的索引目录信息</p>
+<p><strong>intext:keyword</strong><br>搜索正文存在特定关键字的网页<br>intext:Powered by Discuz     搜索Discuz论坛相关的页面<br>intext:powered by wordpress  搜索wordpress制作的博客网址<br>intext:Powered by *CMS       搜索CMS相关的页面<br>intext:powered by xxx inurl:login     搜索此类网址的后台登录页面</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>Google Hacking!<br>通过google找网站后台的方法<br>site:url.com ‘查看这个站点上的信息最好不加www，可以查看到不少的二级域名信息，可以有不小的收获哈</p>
+<p>最好与inurl,intext等联用，效果更佳..</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>intext:测试     查看文本种包含”测试”的网页<br>intitle: fooltitle     标题<br>intitle:config confixx login password    检查多个关键字<br>allinurl:url    搜索xx网站的所有相关连接。（踩点必备）<br>links:url    相关链接<br>allintilte:url<br>先找找网站的管理后台地址：<br>site:xxxx.com intext:管理<br>site:xxxx.com inurl:login<br>site:xxxx.com intitle:管理<br>site:a2.xxxx.com inurl:file<br>site:a3.xxxx.com inurl:load<br>site:a2.xxxx.com intext:ftp:&#x2F;&#x2F;<em>:</em><br>site:a2.xxxx.com filetype:asp<br>site:xxxx.com &#x2F;&#x2F;得到N个二级域名<br>site:xxxx.com intext:<em>@xxxx.com &#x2F;&#x2F;得到N个邮件地址，还有邮箱的主人的名字什么的<br>site:xxxx.com intext:电话 &#x2F;&#x2F;N个电话<br>intitle:”index of” etc<br>intitle:”Index of” .sh_history<br>intitle:”Index of” .bash_history<br>intitle:”index of” passwd<br>intitle:”index of” people.lst<br>intitle:”index of” pwd.db<br>intitle:”index of” etc&#x2F;shadow<br>intitle:”index of” spwd<br>intitle:”index of” master.passwd<br>intitle:”index of” htpasswd<br>“# -FrontPage-” inurl:service.pwd<br>直接搜索密码：(引号表示为精确搜索)<br>当然我们可以再延伸到上面的结果里进行二次搜索<br>“index of” htpasswd &#x2F; passwd<br>filetype:xls username password email<br>“ws_ftp.log”<br>“config.php”           ‘可以看看别的config 或者直接看conn可以不可以暴<br>allinurl:admin mdb    ‘可以换成别的哈，dvbbs7.mdb等等<br>service filetype:pwd ….或者某个比如pcanywhere的密码后缀cif等 ‘很少用<br>越来越有意思了，再来点更敏感信息<br>“robots.txt” “Disallow:” filetype:txt<br>inurl:_vti_cnf (FrontPage的关键索引啦，扫描器的CGI库一般都有地)<br>allinurl: &#x2F;msadc&#x2F;Samples&#x2F;selector&#x2F;showcode.asp<br>&#x2F;..&#x2F;..&#x2F;..&#x2F;passwd<br>&#x2F;examples&#x2F;jsp&#x2F;snp&#x2F;snoop.jsp<br>phpsysinfo<br>intitle:index of &#x2F;admin<br>intitle:”documetation”<br>inurl: 5800(vnc的端口)或者desktop port等多个关键字检索<br>webmin port 10000<br>inurl:&#x2F;admin&#x2F;login.asp<br>intextowered by GBook365<br>intitle:”php shell</em>” “Enable stderr” filetype:php 直接搜索到phpwebshell<br>foo.org filetype:inc<br>ipsec filetype:conf<br>intilte:”error occurred” ODBC request WHERE (select|insert) 说白了就是说，可以直接试着查查数据库检索，针对目前流行的sql注射<br>intitle:”php shell*” “Enable stderr” filetype:php<br>“Dumping data for table” username password<br>intitle:”Error using Hypernews”<br>“Server Software”<br>intitle:”HTTP_USER_AGENT&#x3D;Googlebot”<br>“HTTP_USER_ANGET&#x3D;Googlebot” THS ADMIN<br>filetype:.doc site:.mil classified 直接搜索军方相关word</p>
+<p>inurl: 用于搜索网页上包含的URL. 这个语法对寻找网页上的搜索,帮助之类的很有用.<br>intext: 只搜索网页<body>部分中包含的文字(也就是忽略了标题,URL等的文字).<br>site: 可以限制你搜索范围的域名.<br>filetype: 搜索文件的后缀或者扩展名<br>intitle: 限制你搜索的网页标题.<br>allintitle: 搜索所有关键字构成标题的网页. 但是推荐不要使用<br>link: 可以得到一个所有包含了某个指定URL的页面列表. 例如link:<a class="link"   target="_blank" rel="noopener" href="http://www.google.com/" >www.google.com<i class="fas fa-external-link-alt"></i></a> 就可<br>intext:管理<br>filetype:mdb<br>inurl:file<br>site:xx.com filetype:txt 查找TXT文件 其他的依次内推<br>site:xx.com intext:管理<br>site:xx.com inurl:login<br>site:xx.com intitle:后台</p>
+<p>查看服务器使用的程序<br>site:xx.com filetype:asp<br>site:xx.com filetype:php<br>site:xx.com filetype:jsp</p>
+<p>查看上传漏洞：<br>site:xx.com inurl:file<br>site:xx.com inurl:load</p>
+<p>查找注射点：<br>site:xx.com filetype:asp<br>site:tw inurl:asp?id&#x3D;    这个是找台湾的<br>或<br>site:jp inurl:asp?id&#x3D;    这个是找日本的<br>或<br>site:ko inurl:asp?id&#x3D;     这个是找韩国的</p>
+<p>依次类推<br>intitle:旁注- 网站xxxfiletype:asp<br>inurl:editor&#x2F;db&#x2F;<br>inurl:eWebEditor&#x2F;db&#x2F;<br>inurl:bbs&#x2F;data&#x2F;<br>inurl:databackup&#x2F;<br>inurl:blog&#x2F;data&#x2F;<br>inurl:bokedata<br>inurl:bbs&#x2F;database&#x2F;<br>inurl:conn.asp<br>inc&#x2F;conn.asp</p>
+<p>管理入口:<br>admin<br>admin_index<br>admin_admin<br>index_admin<br>admin&#x2F;index<br>admin&#x2F;default<br>admin&#x2F;manage<br>admin&#x2F;login<br>manage_index<br>index_manage<br>superadmin<br>admin1<br>admin_login<br>login_admin<br>ad_login<br>ad_manage<br>count<br>manager<br>guanli<br>denglu<br>houtai<br>houtaiguanli<br>htgl<br>adminlogin<br>adminuserlogin<br>adm_login<br>chklogin<br>chkadmin<br>users<br>adduser<br>admin_user<br>edituser<br>adminadduser<br>member<br>members<br>editmember<br>adminmember<br>addmember<br>logout<br>exit<br>login_out<br>adminedit<br>admin_edit<br>delete<br>admindelete<br>admin_delete<br>up<br>upload<br>upfile<br>backup<br>config<br>test<br>webmaster<br>root<br>aadmin<br>admintab<br>admin_main<br>art<br>article<br>databases<br>db<br>dbase<br>devel<br>files<br>forum<br>girl<br>girls<br>htdocs<br>idea<br>ideas<br>include<br>includeinc<br>includes<br>incoming<br>install<br>manual<br>misc<br>mrtg<br>private<br>program<br>programming<br>programs<br>public<br>secret<br>secrets<br>server_stats<br>server-info<br>server-status<br>set<br>setting<br>setup</p>
+<hr>
+<p>snmp<br>source<br>sources<br>sql<br>statistics<br>Stats<br>telephone<br>temp<br>temporary<br>tool<br>tools<br>usage<br>weblog<br>weblogs<br>webstats<br>work<br>wstats<br>wwwlog<br>wwwstats<br>wenzhang<br>admin&#x2F;login.asp<br>admin_index.asp<br>bbs&#x2F;admin_index.asp<br>article&#x2F;admin&#x2F;admin.asp<br>admin&#x2F;aspcheck.asp<br>inc&#x2F;config.asp<br>eWebEditor&#x2F;admin_login.asp<br>editor&#x2F;admin_login.asp<br>login&#x2F;login<br>login&#x2F;index<br>login&#x2F;super<br>login1<br>update<br>count_admin<br>add_admin<br>admin_pass<br>newbbs&#x2F;login<br>down&#x2F;login<br>bbs&#x2F;admin&#x2F;login<br>main&#x2F;login<br>admin&#x2F;manage.asp<br>manage&#x2F;login.asp<br>user.asp<br>conn.asp<br>logout.asp</p>
+<p>manager&#x2F;login<br>manager&#x2F;login.asp<br>manager&#x2F;admin.asp<br>login&#x2F;admin&#x2F;admin.asp<br>houtai&#x2F;admin.asp<br>guanli&#x2F;admin.asp<br>denglu&#x2F;admin.asp<br>admin_login&#x2F;admin.asp<br>admin_login&#x2F;login.asp<br>admin&#x2F;manage&#x2F;admin.asp<br>admin&#x2F;manage&#x2F;login.asp<br>admin&#x2F;default&#x2F;admin.asp<br>admin&#x2F;default&#x2F;login.as<br>member&#x2F;admin.asp<br>member&#x2F;login.asp<br>administrator&#x2F;admin.asp<br>administrator&#x2F;login.asp</p>
+
+          
+        </div>
+
+        
+
+        <div class="post-bottom-tags-and-share border-box">
+          <div>
+            
+              <ul class="post-tags-box border-box">
+                
+                  <li class="tag-item border-box">
+                    <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%90%9C%E7%B4%A2/">搜索</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+          <div>
+            
+          </div>
+        </div>
+
+        
+
+        
+          <div class="post-nav border-box">
+            
+              <div class="prev-post">
+                <a class="prev"
+                  rel="prev"
+                  href="/2024/05/07/nmap%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9/"
+                  title="nmap常用选项"
+                >
+                  <span class="left arrow-icon flex-center">
+                    <i class="fas fa-chevron-left"></i>
+                  </span>
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">nmap常用选项</span>
+                    <span class="post-nav-item">上一篇</span>
+                  </span>
+                </a>
+              </div>
+            
+            
+              <div class="next-post">
+                <a class="next"
+                  rel="next"
+                  href="/2024/05/02/collections/"
+                  title="collections"
+                >
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">collections</span>
+                    <span class="post-nav-item">下一篇</span>
+                  </span>
+                  <span class="right arrow-icon flex-center">
+                    <i class="fas fa-chevron-right"></i>
+                  </span>
+                </a>
+              </div>
+            
+          </div>
+        
+
+        
+          
+
+
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+    </div>
+
+    <div class="page-main-content-bottom border-box">
+      
+<footer class="footer border-box">
+  <div class="copyright-info info-item">
+  &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+  
+      &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
+    
+  </div>
+
+  <div class="theme-info info-item">
+    由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+  </div>
+
+  
+
+  
+
+  
+</footer>
+
+    </div>
+  </div>
+
+  <!-- post tools -->
+  
+    <div class="post-tools right-toc">
+      <div class="post-tools-container border-box">
+  <ul class="post-tools-list border-box">
+    <!-- PC encrypt again -->
+    
+
+    <!-- PC TOC show toggle -->
+    
+
+    <!-- PC go comment -->
+    
+
+    <!-- PC full screen -->
+    <li class="tools-item flex-center full-screen">
+      <i class="fa-solid fa-expand"></i>
+    </li>
+  </ul>
+</div>
+
+    </div>
+  
+
+  <!-- side tools -->
+  <div class="side-tools">
+    <div class="side-tools-container border-box ">
+  <ul class="side-tools-list side-tools-show-handle border-box">
+    <li class="tools-item tool-font-adjust-plus flex-center">
+      <i class="fas fa-search-plus"></i>
+    </li>
+
+    <li class="tools-item tool-font-adjust-minus flex-center">
+      <i class="fas fa-search-minus"></i>
+    </li>
+
+    <!-- toggle chinese -->
+    
+      <li class="tools-item tool-toggle-chinese flex-center">
+        <button type="button"
+            data-native-script="cn"
+            data-opencc-src="/js/libs/opencc.full.js"
+            data-label-cn="切换为简体中文"
+            data-label-tw="切换为繁体中文"
+            data-label-error="简繁转换加载失败，点击重试"
+        >
+          繁
+        </button>
+      </li>
+    
+
+    <!-- toggle mode -->
+    
+      <li class="tools-item tool-toggle-theme-mode flex-center">
+        <i class="fas fa-moon"></i>
+      </li>
+    
+
+    <!-- rss -->
+    
+
+    <!-- to bottom -->
+    <li class="tools-item tool-scroll-to-bottom flex-center">
+      <i class="fas fa-arrow-down"></i>
+    </li>
+  </ul>
+
+  <ul class="exposed-tools-list border-box">
+    
+
+    
+
+    <li class="tools-item tool-toggle-show flex-center">
+      <i class="fas fa-cog fa-spin"></i>
+    </li>
+
+    <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+      <i class="arrow fas fa-arrow-up"></i>
+      <span class="percent"></span>
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- image mask -->
+  <div class="zoom-in-image-mask">
+  <img class="zoom-in-image">
+</div>
+
+
+  <!-- local search -->
+  
+
+  <!-- tablet toc -->
+  
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/chinese-convert.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+  <!-- home page -->
+  
+
+  <!-- post page -->
+  
+    <!-- post-helper -->
+    
+<script src="/js/post/post-helper.js"></script>
+
+
+    <!-- toc -->
+    
+
+    <!-- copyright-info -->
+    
+
+    <!-- share -->
+    
+  
+
+  <!-- categories page -->
+  
+
+  <!-- links page -->
+  
+
+  <!-- photos page -->
+  
+
+  <!-- tools page -->
+  
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="Hexo Theme Keep">
+  <meta name="description" content="一个能把简单的事情做好的人就是一个不简单的人">
+  <meta name="author" content="Keep Team">
+  
+  <title>
+    
+      unittest |
+    
+    Keep Theme
+  </title>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+  
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+  
+  <script>
+    (function () {
+      let theme = localStorage.getItem('KEEP-THEME-STATUS');
+      let classname = "";
+      if (!theme || (JSON.parse(theme).isAutoTheme)){
+        classname = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark-mode" : "light-mode";
+      }
+      else{
+        classname = JSON.parse(theme).isDark ? "dark-mode" : "light-mode";
+      }
+      document.documentElement.classList.add(classname);
+    })();
+  </script>
+  <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"qierenrongku.github.io","root":"/","language":"zh-CN"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"Keep Theme","author":"Keep Team","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"word":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"2.0.8"},"waline":{"server_url":null,"reaction":false,"version":"3.15.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs","custom":{"enable":false,"url":null}},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","search_db_path":"keep-search.json","source_data":{},"version":"4.4.0"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+<div class="progress-bar-container">
+  
+
+  
+</div>
+
+
+
+<main class="page-container border-box">
+  <!-- home first screen  -->
+  
+
+  <!-- page content -->
+  <div class="page-main-content border-box">
+    <div class="page-main-content-top">
+      
+<header class="header-wrapper">
+
+  <div class="border-box header-content">
+    <div class="left flex-start border-box">
+      
+        <a class="logo-image border-box" href="/">
+          <img src="/images/logo.svg">
+        </a>
+      
+      <a class="site-name border-box" href="/">
+        Keep Theme
+      </a>
+    </div>
+
+    <div class="right border-box">
+      <div class="pc border-box">
+        <ul class="menu-list border-box">
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/">
+                
+                首页
+                
+              </a>
+              
+            </li>
+          
+            
+            <li class="menu-item flex-start border-box">
+              <a class="menu-text-color border-box" href="/archives">
+                
+                归档
+                
+              </a>
+              
+            </li>
+          
+          
+        </ul>
+      </div>
+      <div class="mobile border-box flex-start">
+        
+        <div class="icon-item menu-bar">
+          <div class="menu-bar-middle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-drawer">
+    <ul class="drawer-menu-list border-box">
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+              
+              首页
+            </a>
+            
+          </label>
+          
+        </li>
+      
+        
+        <li class="drawer-menu-item border-box not-sub-menu">
+          <label class="drawer-menu-label border-box">
+            <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+              
+              归档
+            </a>
+            
+          </label>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-main-content-middle border-box">
+
+      <div class="main-content border-box">
+        
+
+          
+<div class="fade-in-down-animation">
+  <div class="post-page-container border-box">
+    <div class="post-content-container border-box">
+      
+
+      <div class="post-content-bottom border-box">
+        
+          <div class="post-title">
+            unittest
+          </div>
+        
+
+        
+          <div class="post-header border-box">
+            
+              <div class="avatar-box border-box">
+                <img src="/images/avatar.svg">
+              </div>
+            
+            <div class="info-box">
+              <div class="author border-box">
+                <span class="name">Keep Team</span>
+                
+                  <span class="author-badge">Lv4</span>
+                
+              </div>
+              <div class="meta-info border-box">
+                
+
+<div class="post-meta-info-container border-box post">
+  <div class="post-meta-info border-box">
+    
+
+    
+      <span class="meta-info-item post-create-date">
+        <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+        <span class="datetime">2024-09-24 22:26:02</span>
+      </span>
+
+      
+        <span class="meta-info-item post-update-date">
+          <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+          <span class="datetime" data-updated="Wed Sep 25 2024 23:14:59 GMT+0800">2024-09-25 23:14:59</span>
+        </span>
+      
+    
+
+    
+
+    
+      <span class="post-tag meta-info-item border-box">
+        <ul class="post-tag-ul">
+          
+              <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/python-unittest-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-test/">python unittest 单元测试 test</a></li>
+            
+          
+        </ul>
+      </span>
+    
+
+    
+    
+      <span class="meta-info-item post-word-count">
+        <i class="icon fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+      </span>
+    
+    
+      <span class="meta-info-item post-min2read">
+        <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+      </span>
+    
+    
+  </div>
+
+  
+</div>
+
+              </div>
+            </div>
+          </div>
+        
+
+        <div class="post-content keep-markdown-body ">
+          
+
+          
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li><p><strong>test fixture</strong> 测试夹具</p>
+<p>  测试预先操作以及测试的后置操作</p>
+</li>
+<li><p><strong>test case</strong> 测试用例</p>
+<p>  测试用例 unittes 提供一个基础类TestCase</p>
+</li>
+<li><p><strong>test suit</strong> 测试套</p>
+<p>  测试用例的集合容器，聚集要一起执行的用例</p>
+</li>
+<li><p><strong>test runner</strong> 测试运行器</p>
+<p>  协调测试执行并向用户提供结果的组件</p>
+</li>
+</ul>
+<h2 id="simlpe-example"><a href="#simlpe-example" class="headerlink" title="simlpe example"></a>simlpe example</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestNumber</span>(unittest.TestCase):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_01</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.assertEqual(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_02</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.assertFalse(<span class="number">1</span>==<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    unittest.main()</span><br><span class="line"></span><br><span class="line"><span class="comment"># ..</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Ran 2 tests in 0.000s</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># OK</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试类继承unittest.Testcase</li>
+<li>测试方法名test开头</li>
+</ul>
+<h2 id="命令行接口"><a href="#命令行接口" class="headerlink" title="命令行接口"></a>命令行接口</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python -m unittest test_module1 test_module2</span><br><span class="line">python -m unittest test_module.TestClass</span><br><span class="line">python -m unittest test_module.TestClass.test_method</span><br><span class="line">python -m unittest tests/test_something.py</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(.venv) PS D:\project\howtospider&gt; python -m unittest main.TestNumber.test_01</span><br><span class="line">.</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line">Ran 1 test in 0.000s</span><br><span class="line"></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<p>当没有参数时候 测试发现被启动</p>
+<h2 id="命令行选项-以及测试发现选项"><a href="#命令行选项-以及测试发现选项" class="headerlink" title="命令行选项 以及测试发现选项"></a>命令行选项 以及测试发现选项</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">(.venv) PS D:\project\howtospider&gt; python -m unittest -h</span><br><span class="line">usage: python.exe -m unittest [-h] [-v] [-q] [--locals] [--durations N] [-f] [-c] [-b] [-k TESTNAMEPATTERNS] [tests ...]</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  tests                a list of any number of test modules, classes and test methods.</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  -h, --help           show this help message and exit</span><br><span class="line">  -v, --verbose        Verbose output  显示详细信息</span><br><span class="line">  -q, --quiet          Quiet output     显示简略信息</span><br><span class="line">  --locals             Show local variables in tracebacks   在tracebacks中显示变量</span><br><span class="line">  --durations N        Show the N slowest test cases (N=0 for all)  显示最慢的几个测试用例</span><br><span class="line">  -f, --failfast       Stop on first fail or error  遇到第一个失败的用例就停止</span><br><span class="line">  -c, --catch          Catch Ctrl-C and display results so far  按ctrl c 运行完当前用例结束则返回测试结果， 再按ctrl c 就触发KeyboardInterrupt异常</span><br><span class="line">  -b, --buffer         Buffer stdout and stderr during tests 缓存标准输出 错误输出</span><br><span class="line">  -k TESTNAMEPATTERNS  Only run tests which match the given substring 运行符合关键词的用例</span><br><span class="line"></span><br><span class="line">Examples:</span><br><span class="line">  python.exe -m unittest test_module               - run tests from test_module</span><br><span class="line">  python.exe -m unittest module.TestClass          - run tests from module.TestClass</span><br><span class="line">  python.exe -m unittest module.Class.test_method  - run specified test method</span><br><span class="line">  python.exe -m unittest path/to/test_file.py      - run tests from test_file.py</span><br><span class="line"></span><br><span class="line">usage: python.exe -m unittest discover [-h] [-v] [-q] [--locals] [--durations N] [-f] [-c] [-b] [-k TESTNAMEPATTERNS] [-s START] [-p PATTERN] [-t TOP]</span><br><span class="line"></span><br><span class="line">options:</span><br><span class="line">  -h, --help            show this help message and exit</span><br><span class="line">  -v, --verbose         Verbose output</span><br><span class="line">  -q, --quiet           Quiet output</span><br><span class="line">  --locals              Show local variables in tracebacks</span><br><span class="line">  --durations N         Show the N slowest test cases (N=0 for all)</span><br><span class="line">  -f, --failfast        Stop on first fail or error</span><br><span class="line">  -c, --catch           Catch Ctrl-C and display results so far</span><br><span class="line">  -b, --buffer          Buffer stdout and stderr during tests</span><br><span class="line">  -k TESTNAMEPATTERNS   Only run tests which match the given substring</span><br><span class="line">  -s START, --start-directory START</span><br><span class="line">                        Directory to start discovery (&#x27;.&#x27; default)</span><br><span class="line">  -p PATTERN, --pattern PATTERN</span><br><span class="line">                        Pattern to match tests (&#x27;test*.py&#x27; default)</span><br><span class="line">  -t TOP, --top-level-directory TOP</span><br><span class="line">                        Top level directory of project (defaults to start directory)</span><br><span class="line"></span><br><span class="line">For test discovery all test modules must be importable from the top level directory of the project.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m unittest discover -s project_directory -p &quot;*_test.py&quot;</span><br><span class="line">python -m unittest discover project_directory &quot;*_test.py&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组织测试"><a href="#组织测试" class="headerlink" title="组织测试"></a>组织测试</h2><h3 id="测试夹具"><a href="#测试夹具" class="headerlink" title="测试夹具"></a>测试夹具</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestNumber</span>(unittest.TestCase):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setUp</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;setUp-----------&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_01</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;test_01&#x27;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.assertEqual(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_02</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;test_02&#x27;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.assertFalse(<span class="number">1</span>==<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">tearDown</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;tearDown---------&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># setUp-----------</span></span><br><span class="line"><span class="comment"># test_01</span></span><br><span class="line"><span class="comment"># tearDown---------</span></span><br><span class="line"><span class="comment"># .setUp-----------</span></span><br><span class="line"><span class="comment"># test_02</span></span><br><span class="line"><span class="comment"># tearDown---------</span></span><br><span class="line"><span class="comment"># .</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Ran 2 tests in 0.001s</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># OK</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="testsuit"><a href="#testsuit" class="headerlink" title="testsuit"></a>testsuit</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pdb <span class="keyword">import</span> run</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestCase01</span>(unittest.TestCase):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_01</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;TestCase01_test_01&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_02</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;TestCase01_test_02&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestCase02</span>(unittest.TestCase):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_01</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;TestCase02_test_01&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_02</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;TestCase02_test_02&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">suite</span>():</span><br><span class="line">    suite = unittest.TestSuite()</span><br><span class="line">    suite.addTest(TestCase01(<span class="string">&#x27;test_01&#x27;</span>))</span><br><span class="line">    suite.addTest(TestCase02(<span class="string">&#x27;test_01&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> suite</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    runner = unittest.TextTestRunner()</span><br><span class="line">    runner.run(suite())</span><br><span class="line"></span><br><span class="line"><span class="comment"># TestCase01_test_01</span></span><br><span class="line"><span class="comment"># .TestCase02_test_01</span></span><br><span class="line"><span class="comment"># .</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Ran 2 tests in 0.001s</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># OK</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="function-to-TestCase"><a href="#function-to-TestCase" class="headerlink" title="function to TestCase"></a>function to TestCase</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pdb <span class="keyword">import</span> run</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">testsomething</span>():</span><br><span class="line">    <span class="keyword">assert</span> <span class="number">1</span> == <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">beforetest</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;beforetest&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">aftertest</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;aftertest&#x27;</span>)</span><br><span class="line"></span><br><span class="line">testcase = unittest.FunctionTestCase(testsomething, setUp=beforetest, tearDown=aftertest)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">suite</span>():</span><br><span class="line">    suite = unittest.TestSuite()</span><br><span class="line">    suite.addTest(testcase)</span><br><span class="line">    <span class="keyword">return</span> suite</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    runner = unittest.TextTestRunner()</span><br><span class="line">    runner.run(suite())</span><br><span class="line"></span><br><span class="line"><span class="comment"># beforetest</span></span><br><span class="line"><span class="comment"># aftertest</span></span><br><span class="line"><span class="comment"># .</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Ran 1 test in 0.001s</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># OK</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="跳过用例和预期错误"><a href="#跳过用例和预期错误" class="headerlink" title="跳过用例和预期错误"></a>跳过用例和预期错误</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># @unittest.skip(&quot;showing class skipping&quot;)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyTestCase</span>(unittest.TestCase):</span><br><span class="line"></span><br><span class="line"><span class="meta">    @unittest.skip(<span class="params"><span class="string">&quot;demonstrating skipping&quot;</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_nothing</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.fail(<span class="string">&quot;shouldn&#x27;t happen&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @unittest.skipIf(<span class="params">mylib.__version__ &lt; (<span class="params"><span class="number">1</span>, <span class="number">3</span></span>),</span></span></span><br><span class="line"><span class="params"><span class="meta">                     <span class="string">&quot;not supported in this library version&quot;</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_format</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># Tests that work for only a certain version of the library.</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @unittest.skipUnless(<span class="params">sys.platform.startswith(<span class="params"><span class="string">&quot;win&quot;</span></span>), <span class="string">&quot;requires Windows&quot;</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_windows_support</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># windows specific testing code</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_maybe_skipped</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> external_resource_available():</span><br><span class="line">            <span class="variable language_">self</span>.skipTest(<span class="string">&quot;external resource not available&quot;</span>)</span><br><span class="line">        <span class="comment"># test code that depends on the external resource</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ExpectedFailureTestCase</span>(unittest.TestCase):</span><br><span class="line"><span class="meta">    @unittest.expectedFailure</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_fail</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.assertEqual(<span class="number">1</span>, <span class="number">0</span>, <span class="string">&quot;broken&quot;</span>)</span><br><span class="line"><span class="comment"># 自定义装饰器</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">skipUnlessHasattr</span>(<span class="params">obj, attr</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">hasattr</span>(obj, attr):</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">lambda</span> func: func</span><br><span class="line">    <span class="keyword">return</span> unittest.skip(<span class="string">&quot;&#123;!r&#125; doesn&#x27;t have &#123;!r&#125;&quot;</span>.<span class="built_in">format</span>(obj, attr))</span><br></pre></td></tr></table></figure>
+
+<h3 id="子测试"><a href="#子测试" class="headerlink" title="子测试"></a>子测试</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NumbersTest</span>(unittest.TestCase):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">test_even</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Test that numbers between 0 and 5 are all even.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">6</span>):</span><br><span class="line">            <span class="keyword">with</span> <span class="variable language_">self</span>.subTest(i=i):</span><br><span class="line">                <span class="variable language_">self</span>.assertEqual(i % <span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line">                </span><br><span class="line"><span class="comment"># FFF</span></span><br><span class="line"><span class="comment"># ======================================================================</span></span><br><span class="line"><span class="comment"># FAIL: test_even (main.NumbersTest.test_even) (i=1)</span></span><br><span class="line"><span class="comment"># Test that numbers between 0 and 5 are all even.</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File &quot;D:\project\howtospider\main.py&quot;, line 11, in test_even</span></span><br><span class="line"><span class="comment">#     self.assertEqual(i % 2, 0)</span></span><br><span class="line"><span class="comment"># AssertionError: 1 != 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================================================</span></span><br><span class="line"><span class="comment"># FAIL: test_even (main.NumbersTest.test_even) (i=3)</span></span><br><span class="line"><span class="comment"># Test that numbers between 0 and 5 are all even.</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File &quot;D:\project\howtospider\main.py&quot;, line 11, in test_even</span></span><br><span class="line"><span class="comment">#     self.assertEqual(i % 2, 0)</span></span><br><span class="line"><span class="comment"># AssertionError: 1 != 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ======================================================================</span></span><br><span class="line"><span class="comment"># FAIL: test_even (main.NumbersTest.test_even) (i=5)</span></span><br><span class="line"><span class="comment"># Test that numbers between 0 and 5 are all even.</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Traceback (most recent call last):</span></span><br><span class="line"><span class="comment">#   File &quot;D:\project\howtospider\main.py&quot;, line 11, in test_even</span></span><br><span class="line"><span class="comment">#     self.assertEqual(i % 2, 0)</span></span><br><span class="line"><span class="comment"># AssertionError: 1 != 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Ran 1 test in 0.001s</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># FAILED (failures=3)</span></span><br></pre></td></tr></table></figure>
+          
+        </div>
+
+        
+
+        <div class="post-bottom-tags-and-share border-box">
+          <div>
+            
+              <ul class="post-tags-box border-box">
+                
+                  <li class="tag-item border-box">
+                    <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/python-unittest-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95-test/">python unittest 单元测试 test</a>
+                  </li>
+                
+              </ul>
+            
+          </div>
+          <div>
+            
+          </div>
+        </div>
+
+        
+
+        
+          <div class="post-nav border-box">
+            
+              <div class="prev-post">
+                <a class="prev"
+                  rel="prev"
+                  href="/2025/04/14/howto-dis/"
+                  title="howto dis"
+                >
+                  <span class="left arrow-icon flex-center">
+                    <i class="fas fa-chevron-left"></i>
+                  </span>
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">howto dis</span>
+                    <span class="post-nav-item">上一篇</span>
+                  </span>
+                </a>
+              </div>
+            
+            
+              <div class="next-post">
+                <a class="next"
+                  rel="next"
+                  href="/2024/09/22/Descriptor/"
+                  title="Descriptor"
+                >
+                  <span class="title flex-center">
+                    <span class="post-nav-title-item text-ellipsis">Descriptor</span>
+                    <span class="post-nav-item">下一篇</span>
+                  </span>
+                  <span class="right arrow-icon flex-center">
+                    <i class="fas fa-chevron-right"></i>
+                  </span>
+                </a>
+              </div>
+            
+          </div>
+        
+
+        
+          
+
+
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+
+        
+      </div>
+    </div>
+
+    <div class="page-main-content-bottom border-box">
+      
+<footer class="footer border-box">
+  <div class="copyright-info info-item">
+  &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+  
+      &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
+    
+  </div>
+
+  <div class="theme-info info-item">
+    由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+  </div>
+
+  
+
+  
+
+  
+</footer>
+
+    </div>
+  </div>
+
+  <!-- post tools -->
+  
+    <div class="post-tools right-toc">
+      <div class="post-tools-container border-box">
+  <ul class="post-tools-list border-box">
+    <!-- PC encrypt again -->
+    
+
+    <!-- PC TOC show toggle -->
+    
+
+    <!-- PC go comment -->
+    
+
+    <!-- PC full screen -->
+    <li class="tools-item flex-center full-screen">
+      <i class="fa-solid fa-expand"></i>
+    </li>
+  </ul>
+</div>
+
+    </div>
+  
+
+  <!-- side tools -->
+  <div class="side-tools">
+    <div class="side-tools-container border-box ">
+  <ul class="side-tools-list side-tools-show-handle border-box">
+    <li class="tools-item tool-font-adjust-plus flex-center">
+      <i class="fas fa-search-plus"></i>
+    </li>
+
+    <li class="tools-item tool-font-adjust-minus flex-center">
+      <i class="fas fa-search-minus"></i>
+    </li>
+
+    <!-- toggle chinese -->
+    
+      <li class="tools-item tool-toggle-chinese flex-center">
+        <button type="button"
+            data-native-script="cn"
+            data-opencc-src="/js/libs/opencc.full.js"
+            data-label-cn="切换为简体中文"
+            data-label-tw="切换为繁体中文"
+            data-label-error="简繁转换加载失败，点击重试"
+        >
+          繁
+        </button>
+      </li>
+    
+
+    <!-- toggle mode -->
+    
+      <li class="tools-item tool-toggle-theme-mode flex-center">
+        <i class="fas fa-moon"></i>
+      </li>
+    
+
+    <!-- rss -->
+    
+
+    <!-- to bottom -->
+    <li class="tools-item tool-scroll-to-bottom flex-center">
+      <i class="fas fa-arrow-down"></i>
+    </li>
+  </ul>
+
+  <ul class="exposed-tools-list border-box">
+    
+
+    
+
+    <li class="tools-item tool-toggle-show flex-center">
+      <i class="fas fa-cog fa-spin"></i>
+    </li>
+
+    <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+      <i class="arrow fas fa-arrow-up"></i>
+      <span class="percent"></span>
+    </li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- image mask -->
+  <div class="zoom-in-image-mask">
+  <img class="zoom-in-image">
+</div>
+
+
+  <!-- local search -->
+  
+
+  <!-- tablet toc -->
+  
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/chinese-convert.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="">
+  <!-- home page -->
+  
+
+  <!-- post page -->
+  
+    <!-- post-helper -->
+    
+<script src="/js/post/post-helper.js"></script>
+
+
+    <!-- toc -->
+    
+
+    <!-- copyright-info -->
+    
+
+    <!-- share -->
+    
+  
+
+  <!-- categories page -->
+  
+
+  <!-- links page -->
+  
+
+  <!-- photos page -->
+  
+
+  <!-- tools page -->
+  
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+
+
+</body>
+</html>
